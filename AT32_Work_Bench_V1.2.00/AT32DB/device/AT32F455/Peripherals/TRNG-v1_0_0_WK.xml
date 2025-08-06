@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+    <About>TRNG</About>
+    <AboutCH>真随机数发生器</AboutCH>
+
+    <RefParameter Name="Instance" DefaultValue="TRNG$Index" Comment="Instance" CommentCH="" Type="" Visible="false"/>
+   
+    <RefParameter Name="NoiseClockDivider" Comment="Noise source clock divider (4 bit value)" CommentCH="噪声源时钟分频(4位值)" DefaultValue="0" Max="15" Min="0" Group="Basic Parameters" GroupCH="基础参数" Type="integer">
+	</RefParameter>
+	
+	<RefParameter Name="NoiseDividerFactor" Comment="Noise source clock divider factor" CommentCH="噪声源时钟分频系数" DefaultValue="0" Max="32768" Min="0" Group="Basic Parameters" GroupCH="基础参数" Type="integer text">
+	</RefParameter>
+
+<!-- ***********************************************************************************-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ REF MODE \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!-- ***********************************************************************************-->
+    <RefMode Name="State" BaseMode="State">
+    	      <Parameter Name="NoiseClockDivider" />
+    	      <Parameter Name="NoiseDividerFactor" /> 
+    </RefMode>
+
+    <ModeLogicOperator Name="OR"> 
+    	<Mode Name="State" UserName="Activated" UserNameCH="启用">
+        <ModeLogicOperator Name="XOR">
+          <Mode Name="State" UserName="Activated" UserNameCH="启用">
+            <SignalLogicalOp Name="AND">
+              <Signal Name="VS_TRNG" />
+            </SignalLogicalOp>
+            <Semaphore>State_ENABLED$IpInstance</Semaphore>
+          </Mode>
+        </ModeLogicOperator>
+      </Mode>
+    </ModeLogicOperator>
+
+    <RefSignal Name="VS_TRNG" Virtual="true"/>                     
+</IP>

@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+	<About>USB_DEVICE: Universal Serial Bus Device</About>
+	<AboutCH>USB设备端</AboutCH>
+	
+	<RefParameter Name="FREERTOS_MID_ENABLE" Comment="FREERTOS_MID_ENABLE" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="Semaphore_Activated_FREERTOS" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="FREERTOS_MID_ENABLE" Comment="FREERTOS_MID_ENABLE" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+	<RefParameter Name="USB_FS1_VBUS" Comment="USB_FS1_VBUS" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="USB_FS_VBUS" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_FS1_VBUS" Comment="USB_FS1_VBUS" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="USB_FS1_SOF" Comment="USB_FS1_SOF" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="USB_FS_SOF" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_FS1_SOF" Comment="USB_FS1_SOF" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="USB_HS1_VBUS" Comment="USB_HS1_VBUS" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="USB_HS_VBUS" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_HS1_VBUS" Comment="USB_HS1_VBUS" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="USB_HS1_SOF" Comment="USB_HS1_SOF" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="USB_HS_SOF" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_HS1_SOF" Comment="USB_HS1_SOF" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+	<!-- RefMode for OTGFS_Device-->
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_NONE" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<PossibleValue Comment="" Value="VM_USB_DEVICE_FS_NONE"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_CDC" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_DEVICE_CDC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_FS_CDC"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_CUSTOMHID" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_DEVICE_CUSTOMHID" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_FS_CUSTOMHID"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_KEYBOARD" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_DEVICE_KEYBOARD" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_FS_KEYBOARD"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_MOUSE" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_DEVICE_MOUSE" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_FS_MOUSE"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_MSC" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_DEVICE_MSC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_FS_MSC"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_PRINTER" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_DEVICE_PRINTER" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_FS_PRINTER"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_FS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_FS_WINUSB" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_DEVICE_WINUSB" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_FS_WINUSB"/>
+    </RefParameter>
+    
+    <RefParameter Name="DEVICE_FS_VID" Comment="USB VID" CommentCH="USB厂商ID" DefaultValue="2E3C" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	
+	<RefParameter Name="DEVICE_FS_PID_CDC" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5740" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_PID_CUSTOMHID" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5745" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_PID_KEYBOARD" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="6040" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_PID_MOUSE" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5710" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_PID_MSC" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5720" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_PID_WINUSB" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5780" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_PID_PRINTER" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="57FF" Min="0" Max="FFFF" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="hexadecimal" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+			
+	<RefParameter Name="DEVICE_FS_Manufacturer" Comment="Manufacturer string" CommentCH="制造商名称" DefaultValue="Artery" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+		
+	<RefParameter Name="DEVICE_FS_Product_CDC" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 Virtual Com Port" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Product_CUSTOMHID" Comment="Product string" CommentCH="产品名称" DefaultValue="Custom HID" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Product_KEYBOARD" Comment="Product string" CommentCH="产品名称" DefaultValue="Keyboard" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Product_MOUSE" Comment="Product string" CommentCH="产品名称" DefaultValue="Mouse" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Product_MSC" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 Mass Storage" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Product_WINUSB" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 WinUSB" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Product_PRINTER" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 Printer" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+		
+	<RefParameter Name="DEVICE_FS_Configuration_CDC" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Virtual ComPort Config" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Configuration_CUSTOMHID" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Custom HID Config" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Configuration_KEYBOARD" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Keyboard Config" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Configuration_MOUSE" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Mouse Config" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Configuration_MSC" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Mass Storage Config" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Configuration_WINUSB" Comment="Configuration string" CommentCH="配置名称" DefaultValue="WinUSB Config" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Configuration_PRINTER" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Printer Config" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+		
+	<RefParameter Name="DEVICE_FS_Interface_CDC" Comment="Interface string" CommentCH="接口名称" DefaultValue="Virtual ComPort Interface" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Interface_CUSTOMHID" Comment="Interface string" CommentCH="接口名称" DefaultValue="Custom HID Interface" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Interface_KEYBOARD" Comment="Interface string" CommentCH="接口名称" DefaultValue="Keyboard Interface" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Interface_MOUSE" Comment="Interface string" CommentCH="接口名称" DefaultValue="Mouse Interface" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Interface_MSC" Comment="Interface string" CommentCH="接口名称" DefaultValue="Mass Storage Interface" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Interface_WINUSB" Comment="Interface string" CommentCH="接口名称" DefaultValue="WinUSB Interface" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_FS_Interface_PRINTER" Comment="Interface string" CommentCH="接口名称" DefaultValue="Printer Interface" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" Type="string edit" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="false"/>
+	
+	<RefParameter Name="DEVICE_FS_Receive_FIFO_Size" Comment="Receive FIFO Size(word)" CommentCH="接收FIFO大小(word)" DefaultValue="128" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+	
+	<RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0" Comment="IN Endpoint 0 Transmit FIFO Size(word)" CommentCH="IN端点0发送FIFO大小(word)" DefaultValue="24" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1" Comment="IN Endpoint 1 Transmit FIFO Size(word)" CommentCH="IN端点1发送FIFO大小(word)" DefaultValue="20" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2" Comment="IN Endpoint 2 Transmit FIFO Size(word)" CommentCH="IN端点2发送FIFO大小(word)" DefaultValue="20" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+    
+    <RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3" Comment="IN Endpoint 3 Transmit FIFO Size(word)" CommentCH="IN端点3发送FIFO大小(word)" DefaultValue="0" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+    
+    <RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4" Comment="IN Endpoint 4 Transmit FIFO Size(word)" CommentCH="IN端点4发送FIFO大小(word)" DefaultValue="0" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5" Comment="IN Endpoint 5 Transmit FIFO Size(word)" CommentCH="IN端点5发送FIFO大小(word)" DefaultValue="0" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6" Comment="IN Endpoint 6 Transmit FIFO Size(word)" CommentCH="IN端点6发送FIFO大小(word)" DefaultValue="0" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7" Comment="IN Endpoint 7 Transmit FIFO Size(word)" CommentCH="IN端点7发送FIFO大小(word)" DefaultValue="0" Min="0" Max="320" Group="FS Endpoint FIFO Size config" GroupCH="FS 端点FIFO大小配置" Type="integer" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Reload="true"/>
+
+
+	<!-- RefMode for OTGHS_Device-->
+     <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_NONE" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<PossibleValue Comment="" Value="VM_USB_DEVICE_HS_NONE"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_CDC" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_DEVICE_CDC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_HS_CDC"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_CUSTOMHID" Group="FS Device Descriptor config" GroupCH="FS 设备描述配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_DEVICE_CUSTOMHID" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_HS_CUSTOMHID"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_KEYBOARD" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_DEVICE_KEYBOARD" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_HS_KEYBOARD"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_MOUSE" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_DEVICE_MOUSE" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_HS_MOUSE"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_MSC" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_DEVICE_MSC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_HS_MSC"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_PRINTER" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_DEVICE_PRINTER" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_HS_PRINTER"/>
+    </RefParameter>
+    <RefParameter Name="USB_DEVICE_HS_Mode" Comment="" DefaultValue="VM_USB_DEVICE_HS_WINUSB" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_DEVICE_WINUSB" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_DEVICE_HS_WINUSB"/>
+    </RefParameter>
+    
+      <RefParameter Name="DEVICE_HS_VID" Comment="USB VID" CommentCH="USB厂商ID" DefaultValue="2E3C" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	
+	<RefParameter Name="DEVICE_HS_PID_CDC" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5740" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_PID_CUSTOMHID" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5745" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_PID_KEYBOARD" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="6040" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_PID_MOUSE" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5710" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_PID_MSC" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5720" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_PID_WINUSB" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="5780" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_PID_PRINTER" Comment="USB PID" CommentCH="USB产品ID" DefaultValue="57FF" Min="0" Max="FFFF" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="hexadecimal" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+			
+	<RefParameter Name="DEVICE_HS_Manufacturer" Comment="Manufacturer string" CommentCH="制造商名称" DefaultValue="Artery" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+		
+	<RefParameter Name="DEVICE_HS_Product_CDC" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 Virtual Com Port" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Product_CUSTOMHID" Comment="Product string" CommentCH="产品名称" DefaultValue="Custom HID" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Product_KEYBOARD" Comment="Product string" CommentCH="产品名称" DefaultValue="Keyboard" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Product_MOUSE" Comment="Product string" CommentCH="产品名称" DefaultValue="Mouse" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Product_MSC" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 Mass Storage" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Product_WINUSB" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 WinUSB" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Product_PRINTER" Comment="Product string" CommentCH="产品名称" DefaultValue="AT32 Printer" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+		
+	<RefParameter Name="DEVICE_HS_Configuration_CDC" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Virtual ComPort Config" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Configuration_CUSTOMHID" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Custom HID Config" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Configuration_KEYBOARD" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Keyboard Config" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Configuration_MOUSE" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Mouse Config" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Configuration_MSC" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Mass Storage Config" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Configuration_WINUSB" Comment="Configuration string" CommentCH="配置名称" DefaultValue="WinUSB Config" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Configuration_PRINTER" Comment="Configuration string" CommentCH="配置名称" DefaultValue="Printer Config" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+		
+	<RefParameter Name="DEVICE_HS_Interface_CDC" Comment="Interface string" CommentCH="接口名称" DefaultValue="Virtual ComPort Interface" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Interface_CUSTOMHID" Comment="Interface string" CommentCH="接口名称" DefaultValue="Custom HID Interface" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Interface_KEYBOARD" Comment="Interface string" CommentCH="接口名称" DefaultValue="Keyboard Interface" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Interface_MOUSE" Comment="Interface string" CommentCH="接口名称" DefaultValue="Mouse Interface" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Interface_MSC" Comment="Interface string" CommentCH="接口名称" DefaultValue="Mass Storage Interface" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Interface_WINUSB" Comment="Interface string" CommentCH="接口名称" DefaultValue="WinUSB Interface" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	<RefParameter Name="DEVICE_HS_Interface_PRINTER" Comment="Interface string" CommentCH="接口名称" DefaultValue="Printer Interface" Group="HS Device Descriptor config" GroupCH="HS 设备描述配置" Type="string edit" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="false"/>
+	
+	<RefParameter Name="DEVICE_HS_Receive_FIFO_Size" Comment="Receive FIFO Size(word)" CommentCH="接收FIFO大小(word)" DefaultValue="256" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+	
+	<RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0" Comment="IN Endpoint 0 Transmit FIFO Size(word)" CommentCH="IN端点0发送FIFO大小(word)" DefaultValue="64" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1" Comment="IN Endpoint 1 Transmit FIFO Size(word)" CommentCH="IN端点1发送FIFO大小(word)" DefaultValue="256" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2" Comment="IN Endpoint 2 Transmit FIFO Size(word)" CommentCH="IN端点2发送FIFO大小(word)" DefaultValue="20" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+    
+    <RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3" Comment="IN Endpoint 3 Transmit FIFO Size(word)" CommentCH="IN端点3发送FIFO大小(word)" DefaultValue="0" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+    
+    <RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4" Comment="IN Endpoint 4 Transmit FIFO Size(word)" CommentCH="IN端点4发送FIFO大小(word)" DefaultValue="0" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5" Comment="IN Endpoint 5 Transmit FIFO Size(word)" CommentCH="IN端点5发送FIFO大小(word)" DefaultValue="0" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6" Comment="IN Endpoint 6 Transmit FIFO Size(word)" CommentCH="IN端点6发送FIFO大小(word)" DefaultValue="0" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+
+    <RefParameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7" Comment="IN Endpoint 7 Transmit FIFO Size(word)" CommentCH="IN端点7发送FIFO大小(word)" DefaultValue="0" Min="0" Max="1024" Group="HS Endpoint FIFO Size config" GroupCH="HS 端点FIFO大小配置" Type="integer" TabName="HS Device Descriptor" TabNameCH="HS设备描述" Reload="true"/>
+
+    <RefMode Name="OTG_Mode" Abstract="true">
+	    <Parameter Name="FREERTOS_MID_ENABLE"/>
+	    <Parameter Name="USB_FS1_VBUS"/>
+	    <Parameter Name="USB_FS1_SOF"/>
+	    <Parameter Name="USB_HS1_VBUS"/>
+	    <Parameter Name="USB_HS1_SOF"/>
+	    <Parameter Name="USB_DEVICE_HS_Mode"/>
+	    <Parameter Name="USB_DEVICE_FS_Mode"/>
+    </RefMode>
+    
+    <!-- RefMode for OTGFS_Device-->
+    <RefMode BaseMode="OTGFS_Device" Name="CDC">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_FS_VID"/>
+        <Parameter Name="DEVICE_FS_PID_CDC"/>
+        <Parameter Name="DEVICE_FS_Manufacturer"/>
+        <Parameter Name="DEVICE_FS_Product_CDC"/>
+        <Parameter Name="DEVICE_FS_Configuration_CDC"/>
+        <Parameter Name="DEVICE_FS_Interface_CDC"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_FS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Device" Name="CUSTOMHID">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_FS_VID"/>
+        <Parameter Name="DEVICE_FS_PID_CUSTOMHID"/>
+        <Parameter Name="DEVICE_FS_Manufacturer"/>
+        <Parameter Name="DEVICE_FS_Product_CUSTOMHID"/>
+        <Parameter Name="DEVICE_FS_Configuration_CUSTOMHID"/>
+        <Parameter Name="DEVICE_FS_Interface_CUSTOMHID"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_FS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Device" Name="KEYBOARD">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_FS_VID"/>
+        <Parameter Name="DEVICE_FS_PID_KEYBOARD"/>
+        <Parameter Name="DEVICE_FS_Manufacturer"/>
+        <Parameter Name="DEVICE_FS_Product_KEYBOARD"/>
+        <Parameter Name="DEVICE_FS_Configuration_KEYBOARD"/>
+        <Parameter Name="DEVICE_FS_Interface_KEYBOARD"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_FS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Device" Name="MOUSE">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_FS_VID"/>
+        <Parameter Name="DEVICE_FS_PID_MOUSE"/>
+        <Parameter Name="DEVICE_FS_Manufacturer"/>
+        <Parameter Name="DEVICE_FS_Product_MOUSE"/>
+        <Parameter Name="DEVICE_FS_Configuration_MOUSE"/>
+        <Parameter Name="DEVICE_FS_Interface_MOUSE"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_FS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Device" Name="MSC">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_FS_VID"/>
+        <Parameter Name="DEVICE_FS_PID_MSC"/>
+        <Parameter Name="DEVICE_FS_Manufacturer"/>
+        <Parameter Name="DEVICE_FS_Product_MSC"/>
+        <Parameter Name="DEVICE_FS_Configuration_MSC"/>
+        <Parameter Name="DEVICE_FS_Interface_MSC"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_FS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Device" Name="WINUSB">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_FS_VID"/>
+        <Parameter Name="DEVICE_FS_PID_WINUSB"/>
+        <Parameter Name="DEVICE_FS_Manufacturer"/>
+        <Parameter Name="DEVICE_FS_Product_WINUSB"/>
+        <Parameter Name="DEVICE_FS_Configuration_WINUSB"/>
+        <Parameter Name="DEVICE_FS_Interface_WINUSB"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_FS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Device" Name="PRINTER">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_FS_VID"/>
+        <Parameter Name="DEVICE_FS_PID_PRINTER"/>
+        <Parameter Name="DEVICE_FS_Manufacturer"/>
+        <Parameter Name="DEVICE_FS_Product_PRINTER"/>
+        <Parameter Name="DEVICE_FS_Configuration_PRINTER"/>
+        <Parameter Name="DEVICE_FS_Interface_PRINTER"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_FS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_FS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    
+    <!-- RefMode for OTGHS_Device-->
+    <RefMode BaseMode="OTGHS_Device" Name="CDC">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_HS_VID"/>
+        <Parameter Name="DEVICE_HS_PID_CDC"/>
+        <Parameter Name="DEVICE_HS_Manufacturer"/>
+        <Parameter Name="DEVICE_HS_Product_CDC"/>
+        <Parameter Name="DEVICE_HS_Configuration_CDC"/>
+        <Parameter Name="DEVICE_HS_Interface_CDC"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_HS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Device" Name="CUSTOMHID">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_HS_VID"/>
+        <Parameter Name="DEVICE_HS_PID_CUSTOMHID"/>
+        <Parameter Name="DEVICE_HS_Manufacturer"/>
+        <Parameter Name="DEVICE_HS_Product_CUSTOMHID"/>
+        <Parameter Name="DEVICE_HS_Configuration_CUSTOMHID"/>
+        <Parameter Name="DEVICE_HS_Interface_CUSTOMHID"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_HS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Device" Name="KEYBOARD">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_HS_VID"/>
+        <Parameter Name="DEVICE_HS_PID_KEYBOARD"/>
+        <Parameter Name="DEVICE_HS_Manufacturer"/>
+        <Parameter Name="DEVICE_HS_Product_KEYBOARD"/>
+        <Parameter Name="DEVICE_HS_Configuration_KEYBOARD"/>
+        <Parameter Name="DEVICE_HS_Interface_KEYBOARD"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_HS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Device" Name="MOUSE">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_HS_VID"/>
+        <Parameter Name="DEVICE_HS_PID_MOUSE"/>
+        <Parameter Name="DEVICE_HS_Manufacturer"/>
+        <Parameter Name="DEVICE_HS_Product_MOUSE"/>
+        <Parameter Name="DEVICE_HS_Configuration_MOUSE"/>
+        <Parameter Name="DEVICE_HS_Interface_MOUSE"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_HS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Device" Name="MSC">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_HS_VID"/>
+        <Parameter Name="DEVICE_HS_PID_MSC"/>
+        <Parameter Name="DEVICE_HS_Manufacturer"/>
+        <Parameter Name="DEVICE_HS_Product_MSC"/>
+        <Parameter Name="DEVICE_HS_Configuration_MSC"/>
+        <Parameter Name="DEVICE_HS_Interface_MSC"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_HS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Device" Name="WINUSB">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_HS_VID"/>
+        <Parameter Name="DEVICE_HS_PID_WINUSB"/>
+        <Parameter Name="DEVICE_HS_Manufacturer"/>
+        <Parameter Name="DEVICE_HS_Product_WINUSB"/>
+        <Parameter Name="DEVICE_HS_Configuration_WINUSB"/>
+        <Parameter Name="DEVICE_HS_Interface_WINUSB"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_HS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Device" Name="PRINTER">
+    	<!-- Device Descriptor config Parameters -->
+        <Parameter Name="DEVICE_HS_VID"/>
+        <Parameter Name="DEVICE_HS_PID_PRINTER"/>
+        <Parameter Name="DEVICE_HS_Manufacturer"/>
+        <Parameter Name="DEVICE_HS_Product_PRINTER"/>
+        <Parameter Name="DEVICE_HS_Configuration_PRINTER"/>
+        <Parameter Name="DEVICE_HS_Interface_PRINTER"/>
+        <!-- Endpoint FIFO Size config Parameters -->
+        <Parameter Name="DEVICE_HS_Receive_FIFO_Size"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN0"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN1"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN2"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN3"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN4"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN5"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN6"/>
+        <Parameter Name="DEVICE_HS_Transmit_FIFO_Size_IN7"/>
+    </RefMode>
+                        
+    <ModeLogicOperator Name="OR">
+        <Mode Name="OTGFS_Device" UserName="OTGFS1 Device Class" UserNameCH="OTGFS1 设备类">
+            <Condition Expression="USB_OTG_FS_DEVICE &amp; TimeBase_Enable_SYSTEM"
+        	  	                   Diagnostic="(1)&quot;Device&quot; must be selected in USB_OTGFS.&lt;br&gt;(2)&quot;Timebase Source&quot; must be enabled in SYSTEM"
+                    	          DiagnosticCH="(1)USB_OTGFS需选择&quot;设备&quot;模式&lt;br&gt;(2)SYSTEM中&quot;时基源&quot;必须开启"/>
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="CUSTOMHID" UserName="Custom hid(HID)" UserNameCH="Custom hid(HID)">
+                    <Semaphore>$IpInstance_OTGFS_DEVICE_CUSTOMHID</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+                <Mode Name="KEYBOARD" UserName="KeyBoard" UserNameCH="KeyBoard">
+                    <Semaphore>$IpInstance_OTGFS_DEVICE_KEYBOARD</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+                <Mode Name="MOUSE" UserName="Mouse" UserNameCH="Mouse">
+                    <Semaphore>$IpInstance_OTGFS_DEVICE_MOUSE</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+                <Mode Name="MSC" UserName="Mass storage class" UserNameCH="Mass storage class">
+                    <Semaphore>$IpInstance_OTGFS_DEVICE_MSC</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+                <Mode Name="PRINTER" UserName="Printer" UserNameCH="Printer">
+                    <Semaphore>$IpInstance_OTGFS_DEVICE_PRINTER</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+                <Mode Name="CDC" UserName="Virtual Com Port(CDC)" UserNameCH="Virtual Com Port(CDC)">
+                    <Semaphore>$IpInstance_OTGFS_DEVICE_CDC</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+                <Mode Name="WINUSB" UserName="Winusb" UserNameCH="Winusb">
+                    <Semaphore>$IpInstance_OTGFS_DEVICE_WINUSB</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+        </Mode>
+
+    </ModeLogicOperator>
+                       
+</IP>

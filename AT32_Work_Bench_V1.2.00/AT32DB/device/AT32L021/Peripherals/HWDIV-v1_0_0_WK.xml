@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+    <About>Hardware integer divider</About>
+    <AboutCH>硬件整数除法器</AboutCH>
+	
+    <!-- Generic RefParameters for HWDIV --> 
+    <RefParameter Comment="Instance" DefaultValue="HWDIV" Name="Instance" Type="" Visible="false"/>
+
+    <RefParameter Name="DivisionSigned" Comment="Division signed operation mode" CommentCH="除法器符号模式 " DefaultValue="FALSE" Group="Basic Parameters" GroupCH="基本参数" Type="list">
+        <PossibleValue Comment="Signed" CommentCH="有符号" Value="TRUE"/>
+        <PossibleValue Comment="Unsigned" CommentCH="无符号" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="DivisionDividendValue" Comment="Division dividend value" CommentCH="除法器被除数" DefaultValue="1" Group="Basic Parameters" GroupCH="基本参数" Max="2147483647" Min="-2147483648" Type="signedinteger" Reload="false">
+		<Condition Diagnostic="" Expression="DivisionSigned = TRUE"/>
+	</RefParameter>	
+	<RefParameter Name="DivisionDividendValue" Comment="Division dividend value" CommentCH="除法器被除数" DefaultValue="1" Group="Basic Parameters" GroupCH="基本参数" Max="4294967295" Min="0" Type="integer" Reload="false">
+		<Condition Diagnostic="" Expression="DivisionSigned = FALSE"/>
+	</RefParameter>
+	
+	<RefParameter Name="DivisionDivisorValue" Comment="Division divisor value" CommentCH="除法器除数" DefaultValue="1" Group="Basic Parameters" GroupCH="基本参数" Max="2147483647" Min="-2147483648" Type="signedinteger" Reload="false">
+		<Condition Diagnostic="" Expression="DivisionSigned = TRUE"/>
+	</RefParameter>	
+	<RefParameter Name="DivisionDivisorValue" Comment="Division divisor value" CommentCH="除法器除数" DefaultValue="1" Group="Basic Parameters" GroupCH="基本参数" Max="4294967295" Min="0" Type="integer" Reload="false">
+		<Condition Diagnostic="" Expression="DivisionSigned = FALSE"/>
+	</RefParameter>
+
+	
+    <RefMode Abstract="true" BaseMode="HWDIV_State" Name="HWDIV_State">
+        <Parameter Name="DivisionSigned"/>
+        <Parameter Name="DivisionDividendValue"/>
+        <Parameter Name="DivisionDivisorValue"/>
+    </RefMode>
+	
+
+    <!-- ModeLogicOperator for HWDIV -->
+    <ModeLogicOperator Name="OR">
+        <Mode Name="HWDIV_State" UserName="Activated" UserNameCH="启用">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="HWDIV_State" UserName="Activated" UserNameCH="启用">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_HWDIV"/>
+                    </SignalLogicalOp>
+                </Mode>
+            </ModeLogicOperator>
+            <Semaphore>$IpInstance</Semaphore>
+        </Mode>
+    </ModeLogicOperator>
+	
+    <!-- RefSignal for HWDIV -->
+    <RefSignal Name="VS_HWDIV" Virtual="true"/>
+</IP>

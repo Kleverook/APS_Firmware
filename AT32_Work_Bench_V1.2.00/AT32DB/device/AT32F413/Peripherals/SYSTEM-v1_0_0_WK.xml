@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+    <About>SYSTEM</About>
+    <AboutCH>SYSTEM配置</AboutCH>
+
+<!-- Generic RefParameters for SYSTEM Modes -->
+ 
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="NONE" Type="list" Group="" Visible="false">
+        <PossibleValue Comment="Disable" CommentCH="关闭" Value="NONE" />
+    </RefParameter>
+     <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="SysTick" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_SysTick_$IpInstance"/>
+        <PossibleValue Comment="SysTick" CommentCH="SysTick" Value="SysTick" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR1" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR1_$IpInstance"/>
+        <PossibleValue Comment="TMR1" CommentCH="TMR1" Value="TMR1" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR2" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR2_$IpInstance"/>
+        <PossibleValue Comment="TMR2" CommentCH="TMR2" Value="TMR2" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR3" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR3_$IpInstance"/>
+        <PossibleValue Comment="TMR3" CommentCH="TMR3" Value="TMR3" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR4" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR4_$IpInstance"/>
+        <PossibleValue Comment="TMR4" CommentCH="TMR4" Value="TMR4" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR5" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR5_$IpInstance"/>
+        <PossibleValue Comment="TMR5" CommentCH="TMR5" Value="TMR5" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR8" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR8_$IpInstance"/>
+        <PossibleValue Comment="TMR8" CommentCH="TMR8" Value="TMR8" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR9" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR9_$IpInstance"/>
+        <PossibleValue Comment="TMR9" CommentCH="TMR9" Value="TMR9" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR10" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR10_$IpInstance"/>
+        <PossibleValue Comment="TMR10" CommentCH="TMR10" Value="TMR10" />
+    </RefParameter>
+    <RefParameter Name="Time_Base" Comment="Timebase Source" CommentCH="时基源选择" DefaultValue="TMR11" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_TMR11_$IpInstance"/>
+        <PossibleValue Comment="TMR11" CommentCH="TMR11" Value="TMR11" />
+    </RefParameter>
+    
+    <RefParameter Name="Delay_Mode" Comment="Delay Mode" CommentCH="延时模式" DefaultValue="Polling" Type="list" Group="Timebase Parameters" GroupCH="时基源参数">
+        <Annotation Note="Interrupt：Accuracy of 1ms。 &lt;br&gt;Polling：  Accuracy of 0.01ms。&lt;br&gt;" 
+        	  	                   NoteCH="中断方式：精度为1ms。 &lt;br&gt;轮询方式：精度为0.01ms。&lt;br&gt;"/>
+        <Condition Diagnostic="" Expression="TimeBase_Enable_$IpInstance"/>
+        <PossibleValue Comment="Interrupt" CommentCH="中断" Value="Interrupt" />
+        <PossibleValue Comment="Polling" CommentCH="轮询" Value="Polling"/>
+    </RefParameter>
+    
+    <RefParameter Name="UART_Printf" Comment="UART Printf" CommentCH="串口打印" DefaultValue="NONE" Type="list" Group="" Visible="false">
+        <PossibleValue Comment="Disable" CommentCH="关闭" Value="NONE" />
+    </RefParameter>
+    <RefParameter Name="UART_Printf" Comment="UART Printf" CommentCH="串口打印" DefaultValue="USART1" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="Printf_USART1_$IpInstance"/>
+        <PossibleValue Comment="USART1" CommentCH="USART1" Value="USART1" />
+    </RefParameter>
+    <RefParameter Name="UART_Printf" Comment="UART Printf" CommentCH="串口打印" DefaultValue="USART2" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="Printf_USART2_$IpInstance"/>
+        <PossibleValue Comment="USART2" CommentCH="USART2" Value="USART2" />
+    </RefParameter>
+    <RefParameter Name="UART_Printf" Comment="UART Printf" CommentCH="串口打印" DefaultValue="USART3" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="Printf_USART3_$IpInstance"/>
+        <PossibleValue Comment="USART3" CommentCH="USART3" Value="USART3" />
+    </RefParameter>
+    <RefParameter Name="UART_Printf" Comment="UART Printf" CommentCH="串口打印" DefaultValue="UART4" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="Printf_UART4_$IpInstance"/>
+        <PossibleValue Comment="UART4" CommentCH="UART4" Value="UART4" />
+    </RefParameter>
+    <RefParameter Name="UART_Printf" Comment="UART Printf" CommentCH="串口打印" DefaultValue="UART5" Type="list" Group="" Visible="false">
+        <Condition Diagnostic="" Expression="Printf_UART5_$IpInstance"/>
+        <PossibleValue Comment="UART5" CommentCH="UART5" Value="UART5" />
+    </RefParameter>
+    
+    <RefParameter Name="SysTick_Interrupt" Comment="SysTick_Interrupt" CommentCH="SysTick_Interrupt" DefaultValue="FALSE" Type="list" Unit=""  Group="SysTick Interrupt" GroupCH="SysTick中断" Visible="false">
+        <PossibleValue Value="FALSE" Comment="Disable" CommentCH="关闭"/>
+    </RefParameter>
+     <RefParameter Name="SysTick_Interrupt" Comment="SysTick_Interrupt" CommentCH="SysTick_Interrupt" DefaultValue="TRUE" Type="list" Unit=""  Group="SysTick Interrupt" GroupCH="SysTick中断" Visible="false">
+        <Condition Diagnostic="" Expression="SysTick_Interrupt_$IpInstance"/>
+        <PossibleValue Value="TRUE" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+     <RefParameter Name="SysTick_Interrupt_Sequence" Comment="SysTick Interrupt Sequence" CommentCH="SysTick中断频率" Max="100000" Min="10" DefaultValue="1000" Type="integer" Unit="Hz"  Group="SysTick Interrupt" GroupCH="SysTick中断" >
+        <Condition Diagnostic="" Expression="SysTick_Interrupt_$IpInstance"/>
+    </RefParameter>
+
+<!-- ***********************************************************************************-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ REF MODE \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!-- ***********************************************************************************-->
+    <RefMode Name="Time_Base"  Abstract = "true">
+    	      <Parameter Name="Time_Base"/>
+    	      <Parameter Name="UART_Printf"/>
+    	      <Parameter Name="Delay_Mode"/>
+    	      <Parameter Name="SysTick_Interrupt"/>
+    	      <Parameter Name="SysTick_Interrupt_Sequence"/>
+    </RefMode>
+
+    <ModeLogicOperator Name="OR"> 
+     <Mode Name="Time_Base" UserName="Delay Timebase Source" UserNameCH="Delay时基源">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="SysTick" UserName="SysTick                               " UserNameCH="SysTick                               ">
+                	  <Condition Expression="!SysTick_Interrupt_$IpInstance &amp; !Semaphore_Activated_FREERTOS"
+                	  	                  Diagnostic="When SysTick Interrupt selected or FREERTOS is activated, this option is invalid." 
+                	  	                  DiagnosticCH="SysTick中断启动时或者FREERTOS启动时，此项无效"/>
+                	  <Semaphore>TimeBase_SysTick_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                <Mode Name="TMR1" UserName="TMR1" UserNameCH="TMR1">
+                	   <Condition Expression="!Semaphore_ActivatedTMR1"
+                	  	                  Diagnostic="TMR1 is already used" 
+                	  	                  DiagnosticCH="TMR1已经被使用"/>
+                	  <Semaphore>TimeBase_TMR1_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR2" UserName="TMR2" UserNameCH="TMR2">
+                	   <Condition Expression="!Semaphore_ActivatedTMR2"
+                	  	                  Diagnostic="TMR2 is already used" 
+                	  	                  DiagnosticCH="TMR2已经被使用"/>
+                	  <Semaphore>TimeBase_TMR2_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR3" UserName="TMR3" UserNameCH="TMR3">
+                	   <Condition Expression="!Semaphore_ActivatedTMR3"
+                	  	                  Diagnostic="TMR3 is already used" 
+                	  	                  DiagnosticCH="TMR3已经被使用"/>
+                	  <Semaphore>TimeBase_TMR3_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR4" UserName="TMR4" UserNameCH="TMR4">
+                	   <Condition Expression="!Semaphore_ActivatedTMR4"
+                	  	                  Diagnostic="TMR4 is already used" 
+                	  	                  DiagnosticCH="TMR4已经被使用"/>
+                	  <Semaphore>TimeBase_TMR4_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR5" UserName="TMR5" UserNameCH="TMR5">
+                	   <Condition Expression="!Semaphore_ActivatedTMR5"
+                	  	                  Diagnostic="TMR5 is already used" 
+                	  	                  DiagnosticCH="TMR5已经被使用"/>
+                	  <Semaphore>TimeBase_TMR5_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR8" UserName="TMR8" UserNameCH="TMR8">
+                	   <Condition Expression="!Semaphore_ActivatedTMR8"
+                	  	                  Diagnostic="TMR8 is already used" 
+                	  	                  DiagnosticCH="TMR8已经被使用"/>
+                	  <Semaphore>TimeBase_TMR8_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR9" UserName="TMR9" UserNameCH="TMR9">
+                	   <Condition Expression="!Semaphore_ActivatedTMR9"
+                	  	                  Diagnostic="TMR9 is already used" 
+                	  	                  DiagnosticCH="TMR9已经被使用"/>
+                	  <Semaphore>TimeBase_TMR9_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR10" UserName="TMR10" UserNameCH="TMR10">
+                	   <Condition Expression="!Semaphore_ActivatedTMR10"
+                	  	                  Diagnostic="TMR10 is already used" 
+                	  	                  DiagnosticCH="TMR10已经被使用"/>
+                	  <Semaphore>TimeBase_TMR10_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="TMR11" UserName="TMR11" UserNameCH="TMR11">
+                	   <Condition Expression="!Semaphore_ActivatedTMR11"
+                	  	                  Diagnostic="TMR11 is already used" 
+                	  	                  DiagnosticCH="TMR11已经被使用"/>
+                	  <Semaphore>TimeBase_TMR11_$IpInstance</Semaphore>
+                	  <Semaphore>TimeBase_Enable_$IpInstance</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+     </Mode>
+     
+     <Mode Name="UART_Printf" UserName="UART Printf" UserNameCH="串口打印">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="USART1" UserName="USART1" UserNameCH="USART1">
+                	   <Condition Expression="USART1_Asynchronous_TX"
+                	  	                  Diagnostic="&quot;Asynchronous&quot; or &quot;Asynchronous Transmit Only&quot; must be actived in USART1" 
+                	  	                  DiagnosticCH="USART1必须开启&quot;异步模式&quot;或者&quot;异步只发模式&quot;"/>
+                	  <Semaphore>Printf_USART1_$IpInstance</Semaphore>
+                	  <Semaphore>Printf_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="USART2" UserName="USART2" UserNameCH="USART2">
+                	   <Condition Expression="USART2_Asynchronous_TX"
+                	  	                  Diagnostic="&quot;Asynchronous&quot; or &quot;Asynchronous Transmit Only&quot; must be actived in USART2" 
+                	  	                  DiagnosticCH="USART2必须开启&quot;异步模式&quot;或者&quot;异步只发模式&quot;"/>
+                	  <Semaphore>Printf_USART2_$IpInstance</Semaphore>
+                	  <Semaphore>Printf_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="USART3" UserName="USART3" UserNameCH="USART3">
+                	   <Condition Expression="USART3_Asynchronous_TX"
+                	  	                  Diagnostic="&quot;Asynchronous&quot; or &quot;Asynchronous Transmit Only&quot; must be actived in USART3" 
+                	  	                  DiagnosticCH="USART3必须开启&quot;异步模式&quot;或者&quot;异步只发模式&quot;"/>
+                	  <Semaphore>Printf_USART3_$IpInstance</Semaphore>
+                	  <Semaphore>Printf_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="UART4" UserName="UART4" UserNameCH="UART4">
+                	   <Condition Expression="UART4_Asynchronous_TX"
+                	  	                  Diagnostic="&quot;Asynchronous&quot; or &quot;Asynchronous Transmit Only&quot; must be actived in UART4" 
+                	  	                  DiagnosticCH="UART4必须开启&quot;异步模式&quot;或者&quot;异步只发模式&quot;"/>
+                	  <Semaphore>Printf_UART4_$IpInstance</Semaphore>
+                	  <Semaphore>Printf_Enable_$IpInstance</Semaphore>
+                </Mode>
+                
+                <Mode Name="UART5" UserName="UART5" UserNameCH="UART5">
+                	   <Condition Expression="UART5_Asynchronous_TX"
+                	  	                  Diagnostic="&quot;Asynchronous&quot; or &quot;Asynchronous Transmit Only&quot; must be actived in UART5" 
+                	  	                  DiagnosticCH="UART5必须开启&quot;异步模式&quot;或者&quot;异步只发模式&quot;"/>
+                	  <Semaphore>Printf_UART5_$IpInstance</Semaphore>
+                	  <Semaphore>Printf_Enable_$IpInstance</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+     </Mode>
+     
+     <Mode Name="SysTick_Interrupt" UserName="SysTick Interrupt" UserNameCH="SysTick中断">
+            <Condition Expression="!TimeBase_SysTick_$IpInstance &amp; !Semaphore_Activated_FREERTOS"
+                	  	                  Diagnostic="When Delay Timebase Source selects SysTick or FREERTOS is activated, this option is invalid." 
+                	  	                  DiagnosticCH="Delay时基源选择为SysTick或者FREERTOS启动时，此项无效"/>
+            <ModeLogicOperator Name="OR">
+                <Mode Name="SysTick_Interrupt" UserName="SysTick Interrupt" UserNameCH="SysTick中断">
+                </Mode>
+            </ModeLogicOperator>
+            <Semaphore>SysTick_Interrupt_$IpInstance</Semaphore>
+     </Mode>
+    </ModeLogicOperator>
+</IP>

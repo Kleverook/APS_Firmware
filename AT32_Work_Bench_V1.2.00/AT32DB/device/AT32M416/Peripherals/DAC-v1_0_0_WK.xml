@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+    <About>Digital-to-analog converter</About>
+    <AboutCH>数字/模拟转换</AboutCH>
+
+    <RefParameter Name="Instance" Comment="DAC instance" DefaultValue="DAC" Type="list" Visible="false"/>
+
+     <!-- OUT1 -->
+     <RefParameter Name="Enable_OUT1" Comment="Enable OUT1" CommentCH="使能OUT1" DefaultValue="TRUE" Group="OUT1 Settings" GroupCH="OUT1设置" Type="list" Visible="false" Reload = "false">
+        <Condition Expression="$IpInstance_OUT1"/>  
+        <PossibleValue Comment="Enable" CommentCH="开启" Value="TRUE"/>
+    </RefParameter>  
+    
+    <RefParameter Name="OUT1_reference_voltage" Comment="OUT1 reference voltage switch" CommentCH="OUT1参考电压切换" DefaultValue="FALSE" Group="OUT1 Settings" GroupCH="OUT1设置" Type="list" Reload = "false">
+        <Condition Expression="$IpInstance_OUT1"/>  
+        <PossibleValue Comment="VDDA" CommentCH="VDDA" Value="DAC_VDDA"/>
+        <PossibleValue Comment="VREF" CommentCH="VREF" Value="DAC_VREF"/>
+    </RefParameter>
+    
+    <RefParameter Name="OUT1_output_GPIO" Comment="OUT1 output to GPIO" CommentCH="OUT1输出到GPIO" DefaultValue="TRUE" Group="OUT1 Settings" GroupCH="OUT1设置" Type="list" Reload = "false" Visible = "false">
+        <Condition Expression="$IpInstance_OUT1_GPIO"/>  
+        <PossibleValue Comment="Enable" CommentCH="开启" Value="TRUE"/>
+    </RefParameter>
+    
+    <RefParameter Name="OUT1_output_GPIO" Comment="OUT1 output to GPIO" CommentCH="OUT1输出到GPIO" DefaultValue="FALSE" Group="OUT1 Settings" GroupCH="OUT1设置" Type="list" Reload = "false" Visible = "false">
+        <PossibleValue Comment="Disable" CommentCH="关闭" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="Trigger_Source_OUT1" Comment="Trigger Source" CommentCH="触发源" DefaultValue="FALSE" Group="OUT1 Settings" GroupCH="OUT1设置" Type="list">
+        <Condition Expression="$IpInstance_OUT1"/> 
+         <PossibleValue Comment="None" CommentCH="无触发" Value="NONE"/>
+        <PossibleValue Comment="Software trigger(D1SWTRG) as trigger source" CommentCH="软件触发" Value="DAC_SOFTWARE_TRIGGER"/>
+        <PossibleValue Comment="External line9 event as trigger source" CommentCH="EXINT Line9触发" Value="DAC_EXTERNAL_INTERRUPT_LINE_9" Condition = "$IpInstance_Trigger_EXINT" Action = "Remove"/>
+        <PossibleValue Comment="Timer6 trgout event as trigger source" CommentCH="TMR6 TRGO触发" Value="DAC_TMR6_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer3 trgout event as trigger source" CommentCH="TMR3 TRGO触发" Value="DAC_TMR3_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer7 trgout event as trigger source" CommentCH="TMR7 TRGO触发" Value="DAC_TMR7_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer9 trgout event as trigger source" CommentCH="TMR9 TRGO触发" Value="DAC_TMR9_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer4 trgout event as trigger source" CommentCH="TMR4 TRGO触发" Value="DAC_TMR4_TRGOUT_EVENT"/>
+    </RefParameter> 
+
+    <!-- OUT2 -->
+    <RefParameter Name="Enable_OUT2" Comment="Enable OUT2" CommentCH="使能OUT2" DefaultValue="TRUE" Group="OUT2 Settings" GroupCH="OUT2设置" Type="list" Visible="false" Reload = "false">
+        <Condition Expression="$IpInstance_OUT2"/>  
+        <PossibleValue Comment="Enable" CommentCH="开启" Value="TRUE"/>
+    </RefParameter>  
+    
+    <RefParameter Name="OUT2_reference_voltage" Comment="OUT2 reference voltage switch" CommentCH="OUT2参考电压切换" DefaultValue="FALSE" Group="OUT2 Settings" GroupCH="OUT2设置" Type="list" Reload = "false">
+        <Condition Expression="$IpInstance_OUT2"/>  
+        <PossibleValue Comment="VDDA" CommentCH="VDDA" Value="DAC_VDDA"/>
+        <PossibleValue Comment="VREF" CommentCH="VREF" Value="DAC_VREF"/>
+    </RefParameter>
+    
+    <RefParameter Name="OUT2_output_GPIO" Comment="OUT2 output to GPIO" CommentCH="OUT2输出到GPIO" DefaultValue="TRUE" Group="OUT2 Settings" GroupCH="OUT2设置" Type="list" Reload = "false" Visible = "false">
+        <Condition Expression="$IpInstance_OUT2_GPIO"/>  
+        <PossibleValue Comment="Enable" CommentCH="开启" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="OUT2_output_GPIO" Comment="OUT2 output to GPIO" CommentCH="OUT2输出到GPIO" DefaultValue="FALSE" Group="OUT2 Settings" GroupCH="OUT2设置" Type="list" Reload = "false" Visible = "false">
+        <PossibleValue Comment="Disable" CommentCH="关闭" Value="FALSE"/>
+    </RefParameter>
+
+    <RefParameter Name="Trigger_Source_OUT2" Comment="Trigger Source" CommentCH="触发源" DefaultValue="FALSE" Group="OUT2 Settings" GroupCH="OUT2设置" Type="list">
+        <Condition Expression="$IpInstance_OUT2"/> 
+         <PossibleValue Comment="None" CommentCH="无触发" Value="NONE"/>
+        <PossibleValue Comment="Software trigger(D1SWTRG) as trigger source" CommentCH="软件触发" Value="DAC_SOFTWARE_TRIGGER"/>
+        <PossibleValue Comment="External line9 event as trigger source" CommentCH="EXINT Line9触发" Value="DAC_EXTERNAL_INTERRUPT_LINE_9" Condition = "$IpInstance_Trigger_EXINT" Action = "Remove"/>
+        <PossibleValue Comment="Timer6 trgout event as trigger source" CommentCH="TMR6 TRGO触发" Value="DAC_TMR6_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer3 trgout event as trigger source" CommentCH="TMR3 TRGO触发" Value="DAC_TMR3_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer7 trgout event as trigger source" CommentCH="TMR7 TRGO触发" Value="DAC_TMR7_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer9 trgout event as trigger source" CommentCH="TMR9 TRGO触发" Value="DAC_TMR9_TRGOUT_EVENT"/>
+        <PossibleValue Comment="Timer4 trgout event as trigger source" CommentCH="TMR4 TRGO触发" Value="DAC_TMR4_TRGOUT_EVENT"/>
+    </RefParameter> 
+
+
+    <RefMode Name="DAC_OUT1_GPIO" BaseMode="DAC_OUT1">
+    	<Parameter Name="Enable_OUT1"/>
+        <Parameter Name="OUT1_reference_voltage"/>
+        <Parameter Name="OUT1_output_GPIO"/>
+        <Parameter Name="Trigger_Source_OUT1"/>
+    </RefMode>
+    <RefMode Name="DAC_OUT1_PERIP" BaseMode="DAC_OUT1">
+    	<Parameter Name="Enable_OUT1"/>
+        <Parameter Name="OUT1_reference_voltage"/>
+        <Parameter Name="OUT1_output_GPIO"/>
+        <Parameter Name="Trigger_Source_OUT1"/>
+    </RefMode>
+    
+    <RefMode Name="DAC_OUT2_GPIO" BaseMode="DAC_OUT2">
+    	<Parameter Name="Enable_OUT2"/>
+        <Parameter Name="OUT2_reference_voltage"/>
+        <Parameter Name="OUT2_output_GPIO"/>
+        <Parameter Name="Trigger_Source_OUT2"/>
+    </RefMode>
+    <RefMode Name="DAC_OUT2_PERIP" BaseMode="DAC_OUT2">
+    	<Parameter Name="Enable_OUT2"/>
+        <Parameter Name="OUT2_reference_voltage"/>
+        <Parameter Name="OUT2_output_GPIO"/>
+        <Parameter Name="Trigger_Source_OUT2"/>
+    </RefMode>
+
+    <!-- ModeLogicOperator for DAC -->
+    <ModeLogicOperator Name="OR">
+            <Mode Name="DAC_OUT1" UserName="OUT1" UserNameCH="OUT1">
+                <ModeLogicOperator Name="XOR">
+                    <Mode Name="DAC_OUT1_GPIO" UserName="Connected to external pin only" UserNameCH="连接到外部GPIO">
+                        <SignalLogicalOp Name="AND">
+                            <Signal Name="OUT1"/>
+                        </SignalLogicalOp>
+                        <Semaphore>$IpInstance_OUT1_GPIO</Semaphore>
+                        <Semaphore>$IpInstance_OUT1</Semaphore>
+                    </Mode>
+                    <Mode Name="DAC_OUT1_PERIP" UserName="OUT1 Connected to on chip-peripherals only" UserNameCH="OUT1内部连接到外设">
+                        <SignalLogicalOp Name="AND">
+                            <Signal Name="VS_OUT1"/>
+                        </SignalLogicalOp>
+                        <Semaphore>$IpInstance_OUT1_PERIP</Semaphore>
+                        <Semaphore>$IpInstance_OUT1</Semaphore>
+                    </Mode>
+                </ModeLogicOperator>
+            </Mode>
+            
+            <Mode Name="DAC_OUT2" UserName="OUT2" UserNameCH="OUT2">
+                <ModeLogicOperator Name="XOR">
+                    <Mode Name="DAC_OUT2_GPIO" UserName="Connected to external pin only" UserNameCH="连接到外部GPIO">
+                        <SignalLogicalOp Name="AND">
+                            <Signal Name="OUT2"/>
+                        </SignalLogicalOp>
+                        <Semaphore>$IpInstance_OUT2_GPIO</Semaphore>
+                        <Semaphore>$IpInstance_OUT2</Semaphore>
+                    </Mode>
+                    <Mode Name="DAC_OUT2_PERIP" UserName="OUT2 Connected to on chip-peripherals only" UserNameCH="OUT2内部连接到外设">
+                        <SignalLogicalOp Name="AND">
+                            <Signal Name="VS_OUT2"/>
+                        </SignalLogicalOp>
+                        <Semaphore>$IpInstance_OUT2_PERIP</Semaphore>
+                        <Semaphore>$IpInstance_OUT2</Semaphore>
+                    </Mode>
+                </ModeLogicOperator>
+            </Mode>
+            
+            <Mode Name="Trigger_EXINT" UserName="Trigger by EXINT" UserNameCH="EXINT触发">
+            	 <Condition Expression="EXINT_9 &amp; $IpInstance_OUT1 | $IpInstance_OUT2"
+                	  	                   Diagnostic="(1) Need to acitvate OUT1/OUT2.&lt;br&gt;(2) Need to activate &quot;EXINT9&quot;"
+                    	                   DiagnosticCH="(1) 需开启OUT1/OUT2.&lt;br&gt;(2) 需开启 &quot;EXINT9&quot;"/>
+                <ModeLogicOperator Name="XOR">
+                    <Mode Name="Trigger_EXINT" UserName="Trigger by EXINT" UserNameCH="EXINT触发">                    	
+                        <SignalLogicalOp Name="AND">
+                            <Signal Name="EXINT9"/>
+                        </SignalLogicalOp>
+                    </Mode>
+                </ModeLogicOperator>
+                <Semaphore>$IpInstance_Trigger_EXINT</Semaphore>
+            </Mode>
+            
+        </ModeLogicOperator>
+
+    <!-- RefSignal for DAC -->
+    <RefSignal IOMode="Analog" Name="OUT1"/>
+    <RefSignal IOMode="Analog" Name="OUT2"/>
+    <RefSignal IOMode="Input" Name="EXINT9" Virtual="true"/>
+    <RefSignal Name="VS_OUT1" Virtual="true"/>
+    <RefSignal Name="VS_OUT2" Virtual="true"/>
+</IP>

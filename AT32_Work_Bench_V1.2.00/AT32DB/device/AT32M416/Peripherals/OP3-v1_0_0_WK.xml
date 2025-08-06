@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+	<About>Universal synchronous/asynchronous receiver/transmitter</About>
+	<AboutCH>通用同步异步收发器</AboutCH>
+	
+    <!-- Generic RefParameters for USART/UART/IrDA/SmartCard Modes -->
+    <RefParameter Comment="Instance" DefaultValue="OP$Index" Name="Instance" Type="" Visible="false"/>
+
+    <RefParameter Name="OP_Mode" Comment="OP Mode" CommentCH="OP模式" DefaultValue="OP_STANDALONE_MODE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_Standalone_Mode" Diagnostic=""/>
+        <PossibleValue Comment="Standalone_mode" CommentCH="独立模式" Value="OP_STANDALONE_MODE"/>
+    </RefParameter>
+    <RefParameter Name="OP_Mode" Comment="OP Mode" CommentCH="OP模式" DefaultValue="OP_FOLLOWER_MODE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_Follower_Mode" Diagnostic=""/>
+        <PossibleValue Comment="Follower mode" CommentCH="跟随模式" Value="OP_FOLLOWER_MODE"/>
+    </RefParameter> 
+    <RefParameter Name="OP_Mode" Comment="OP Mode" CommentCH="OP模式" DefaultValue="OP_PGA_MODE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_PGA_Mode" Diagnostic=""/>
+        <PossibleValue Comment="PGA mode" CommentCH="可配置增益模式" Value="OP_PGA_MODE"/>
+    </RefParameter> 
+    <RefParameter Name="OP_Mode" Comment="OP Mode" CommentCH="OP模式" DefaultValue="OP_PGA_INM0_MODE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_PGA_INM0_Mode" Diagnostic=""/>
+        <PossibleValue Comment="PGA INM0 mode" CommentCH="带外部滤波器的可配置增益模式" Value="OP_PGA_INM0_MODE"/>
+    </RefParameter>
+    <RefParameter Name="OP_Mode" Comment="OP Mode" CommentCH="OP模式" DefaultValue="OP_PGA_INM0_BIAS_MODE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_PGA_INM0_BIAS_Mode" Diagnostic=""/>
+        <PossibleValue Comment="PGA INM0 BIAS mode" CommentCH="外部偏置可配置正增益或负增益模式" Value="OP_PGA_INM0_BIAS_MODE"/>
+    </RefParameter>
+    <RefParameter Name="OP_Mode" Comment="OP Mode" CommentCH="OP模式" DefaultValue="OP_PGA_INM0_INM1_BIAS_MODE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_PGA_INM0_INM1_BIAS_Mode" Diagnostic=""/>
+        <PossibleValue Comment="PGA INM0 INM1 BIAS mode" CommentCH="外部偏置的正增益或者滤波器的负增益模式" Value="OP_PGA_INM0_INM1_BIAS_MODE"/>
+    </RefParameter>
+
+    <RefParameter Name="Power_mode" Comment="Power mode" CommentCH="能量模式" DefaultValue="FALSE" Type="list" Group="Basic Parameters" GroupCH="基础参数">
+        <PossibleValue Comment="Normal" CommentCH="正常模式" Value="FALSE"/>
+        <PossibleValue Comment="Fast speed" CommentCH="快速模式" Value="TRUE"/>
+    </RefParameter> 
+    
+    <RefParameter Name="PGA_gain" Comment="PGA gain" CommentCH="PGA模式增益选择" DefaultValue="OP_PGA_GAIN_2_OR_MINUS_1" Type="list" Group="Basic Parameters" GroupCH="基础参数">
+        <Condition Expression="$IpInstance_PGA_Mode | $IpInstance_PGA_INM0_Mode | $IpInstance_PGA_INM0_BIAS_Mode | $IpInstance_PGA_INM0_INM1_BIAS_Mode" Diagnostic=""/>
+        <PossibleValue Comment="OP PGA inverting gain = -1 / non inverting gain = 2" CommentCH="带外部偏置的正向增益为2 或者反向增益为-1" Value="OP_PGA_GAIN_2_OR_MINUS_1"/>
+        <PossibleValue Comment="OP PGA inverting gain = -3 / non inverting gain = 4" CommentCH="带外部偏置的正向增益为4 或者反向增益为-3" Value="OP_PGA_GAIN_4_OR_MINUS_3"/>
+        <PossibleValue Comment="OP PGA inverting gain = -7 / non inverting gain = 8" CommentCH="带外部偏置的正向增益为8 或者反向增益为-7" Value="OP_PGA_GAIN_8_OR_MINUS_7"/>
+        <PossibleValue Comment="OP PGA inverting gain = -15 / non inverting gain = 16" CommentCH="带外部偏置的正向增益为16 或者反向增益为-15" Value="OP_PGA_GAIN_16_OR_MINUS_15"/>
+        <PossibleValue Comment="OP PGA inverting gain = -31 / non inverting gain = 32" CommentCH="带外部偏置的正向增益为32 或者反向增益为-31" Value="OP_PGA_GAIN_32_OR_MINUS_31"/>
+        <PossibleValue Comment="OP PGA inverting gain = -63 / non inverting gain = 64" CommentCH="带外部偏置的正向增益为64 或者反向增益为-63" Value="OP_PGA_GAIN_64_OR_MINUS_63"/>
+    </RefParameter> 
+    
+    <RefParameter Name="User_trimming" Comment="User trimming" CommentCH="用户校准选择" DefaultValue="TRUE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false">
+        <PossibleValue Comment="Enable" CommentCH="开启" Value="TRUE"/>
+    </RefParameter> 
+    
+    <RefParameter Name="Self_Calibration" Comment="Self calibration" CommentCH="自动校准" DefaultValue="TRUE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false">
+        <Condition Expression="User_trimming = TRUE" Diagnostic=""/>
+        <PossibleValue Comment="Enable" CommentCH="开启" Value="TRUE"/>
+    </RefParameter>
+    
+    <RefParameter Name="PMOS_offset_trimming_value" Comment="offset trimming value(PMOS)" CommentCH="PMOS校准值" DefaultValue="1" Group="Basic Parameters" GroupCH="基础参数" Max="31" Min="1" Type="integer"> 
+        <Condition Expression="Self_Calibration = FALSE" Diagnostic=""/>
+    </RefParameter>
+    
+    <RefParameter Name="NMOS_offset_trimming_value" Comment="offset trimming value(NMOS)" CommentCH="NMOS校准值" DefaultValue="1" Group="Basic Parameters" GroupCH="基础参数" Max="31" Min="1" Type="integer"> 
+        <Condition Expression="Self_Calibration = FALSE" Diagnostic=""/>
+    </RefParameter>
+    
+    <RefParameter Name="Output_select" Comment="Output select" CommentCH="输出选择" DefaultValue="OP_INTERNAL_OUTPUT_GPIO" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_OUTPUT_GPIO" Diagnostic=""/>
+        <PossibleValue Comment="OP output to GPIO" CommentCH="输出到GPIO" Value="OP_INTERNAL_OUTPUT_GPIO"/>
+    </RefParameter>
+    <RefParameter Name="Output_select" Comment="Output select" CommentCH="输出选择" DefaultValue="OP_INTERNAL_OUTPUT_ADC" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_OUTPUT_ADC" Diagnostic=""/>
+        <PossibleValue Comment="OP output to ADC input" CommentCH="输出内部连接到ADC输入" Value="OP_INTERNAL_OUTPUT_ADC"/>
+    </RefParameter>
+    
+    <RefParameter Name="INP_channel_select" Comment="INP channel select" CommentCH="正向通道选择" DefaultValue="OP_NON_INVERTING_INPUT_INP0" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP0_channel_select" Diagnostic=""/>
+        <PossibleValue Comment="Select INP0 channel" CommentCH="选择INP0通道" Value="OP_NON_INVERTING_INPUT_INP0"/>
+    </RefParameter>
+    <RefParameter Name="INP_channel_select" Comment="INP channel select" CommentCH="正向通道选择" DefaultValue="OP_NON_INVERTING_INPUT_INP1" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP1_channel_select" Diagnostic=""/>
+        <PossibleValue Comment="Select INP1 channel" CommentCH="选择INP1通道" Value="OP_NON_INVERTING_INPUT_INP1"/>
+    </RefParameter>
+    <RefParameter Name="INP_channel_select" Comment="INP channel select" CommentCH="正向通道选择" DefaultValue="OP_NON_INVERTING_INPUT_INP2" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP2_channel_select" Diagnostic=""/>
+        <PossibleValue Comment="Select INP2 channel" CommentCH="选择INP2通道" Value="OP_NON_INVERTING_INPUT_INP2"/>
+    </RefParameter>
+    <RefParameter Name="INP_channel_select" Comment="INP channel select" CommentCH="正向通道选择" DefaultValue="OP_NON_INVERTING_INPUT_INP3" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP3_channel_select" Diagnostic=""/>
+        <PossibleValue Comment="Select INP3 channel" CommentCH="选择INP3通道" Value="OP_NON_INVERTING_INPUT_INP3"/>
+    </RefParameter>
+    
+    <RefParameter Name="INM_channel_select" Comment="INM channel select" CommentCH="反向通道选择" DefaultValue="OP_INVERTING_INPUT_INM0" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_Standalone_Mode &amp; $IpInstance_INM0_channel_select" Diagnostic=""/>
+        <PossibleValue Comment="Select INM0 channel" CommentCH="选择INM0通道" Value="OP_INVERTING_INPUT_INM0"/>
+    </RefParameter>
+    <RefParameter Name="INM_channel_select" Comment="INM channel select" CommentCH="反向通道选择" DefaultValue="OP_INVERTING_INPUT_INM1" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_Standalone_Mode &amp; $IpInstance_INM1_channel_select" Diagnostic=""/>
+        <PossibleValue Comment="Select INM1 channel" CommentCH="选择INM1通道" Value="OP_INVERTING_INPUT_INM1"/>
+    </RefParameter>
+    
+    <RefParameter Name="TMR1_Switching_Signal" Comment="TMR1 Switching INP/INM channel enable signal" CommentCH="TMR1 切换INP/INM 通道使能信号" DefaultValue="FALSE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <PossibleValue Comment="Disable" CommentCH="关闭" Value="FALSE"/>
+    </RefParameter>
+    <RefParameter Name="TMR1_Switching_Signal" Comment="TMR1 Switching INP/INM channel enable signal" CommentCH="TMR1 切换INP/INM 通道使能信号" DefaultValue="TRUE" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_TMR1_Switch" Diagnostic=""/>
+        <PossibleValue Comment="Enable" CommentCH="开启" Value="TRUE"/>
+    </RefParameter>
+    
+    <RefParameter Name="INP_channel_switching" Comment="INP channel switching" CommentCH="正向通道切换" DefaultValue="OP_NON_INVERTING_INPUT_INP0" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP0_channel_switching" Diagnostic=""/>
+        <PossibleValue Comment="Select INP0 channel" CommentCH="选择INP0通道" Value="OP_NON_INVERTING_INPUT_INP0"/>
+    </RefParameter>
+    <RefParameter Name="INP_channel_switching" Comment="INP channel switching" CommentCH="正向通道切换" DefaultValue="OP_NON_INVERTING_INPUT_INP1" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP1_channel_switching" Diagnostic=""/>
+        <PossibleValue Comment="Select INP1 channel" CommentCH="选择INP1通道" Value="OP_NON_INVERTING_INPUT_INP1"/>
+    </RefParameter>
+    <RefParameter Name="INP_channel_switching" Comment="INP channel switching" CommentCH="正向通道切换" DefaultValue="OP_NON_INVERTING_INPUT_INP2" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP2_channel_switching" Diagnostic=""/>
+        <PossibleValue Comment="Select INP2 channel" CommentCH="选择INP2通道" Value="OP_NON_INVERTING_INPUT_INP2"/>
+    </RefParameter>
+    <RefParameter Name="INP_channel_switching" Comment="INP channel switching" CommentCH="正向通道切换" DefaultValue="OP_NON_INVERTING_INPUT_INP3" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_INP3_channel_switching" Diagnostic=""/>
+        <PossibleValue Comment="Select INP3 channel" CommentCH="选择INP3通道" Value="OP_NON_INVERTING_INPUT_INP3"/>
+    </RefParameter>
+    
+    <RefParameter Name="INM_channel_switching" Comment="INM channel switching" CommentCH="反向通道切换" DefaultValue="OP_INVERTING_INPUT_INM0" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_Standalone_Mode &amp; $IpInstance_INM0_channel_switching" Diagnostic=""/>
+        <PossibleValue Comment="Select INM0 channel" CommentCH="选择INM0通道" Value="OP_INVERTING_INPUT_INM0"/>
+    </RefParameter>
+    <RefParameter Name="INM_channel_switching" Comment="INM channel switching" CommentCH="反向通道切换" DefaultValue="OP_INVERTING_INPUT_INM1" Type="list" Group="Basic Parameters" GroupCH="基础参数" Visible="false" >
+        <Condition Expression="$IpInstance_Standalone_Mode &amp; $IpInstance_INM1_channel_switching" Diagnostic=""/>
+        <PossibleValue Comment="Select INM1 channel" CommentCH="选择INM1通道" Value="OP_INVERTING_INPUT_INM1"/>
+    </RefParameter>
+    
+    <RefMode Name="OP_Settings" Abstract="true">
+    	   <Parameter Name="Instance"/>
+    	   <Parameter Name="OP_Mode"/>
+        <Parameter Name="Power_mode"/>
+        <Parameter Name="PGA_gain"/>
+        <Parameter Name="User_trimming"/>
+        <Parameter Name="Self_Calibration"/>
+        <Parameter Name="PMOS_offset_trimming_value"/>
+        <Parameter Name="NMOS_offset_trimming_value"/>
+        <Parameter Name="Output_select"/>
+        <Parameter Name="INP_channel_select"/>
+        <Parameter Name="INM_channel_select"/>
+        <Parameter Name="TMR1_Switching_Signal"/>
+        <Parameter Name="INP_channel_switching"/>
+        <Parameter Name="INM_channel_switching"/>
+    </RefMode>
+    
+                        
+    <ModeLogicOperator Name="OR">
+        <Mode Name="Mode" UserName="Mode" UserNameCH="模式">
+        	   <Condition Expression="TimeBase_Enable_SYSTEM" Diagnostic="&quot;Timebase Source&quot; must be enabled in SYSTEM" DiagnosticCH="SYSTEM中&quot;时基源&quot;必须开启"/>
+        	   <ModeLogicOperator Name="XOR">
+                <Mode Name="Standalone_mode" UserName="Standalone mode" UserNameCH="独立模式">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_Activated"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_Mode_Enable</Semaphore>
+                    <Semaphore>$IpInstance_Standalone_Mode</Semaphore>
+                </Mode>
+                <Mode Name="Follower_mode" UserName="Follower mode" UserNameCH="跟随模式">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_Activated"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_Mode_Enable</Semaphore>
+                    <Semaphore>$IpInstance_Follower_Mode</Semaphore>
+                </Mode>
+                <Mode Name="PGA_mode" UserName="PGA mode" UserNameCH="可配置增益模式">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_Activated"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_Mode_Enable</Semaphore>
+                    <Semaphore>$IpInstance_PGA_Mode</Semaphore>
+                </Mode>
+                <Mode Name="PGA_INM0_mode" UserName="PGA INM0 mode" UserNameCH="带外部滤波器的可配置增益模式">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_Activated"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_Mode_Enable</Semaphore>
+                    <Semaphore>$IpInstance_PGA_INM0_Mode</Semaphore>
+                </Mode>
+                <Mode Name="PGA_INM0_BIAS_mode" UserName="PGA INM0 BIAS mode" UserNameCH="外部偏置可配置正增益或负增益模式">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_Activated"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_Mode_Enable</Semaphore>
+                    <Semaphore>$IpInstance_PGA_INM0_BIAS_Mode</Semaphore>
+                </Mode>
+                <Mode Name="PGA_INM0_INM1_BIAS_mode" UserName="PGA INM0 INM1 BIAS mode" UserNameCH="外部偏置的正增益或者滤波器的负增益模式">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_Activated"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_Mode_Enable</Semaphore>
+                    <Semaphore>$IpInstance_PGA_INM0_INM1_BIAS_Mode</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+        </Mode>
+		
+        <Mode Name="Output_select" UserName="Output select" UserNameCH="输出选择">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="Output_to_GPIO" UserName="OP output to GPIO" UserNameCH="输出到GPIO">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="OUT"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_OUTPUT_GPIO</Semaphore>
+                </Mode>
+                <Mode Name="RTS_Only" UserName="OP output to ADC input" UserNameCH="输出内部连接到ADC输入">
+                    <Condition Expression="!$IpInstance_Standalone_Mode" Diagnostic="Invalid in &quot;Standalone mode&quot;" DiagnosticCH=" &quot;独立模式&quot;下无效"/>
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_OUTPUT_ADC"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_OUTPUT_ADC</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+            <Condition Expression="$IpInstance_Mode_Enable" Diagnostic="Active only with  &quot;Mode&quot; enabled" DiagnosticCH="需选择 &quot;模式&quot;"/>
+        </Mode>
+        
+        <Mode Name="INP_channel_select" UserName="INP channel select" UserNameCH="正向通道选择">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="INP0_channel" UserName="Select INP0 channel" UserNameCH="选择INP0通道">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="INP0"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP0_channel_select</Semaphore>
+                </Mode>
+                <Mode Name="INP1_channel" UserName="Select INP1 channel" UserNameCH="选择INP1通道">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="INP1"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP1_channel_select</Semaphore>
+                </Mode>
+                <Mode Name="INP2_channel" UserName="Select INP2 channel" UserNameCH="选择INP2通道">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="INP2"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP2_channel_select</Semaphore>
+                </Mode>
+                <Mode Name="INP3_channel" UserName="Select INP3 channel-DAC_OUT1" UserNameCH="选择INP3通道-DAC_OUT1">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_INP3_DAC_OUT1"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP3_channel_select</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+            <Condition Expression="$IpInstance_Mode_Enable" Diagnostic="Active only with  &quot;Mode&quot; enabled" DiagnosticCH="需选择 &quot;模式&quot;"/>
+        </Mode>
+        
+        <Mode Name="INM_channel_select" UserName="INM channel select" UserNameCH="反向通道选择">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="INM0_channel" UserName="select INM0 channel" UserNameCH="选择INM0通道">
+                    <Condition Expression="$IpInstance_Standalone_Mode | $IpInstance_PGA_INM0_Mode | $IpInstance_PGA_INM0_BIAS_Mode" 
+            	                    Diagnostic="Active only with&lt;br&gt;(1) Standalone mode&lt;br&gt;(2) PGA INM0 mode&lt;br&gt;(3) PGA INM0 BIAS mode&lt;br&gt;" 
+            	                    DiagnosticCH="下列模式有效：&lt;br&gt;(1) 独立模式&lt;br&gt;(2) 带外部滤波器的可配置增益模式&lt;br&gt;(3) 外部偏置可配置正增益或负增益模式&lt;br&gt;"/>
+            	      <SignalLogicalOp Name="AND">
+                        <Signal Name="INM0"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INM0_channel_select</Semaphore>
+                </Mode>
+                <Mode Name="INM1_channel" UserName="select INM1 channel" UserNameCH="选择INM1通道">
+                    <Condition Expression="$IpInstance_Standalone_Mode" 
+            	                    Diagnostic="Active only with&lt;br&gt;(1) Standalone mode&lt;br&gt;" 
+            	                    DiagnosticCH="下列模式有效：&lt;br&gt;(1) 独立模式&lt;br&gt;"/>
+            	      <SignalLogicalOp Name="AND">
+                        <Signal Name="INM1"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INM1_channel_select</Semaphore>
+                </Mode>
+                <Mode Name="INM0_INM1_channel" UserName="select INM0 INM1 channel" UserNameCH="选择INM0 INM1通道">
+                    <Condition Expression="$IpInstance_PGA_INM0_INM1_BIAS_Mode" 
+            	                    Diagnostic="Active only with&lt;br&gt;(1) PGA INM0 INM1 BIAS mode&lt;br&gt;" 
+            	                    DiagnosticCH="下列模式有效：&lt;br&gt;(1) 外部偏置的正增益或者滤波器的负增益模式&lt;br&gt;"/>
+            	       <SignalLogicalOp Name="AND">
+                        <Signal Name="INM0"/>
+                        <Signal Name="INM1"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INM0_INM1_channel_select</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+            <Condition Expression="$IpInstance_Standalone_Mode | $IpInstance_PGA_INM0_Mode | $IpInstance_PGA_INM0_BIAS_Mode | $IpInstance_PGA_INM0_INM1_BIAS_Mode" 
+            	                    Diagnostic="Active only with&lt;br&gt;(1) Standalone mode&lt;br&gt;(2) PGA INM0 mode&lt;br&gt;(3) PGA INM0 BIAS mode&lt;br&gt;(4) PGA INM0 INM1 BIAS mode&lt;br&gt;" 
+            	                    DiagnosticCH="下列模式有效：&lt;br&gt;(1) 独立模式&lt;br&gt;(2) 带外部滤波器的可配置增益模式&lt;br&gt;(3) 外部偏置可配置正增益或负增益模式&lt;br&gt;(4) 外部偏置的正增益或者滤波器的负增益模式&lt;br&gt;"/>
+        </Mode>
+        
+        <Mode Name="TMR1_Switching_Signal" UserName="TMR1 Switching INP/INM channel enable signal" UserNameCH="TMR1 切换INP/INM 通道使能信号">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="TMR1_Switching_Signal" UserName="TMR1 Switching INP/INM channel enable signal" UserNameCH="TMR1 切换INP/INM 通道使能信号">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_TMR1_Switch"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_TMR1_Switch</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+            <Condition Expression="$IpInstance_Mode_Enable &amp; Semaphore_output_Channel6TMR1" 
+            	                    Diagnostic="Active only with&lt;br&gt;(1) &quot;Mode&quot; must be enabled&lt;br&gt;(2) TMR1 &quot;Channel6 mode&quot; must be enabled&lt;br&gt;" 
+            	                    DiagnosticCH="下列模式有效：&lt;br&gt;(1) 需选择 &quot;模式&quot;&lt;br&gt;(2) TMR1  &quot;通道6模式&quot; 需选择&lt;br&gt;"/>
+        </Mode>
+        
+        <Mode Name="INP_channel_switching" UserName="INP channel switching" UserNameCH="正向通道切换">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="INP0_channel" UserName="select INP0 channel" UserNameCH="选择INP0通道">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="INP0"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP0_channel_switching</Semaphore>
+                </Mode>
+                <Mode Name="INP1_channel" UserName="select INP1 channel" UserNameCH="选择INP1通道">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="INP1"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP1_channel_switching</Semaphore>
+                </Mode>
+                <Mode Name="INP2_channel" UserName="select INP2 channel" UserNameCH="选择INP2通道">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="INP2"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP2_channel_switching</Semaphore>
+                </Mode>
+                <Mode Name="INP3_channel" UserName="select INP3 channel-DAC_OUT1" UserNameCH="选择INP3通道-DAC_OUT1">
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_INP3_DAC_OUT1"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INP3_channel_switching</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+            <Condition Expression="$IpInstance_TMR1_Switch" Diagnostic="Active only with  &quot;TMR1 Switching INP/INM channel enable signal&quot; enabled" DiagnosticCH="需选择 &quot;TMR1 切换INP/INM 通道使能信号&quot;"/>
+        </Mode>
+        
+        <Mode Name="INM_channel_switching" UserName="INM channel switching" UserNameCH="反向通道切换">
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="INM0_channel" UserName="select INM0 channel" UserNameCH="选择INM0通道">
+            	      <SignalLogicalOp Name="AND">
+                        <Signal Name="INM0"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INM0_channel_switching</Semaphore>
+                </Mode>
+                <Mode Name="INM1_channel" UserName="select INM1 channel" UserNameCH="选择INM1通道">
+            	      <SignalLogicalOp Name="AND">
+                        <Signal Name="INM1"/>
+                    </SignalLogicalOp>
+                    <Semaphore>$IpInstance_INM1_channel_switching</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+            <Condition Expression="$IpInstance_TMR1_Switch &amp;$IpInstance_Standalone_Mode" 
+            	                    Diagnostic="Active only with&lt;br&gt;(1) Standalone mode&lt;br&gt;(2) &quot;TMR1 Switching INP/INM channel enable signal&quot; must be enabled;&lt;br&gt;" 
+            	                    DiagnosticCH="下列模式有效：&lt;br&gt;(1) 独立模式&lt;br&gt;(2) 需选择 &quot;TMR1 切换INP/INM 通道使能信号&quot;&lt;br&gt;"/>
+        </Mode>
+
+    </ModeLogicOperator>
+	
+    <!-- RefSignal -->
+    <RefSignal IOMode="Analog" Name="INP0"/>
+    <RefSignal IOMode="Analog" Name="INP1"/>
+    <RefSignal IOMode="Analog" Name="INP2"/>
+    <RefSignal IOMode="Analog" Name="INM0"/>
+    <RefSignal IOMode="Analog" Name="INM1"/>
+    <RefSignal IOMode="Analog" Name="OUT"/>         
+    <RefSignal IOMode="Analog" Name="VS_Activated" Virtual="true"/>
+    <RefSignal IOMode="Analog" Name="VS_OUTPUT_ADC" Virtual="true"/>
+    <RefSignal IOMode="Analog" Name="VS_INP3_DAC_OUT1" Virtual="true"/>
+    <RefSignal IOMode="Analog" Name="VS_TMR1_Switch" Virtual="true"/>     
+
+</IP>

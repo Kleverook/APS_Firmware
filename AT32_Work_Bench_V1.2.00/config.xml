@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Configuration>
+    <PackagePath>D:/ATS/Firmware/APS_CPU_Firmware</PackagePath>
+    <ProjectLocation>D:/ATS/Firmware/APS_CPU_Firmware</ProjectLocation>
+    <ToolchainIDE>CMake</ToolchainIDE>
+</Configuration>

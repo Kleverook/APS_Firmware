@@ -1,0 +1,761 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:等线;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:微软雅黑;
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@等线";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@微软雅黑";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:等线;}
+h3
+	{mso-style-link:"标题 3 字符";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:13.5pt;
+	font-family:宋体;
+	font-weight:bold;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:等线;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:等线;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:21.0pt;
+	font-size:10.5pt;
+	font-family:等线;}
+span.3
+	{mso-style-name:"标题 3 字符";
+	mso-style-link:"标题 3";
+	font-family:宋体;
+	font-weight:bold;}
+span.a
+	{mso-style-name:"页眉 字符";
+	mso-style-link:页眉;}
+span.a0
+	{mso-style-name:"页脚 字符";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:等线;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN link="#0563C1" vlink="#954F72" style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:15.0pt;margin-left:
+0cm;line-height:150%;background:white'><span lang=EN-US style='font-size:9.0pt;
+line-height:150%;font-family:"Arial",sans-serif'>AT32F455</span><span
+style='font-size:9.0pt;line-height:150%'>系列微控制器基于高性能的</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>ARM&reg;Cortex&reg;-M4F
+32</span><span style='font-size:9.0pt;line-height:150%'>位的</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>RISC</span><span
+style='font-size:9.0pt;line-height:150%'>内核，最高工作频率达到</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>192 MHz</span><span
+style='font-size:9.0pt;line-height:150%'>，</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>Cortex&reg;-M4F</span><span
+style='font-size:9.0pt;line-height:150%'>内核带有单精度浮点运算单元（</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>FPU</span><span
+style='font-size:9.0pt;line-height:150%'>），支持所有</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>ARM&reg;</span><span
+style='font-size:9.0pt;line-height:150%'>单精度数据处理指令和数据类型。它还具有一组</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>DSP</span><span
+style='font-size:9.0pt;line-height:150%'>指令和提高应用安全性的一个存储器保护单元（</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>MPU</span><span
+style='font-size:9.0pt;line-height:150%'>）。</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>AT32F455</span><span
+style='font-size:9.0pt;line-height:150%'>系列产品内置高速片上存储器，包含高达</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>512
+K</span><span style='font-size:9.0pt;line-height:150%'>字节的闪存，</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>128+16
+K</span><span style='font-size:9.0pt;line-height:150%'>字节的</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>SRAM</span><span
+style='font-size:9.0pt;line-height:150%'>，以及启动程序代码区</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>26 K</span><span
+style='font-size:9.0pt;line-height:150%'>字节，除可作启动加载程序（</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>Bootloader</span><span
+style='font-size:9.0pt;line-height:150%'>）外也可一次性配置成一般用户程序和数据区，达到</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>512+26
+K</span><span style='font-size:9.0pt;line-height:150%'>字节存储器的最大空间使用，另有</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>4
+K</span><span style='font-size:9.0pt;line-height:150%'>字节</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>OTP</span><span
+style='font-size:9.0pt;line-height:150%'>数据存储空间。内置存储器可设置任意范围程序区受</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>sLib</span><span
+style='font-size:9.0pt;line-height:150%'>保护，成为执行代码安全库区。另外</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>AT32F455</span><span
+style='font-size:9.0pt;line-height:150%'>系列产品包含高阶的存储器扩展：</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个外部存储器控制器（</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>XMC</span><span
+style='font-size:9.0pt;line-height:150%'>）（包含</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>SDRAM</span><span
+style='font-size:9.0pt;line-height:150%'>接口）和</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个四线串行外设接口（</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>QSPI</span><span
+style='font-size:9.0pt;line-height:150%'>）。</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:15.0pt;margin-left:
+0cm;line-height:150%;background:white'><span lang=EN-US style='font-size:9.0pt;
+line-height:150%;font-family:"Arial",sans-serif'>AT32F455</span><span
+style='font-size:9.0pt;line-height:150%'>系列产品包含</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>2</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>12</span><span
+style='font-size:9.0pt;line-height:150%'>位的</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>ADC</span><span
+style='font-size:9.0pt;line-height:150%'>、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>2</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>12</span><span
+style='font-size:9.0pt;line-height:150%'>位的</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>DAC</span><span
+style='font-size:9.0pt;line-height:150%'>、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>10</span><span
+style='font-size:9.0pt;line-height:150%'>个通用</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>16</span><span
+style='font-size:9.0pt;line-height:150%'>位定时器（包括</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>2</span><span
+style='font-size:9.0pt;line-height:150%'>个用于电机控制的</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>PWM</span><span
+style='font-size:9.0pt;line-height:150%'>高级定时器）、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>2</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>32</span><span
+style='font-size:9.0pt;line-height:150%'>位通用定时器、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>2</span><span
+style='font-size:9.0pt;line-height:150%'>个基本定时器、和</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个低功耗</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>ERTC</span><span
+style='font-size:9.0pt;line-height:150%'>、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>AES</span><span
+style='font-size:9.0pt;line-height:150%'>硬件加速器，以及</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个真随机数发生器（</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>TRNG</span><span
+style='font-size:9.0pt;line-height:150%'>）。它们还带有标准和先进的通信接口：多达</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>3</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>I2C</span><span
+style='font-size:9.0pt;line-height:150%'>接口、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>4</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>SPI</span><span
+style='font-size:9.0pt;line-height:150%'>接口（复用为</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>I2S</span><span
+style='font-size:9.0pt;line-height:150%'>接口）、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个全双工</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>I2SF</span><span
+style='font-size:9.0pt;line-height:150%'>接口、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>SDIO</span><span
+style='font-size:9.0pt;line-height:150%'>接口、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>8</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>USART</span><span
+style='font-size:9.0pt;line-height:150%'>接口、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>3</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>CAN</span><span
+style='font-size:9.0pt;line-height:150%'>接口、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个红外发射器、</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>1</span><span
+style='font-size:9.0pt;line-height:150%'>个</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>OTGFS</span><span
+style='font-size:9.0pt;line-height:150%'>接口。</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:15.0pt;margin-left:
+0cm;line-height:150%;background:white'><span lang=EN-US style='font-size:9.0pt;
+line-height:150%;font-family:"Arial",sans-serif'>AT32F455</span><span
+style='font-size:9.0pt;line-height:150%'>系列产品工作于</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>-40 °C</span><span
+style='font-size:9.0pt;line-height:150%'>至</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>+105 °C</span><span
+style='font-size:9.0pt;line-height:150%'>的温度范围，供电电压</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>2.4 V</span><span
+style='font-size:9.0pt;line-height:150%'>至</span><span lang=EN-US
+style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>3.6 V</span><span
+style='font-size:9.0pt;line-height:150%'>，省电模式可达到低功耗应用的要求。</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%;font-family:"Arial",sans-serif'>AT32F455</span><span
+style='font-size:9.0pt;line-height:150%'>系列产品提供各种不同封装形式；根据不同的封装形式，其系列产品之间引脚兼容，软件和功能上也兼容，仅产品中的外设配置不尽相同。</span></p>
+
+<p class=MsoNormal align=left style='margin-bottom:24.75pt;text-align:left;
+background:white'><span style='font-size:21.5pt;font-family:宋体;layout-grid-mode:
+line'>主要特性</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>内核：带有</span></b><b><span
+lang=EN-US style='font-family:"Arial",sans-serif'>FPU</span></b><b><span
+style='font-family:宋体'>的</span></b><b><span lang=EN-US style='font-family:"Arial",sans-serif'>ARM&reg;
+32</span></b><b><span style='font-family:宋体'>位</span></b><b><span lang=EN-US
+style='font-family:"Arial",sans-serif'>Cortex&reg;-M4F CPU</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>最高</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>192 MHz</span><span style='font-family:
+宋体'>工作频率，带存储器保护单元（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>MPU</span><span
+style='font-family:宋体'>），内建单周期乘法和硬件除法</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>内建浮点运算单元（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>FPU</span><span style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>具有</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>DSP</span><span style='font-family:宋体'>指令集</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>存储器</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>256 K</span><span
+style='font-family:宋体'>字节到</span><span lang=EN-US style='font-family:"Arial",sans-serif'>512
+K</span><span style='font-family:宋体'>字节的闪存存储器</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>26 K</span><span
+style='font-family:宋体'>字节的启动程序代码区作启动加载程序（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>Bootloader</span><span style='font-family:
+宋体'>）用，可一次性配置成一般用户区</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>4 K</span><span
+style='font-family:宋体'>字节的</span><span lang=EN-US style='font-family:"Arial",sans-serif'>OTP</span><span
+style='font-family:宋体'>存储器</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>sLib</span><span
+style='font-family:宋体'>：将指定之主存储区设为执行代码安全库区，此区代码仅能调用无法读取</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>144 K</span><span
+style='font-family:宋体'>字节到</span><span lang=EN-US style='font-family:"Arial",sans-serif'>108
+K</span><span style='font-family:宋体'>字节的</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>SRAM</span><span style='font-family:
+宋体'>（可规划为</span><span lang=EN-US style='font-family:"Arial",sans-serif'>128 K</span><span
+style='font-family:宋体'>字节到</span><span lang=EN-US style='font-family:"Arial",sans-serif'>96
+K</span><span style='font-family:宋体'>字节带奇偶校验）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>具有</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>16</span><span style='font-family:宋体'>位数据总线的外部存储器控制器（</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>XMC</span><span
+style='font-family:宋体'>）：支持</span><span lang=EN-US style='font-family:"Arial",sans-serif'>SRAM</span><span
+style='font-family:宋体'>、</span><span lang=EN-US style='font-family:"Arial",sans-serif'>PSRAM</span><span
+style='font-family:宋体'>、</span><span lang=EN-US style='font-family:"Arial",sans-serif'>NOR</span><span
+style='font-family:宋体'>和</span><span lang=EN-US style='font-family:"Arial",sans-serif'>SDRAM</span><span
+style='font-family:宋体'>存储器</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>QSPI</span><span
+style='font-family:宋体'>接口，用于连接外部</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>SPI</span><span style='font-family:宋体'>闪存存储器或</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>SPI RAM</span><span
+style='font-family:宋体'>扩展，支持地址映射模式</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN-US style='font-family:"Arial",sans-serif'>XMC</span></b><b><span
+style='font-family:宋体'>作为</span></b><b><span lang=EN-US style='font-family:
+"Arial",sans-serif'>LCD</span></b><b><span style='font-family:宋体'>并口，兼容</span></b><b><span
+lang=EN-US style='font-family:"Arial",sans-serif'>8080/6800</span></b><b><span
+style='font-family:宋体'>模式</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>电源控制（</span></b><b><span
+lang=EN-US style='font-family:"Arial",sans-serif'>PWC</span></b><b><span
+style='font-family:宋体'>）</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>2.4V</span><span
+style='font-family:宋体'>至</span><span lang=EN-US style='font-family:"Arial",sans-serif'>3.6V</span><span
+style='font-family:宋体'>供电</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>上电复位（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>POR</span><span style='font-family:宋体'>）、低电压复位（</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>LVR</span><span
+style='font-family:宋体'>）、电源电压监测器（</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>PVM</span><span style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>低功耗模式：睡眠、深睡眠、和待机，</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>6</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>WKUP</span><span
+style='font-family:宋体'>引脚可唤醒待机模式</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>VBAT</span><span
+style='font-family:宋体'>为</span><span lang=EN-US style='font-family:"Arial",sans-serif'>LEXT</span><span
+style='font-family:宋体'>、</span><span lang=EN-US style='font-family:"Arial",sans-serif'>ERTC</span><span
+style='font-family:宋体'>和</span><span lang=EN-US style='font-family:"Arial",sans-serif'>20</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>32</span><span
+style='font-family:宋体'>位的电池供电寄存器（</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>BPR</span><span style='font-family:宋体'>）供电</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>时钟和复位管理（</span></b><b><span
+lang=EN-US style='font-family:"Arial",sans-serif'>CRM</span></b><b><span
+style='font-family:宋体'>）</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>4</span><span
+style='font-family:宋体'>至</span><span lang=EN-US style='font-family:"Arial",sans-serif'>25
+MHz</span><span style='font-family:宋体'>晶体振荡器（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>HEXT</span><span style='font-family:
+宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>内置经出厂调校的</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>48 MHz</span><span style='font-family:
+宋体'>高速时钟（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>HICK</span><span
+style='font-family:宋体'>），</span><span lang=EN-US style='font-family:"Arial",sans-serif'>25
+°C</span><span style='font-family:宋体'>达</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>1 %</span><span style='font-family:宋体'>精度，</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>-40 °C</span><span
+style='font-family:宋体'>至</span><span lang=EN-US style='font-family:"Arial",sans-serif'>+105
+°C</span><span style='font-family:宋体'>达</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>2.5 %</span><span style='font-family:
+宋体'>精度，带自动时钟校准（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>ACC</span><span
+style='font-family:宋体'>）功能</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>32 kHz</span><span
+style='font-family:宋体'>晶振（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>LEXT</span><span
+style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>低速内部时钟（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>LICK</span><span style='font-family:
+宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>模拟模块</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>2</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>12</span><span
+style='font-family:宋体'>位</span><span lang=EN-US style='font-family:"Arial",sans-serif'>5.33
+MSPS A/D</span><span style='font-family:宋体'>转换器，多达</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>16</span><span style='font-family:宋体'>个外部输入通道；分辨率</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>12/10/8/6</span><span
+style='font-family:宋体'>位可调；硬件过采样最高达</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>16</span><span style='font-family:宋体'>位分辨率</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>温度传感器（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>VTS</span><span style='font-family:宋体'>）、内部参考电压（</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>VINTRV</span><span
+style='font-family:宋体'>）、</span><span lang=EN-US style='font-family:"Arial",sans-serif'>VBAT</span><span
+style='font-family:宋体'>电池电压监控（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>VBAT/4</span><span
+style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>2</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>12</span><span
+style='font-family:宋体'>位</span><span lang=EN-US style='font-family:"Arial",sans-serif'>D/A</span><span
+style='font-family:宋体'>转换器</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN-US style='font-family:"Arial",sans-serif'>DMA</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>2</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>7</span><span
+style='font-family:宋体'>通道</span><span lang=EN-US style='font-family:"Arial",sans-serif'>DMA</span><span
+style='font-family:宋体'>控制器共</span><span lang=EN-US style='font-family:"Arial",sans-serif'>14</span><span
+style='font-family:宋体'>通道，支持完全弹性映射</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>多达</span></b><b><span lang=EN-US
+style='font-family:"Arial",sans-serif'>117</span></b><b><span style='font-family:
+宋体'>个快速</span></b><b><span lang=EN-US style='font-family:"Arial",sans-serif'>GPIO</span></b><b><span
+style='font-family:宋体'>端口</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>所有</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>GPIO</span><span style='font-family:
+宋体'>口可以映像到</span><span lang=EN-US style='font-family:"Arial",sans-serif'>16</span><span
+style='font-family:宋体'>个外部中断（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>EXINT</span><span
+style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>几乎所有</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>GPIO</span><span style='font-family:
+宋体'>口可容忍</span><span lang=EN-US style='font-family:"Arial",sans-serif'>5 V</span><span
+style='font-family:宋体'>输入信号</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>多达</span></b><b><span lang=EN-US
+style='font-family:"Arial",sans-serif'>17</span></b><b><span style='font-family:
+宋体'>个定时器（</span></b><b><span lang=EN-US style='font-family:"Arial",sans-serif'>TMR</span></b><b><span
+style='font-family:宋体'>）</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>2</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>16</span><span
+style='font-family:宋体'>位</span><span lang=EN-US style='font-family:"Arial",sans-serif'>8</span><span
+style='font-family:宋体'>通道高级定时器，</span><span lang=EN-US style='font-family:"Arial",sans-serif'>PWM</span><span
+style='font-family:宋体'>输出带死区控制和紧急剎车功能</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>多达</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>8</span><span style='font-family:宋体'>个</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>16</span><span
+style='font-family:宋体'>位和</span><span lang=EN-US style='font-family:"Arial",sans-serif'>2</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>32</span><span
+style='font-family:宋体'>位通用定时器，每个定时器最多达</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>4</span><span style='font-family:宋体'>个用于输入捕获</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>/</span><span
+style='font-family:宋体'>输出比较</span><span lang=EN-US style='font-family:"Arial",sans-serif'>/PWM</span><span
+style='font-family:宋体'>或脉冲计数的通道和增量编码器输入</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>2</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>16</span><span
+style='font-family:宋体'>位基本定时器</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>2</span><span
+style='font-family:宋体'>个看门狗定时器（一般型</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>WDT</span><span style='font-family:宋体'>和窗口型</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>WWDT</span><span
+style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>系统滴答定时器：</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>24</span><span style='font-family:宋体'>位递减计数器</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN-US style='font-family:"Arial",sans-serif'>ERTC</span></b><b><span
+style='font-family:宋体'>：</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>增强型</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>RTC</span><span style='font-family:宋体'>，具有自动唤醒、闹钟、亚秒级精度、及硬件日历，带校准功能</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>多达</span></b><b><span lang=EN-US
+style='font-family:"Arial",sans-serif'>23</span></b><b><span style='font-family:
+宋体'>个通信接口</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>3</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>I2C</span><span
+style='font-family:宋体'>接口，支持</span><span lang=EN-US style='font-family:"Arial",sans-serif'>SMBus/PMBus</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>8</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>USART</span><span
+style='font-family:宋体'>接口；支持主同步</span><span lang=EN-US style='font-family:"Arial",sans-serif'>SPI</span><span
+style='font-family:宋体'>和调制解调器控制；具有</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>ISO7816</span><span style='font-family:宋体'>接口、</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>LIN</span><span
+style='font-family:宋体'>、</span><span lang=EN-US style='font-family:"Arial",sans-serif'>IrDA</span><span
+style='font-family:宋体'>、和</span><span lang=EN-US style='font-family:"Arial",sans-serif'>RS485</span><span
+style='font-family:宋体'>驱动使能；支持</span><span lang=EN-US style='font-family:"Arial",sans-serif'>TX/RX</span><span
+style='font-family:宋体'>可配置引脚互换</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>4</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>SPI</span><span
+style='font-family:宋体'>接口（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>40
+M</span><span style='font-family:宋体'>位</span><span lang=EN-US style='font-family:
+"Arial",sans-serif'>/</span><span style='font-family:宋体'>秒），均可复用为半双工</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>I2S</span><span
+style='font-family:宋体'>接口；其中</span><span lang=EN-US style='font-family:"Arial",sans-serif'>I2S2/I2S3</span><span
+style='font-family:宋体'>支持全双工</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>另有</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>1</span><span style='font-family:宋体'>个独立全双工</span><span
+lang=EN-US style='font-family:"Arial",sans-serif'>I2S</span><span
+style='font-family:宋体'>接口（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>I2SF</span><span
+style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>3</span><span
+style='font-family:宋体'>个</span><span lang=EN-US style='font-family:"Arial",sans-serif'>CAN</span><span
+style='font-family:宋体'>接口，各内置</span><span lang=EN-US style='font-family:"Arial",sans-serif'>1408</span><span
+style='font-family:宋体'>字节的专用缓存</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>SDIO</span><span
+style='font-family:宋体'>接口</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>OTGFS</span><span
+style='font-family:宋体'>全速控制器含片上</span><span lang=EN-US style='font-family:"Arial",sans-serif'>PHY</span><span
+style='font-family:宋体'>，内置</span><span lang=EN-US style='font-family:"Arial",sans-serif'>1280</span><span
+style='font-family:宋体'>字节的专用缓存，设备模式时支持无晶振（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>Crystal-less</span><span
+style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>红外发射器（</span><span lang=EN-US
+style='font-family:"Arial",sans-serif'>IRTMR</span><span style='font-family:
+宋体'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN-US style='font-family:"Arial",sans-serif'>CRC</span></b><b><span
+style='font-family:宋体'>计算单元</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN-US style='font-family:"Arial",sans-serif'>96</span></b><b><span
+style='font-family:宋体'>位的芯片唯一码（</span></b><b><span lang=EN-US style='font-family:
+"Arial",sans-serif'>UID</span></b><b><span style='font-family:宋体'>）</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN-US style='font-family:"Arial",sans-serif'>AES</span></b><b><span
+style='font-family:宋体'>硬件加速器，支持</span></b><b><span lang=EN-US style='font-family:
+"Arial",sans-serif'>256/192/128</span></b><b><span style='font-family:宋体'>位密钥大小</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>真随机数发生器（</span></b><b><span
+lang=EN-US style='font-family:"Arial",sans-serif'>TRNG</span></b><b><span
+style='font-family:宋体'>）</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>调试模式</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>&#8722; </span><span
+style='font-family:宋体'>串行线调试（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>SWD</span><span
+style='font-family:宋体'>）和串行线输出（</span><span lang=EN-US style='font-family:"Arial",sans-serif'>SWO</span><span
+style='font-family:宋体'>）接口</span></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>温度范围：</span></b><b><span
+lang=EN-US style='font-family:"Arial",sans-serif'>-40</span></b><b><span
+style='font-family:宋体'>至</span></b><b><span lang=EN-US style='font-family:"Arial",sans-serif'>+105
+°C</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:24.75pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-family:宋体'>封装</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>LQFP144
+20 x 20 mm</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>LQFP100
+14 x 14 mm</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>LQFP64 10
+x 10 mm</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>LQFP48 7
+x 7 mm</span></p>
+
+<p class=MsoNormal align=left style='margin-left:72.0pt;text-align:left;
+text-indent:-18.0pt;background:white'><span lang=EN-US style='font-size:10.0pt;
+font-family:"微软雅黑",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-family:"Arial",sans-serif'>QFN48 6 x
+6 mm</span></p>
+
+</div>
+
+</body>
+
+</html>

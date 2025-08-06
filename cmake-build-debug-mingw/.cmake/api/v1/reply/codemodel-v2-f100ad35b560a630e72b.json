@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "cmake/at32_workbench",
+					"jsonFile" : "directory-cmake.at32_workbench-Debug-dbae8d09b96b00eb2470.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "cmake/at32_workbench",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "APS_FIRMWARE",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "APS_FIRMWARE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-APS_FIRMWARE-Debug-c8f99a6a313594d337a7.json",
+					"name" : "APS_FIRMWARE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AT32_Drivers::@4c4faa2e3e803c5e6b73",
+					"jsonFile" : "target-AT32_Drivers-Debug-7d06fd61120a8e1da86c.json",
+					"name" : "AT32_Drivers",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/ATS/Firmware/APS_CPU_Firmware/cmake-build-debug-mingw",
+		"source" : "D:/ATS/Firmware/APS_CPU_Firmware"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+	<About>USB_HOST: Universal Serial Bus Host</About>
+	<AboutCH>USB设备端</AboutCH>
+	
+	<RefParameter Name="FREERTOS_MID_ENABLE" Comment="FREERTOS_MID_ENABLE" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+    	<Condition Expression="Semaphore_Activated_FREERTOS" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="FREERTOS_MID_ENABLE" Comment="FREERTOS_MID_ENABLE" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="FS Device Descriptor" TabNameCH="FS设备描述" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+	<RefParameter Name="USB_FS1_VBUS" Comment="USB_FS1_VBUS" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+    	<Condition Expression="USB_FS_VBUS" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_FS1_VBUS" Comment="USB_FS1_VBUS" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="USB_FS1_SOF" Comment="USB_FS1_SOF" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+    	<Condition Expression="USB_FS_SOF" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_FS1_SOF" Comment="USB_FS1_SOF" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="USB_HS1_VBUS" Comment="USB_HS1_VBUS" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+    	<Condition Expression="USB_HS_VBUS" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_HS1_VBUS" Comment="USB_HS1_VBUS" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+    <RefParameter Name="USB_HS1_SOF" Comment="USB_HS1_SOF" DefaultValue="TRUE" Group="Basic config" GroupCH="基础配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+    	<Condition Expression="USB_HS_SOF" Diagnostic=""/>
+        <PossibleValue Comment="TRUE" Value="TRUE"/>
+    </RefParameter>
+    <RefParameter Name="USB_HS1_SOF" Comment="USB_HS1_SOF" DefaultValue="FALSE" Group="Basic config" GroupCH="基础配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+        <PossibleValue Comment="FALSE" Value="FALSE"/>
+    </RefParameter>
+    
+	<!-- RefMode for OTGFS_Host-->
+    <RefParameter Name="USB_HOST_FS_Mode" Comment="" DefaultValue="VM_USB_HOST_FS_NONE" Group="FS Host config" GroupCH="FS 设备配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+    	<PossibleValue Comment="" Value="VM_USB_HOST_FS_NONE"/>
+    </RefParameter>
+    <RefParameter Name="USB_HOST_FS_Mode" Comment="" DefaultValue="VM_USB_HOST_FS_CDC" Group="FS Host config" GroupCH="FS 设备配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_HOST_CDC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_HOST_FS_CDC"/>
+    </RefParameter>
+    <RefParameter Name="USB_HOST_FS_Mode" Comment="" DefaultValue="VM_USB_HOST_FS_HID" Group="FS Host config" GroupCH="FS 设备配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_HOST_HID" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_HOST_FS_HID"/>
+    </RefParameter>
+    <RefParameter Name="USB_HOST_FS_Mode" Comment="" DefaultValue="VM_USB_HOST_FS_MSC" Group="FS Host config" GroupCH="FS 设备配置" TabName="FS Parameters" TabNameCH="FS参数设置" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGFS_HOST_MSC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_HOST_FS_MSC"/>
+    </RefParameter>
+
+	<RefParameter Name="HOST_FS_Receive_FIFO_Size" Comment="Receive FIFO Size(word)" CommentCH="接收FIFO大小(word)" DefaultValue="128" Min="0" Max="320" Group="Channel FIFO Size config" GroupCH="通道FIFO大小配置" Type="integer" TabName="FS Parameters" TabNameCH="FS参数设置" Reload="true"/>
+	
+	<RefParameter Name="HOST_FS_Transmit_FIFO_Size_NP" Comment="Non-periodic transmit FIFO Size(word)" CommentCH="非周期性发送FIFO大小(word)" DefaultValue="96" Min="0" Max="320" Group="Channel FIFO Size config" GroupCH="通道FIFO大小配置" Type="integer" TabName="FS Parameters" TabNameCH="FS参数设置" Reload="true"/>
+
+    <RefParameter Name="HOST_FS_Transmit_FIFO_Size_P" Comment="Periodic transmit FIFO Size(word)" CommentCH="周期性发送FIFO大小(word)" DefaultValue="96" Min="0" Max="320" Group="Channel FIFO Size config" GroupCH="通道FIFO大小配置" Type="integer" TabName="FS Parameters" TabNameCH="FS参数设置" Reload="true"/>
+
+
+	<!-- RefMode for OTGHS_Host-->
+    <RefParameter Name="USB_HOST_HS_Mode" Comment="" DefaultValue="VM_USB_HOST_HS_NONE" Group="HS Host config" GroupCH="HS 设备配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+    	<PossibleValue Comment="" Value="VM_USB_HOST_HS_NONE"/>
+    </RefParameter>
+    <RefParameter Name="USB_HOST_HS_Mode" Comment="" DefaultValue="VM_USB_HOST_HS_CDC" Group="HS Host config" GroupCH="HS 设备配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_HOST_CDC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_HOST_HS_CDC"/>
+    </RefParameter>
+    <RefParameter Name="USB_HOST_HS_Mode" Comment="" DefaultValue="VM_USB_HOST_HS_HID" Group="HS Host config" GroupCH="HS 设备配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_HOST_HID" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_HOST_HS_HID"/>
+    </RefParameter>
+    <RefParameter Name="USB_HOST_HS_Mode" Comment="" DefaultValue="VM_USB_HOST_HS_MSC" Group="HS Host config" GroupCH="HS 设备配置" TabName="HS Parameters" TabNameCH="HS参数设置" Type="list" Visible="false">
+    	<Condition Expression="$IpInstance_OTGHS_HOST_MSC" Diagnostic=""/>
+        <PossibleValue Comment="" Value="VM_USB_HOST_HS_MSC"/>
+    </RefParameter>
+
+	<RefParameter Name="HOST_HS_Receive_FIFO_Size" Comment="Receive FIFO Size(word)" CommentCH="接收FIFO大小(word)" DefaultValue="256" Min="0" Max="1024" Group="Channel FIFO Size config" GroupCH="通道FIFO大小配置" Type="integer" TabName="HS Parameters" TabNameCH="HS参数设置" Reload="true"/>
+	
+	<RefParameter Name="HOST_HS_Transmit_FIFO_Size_NP" Comment="Non-periodic transmit FIFO Size(word)" CommentCH="非周期性发送FIFO大小(word)" DefaultValue="256" Min="0" Max="1024" Group="Channel FIFO Size config" GroupCH="通道FIFO大小配置" Type="integer" TabName="HS Parameters" TabNameCH="HS参数设置" Reload="true"/>
+
+    <RefParameter Name="HOST_HS_Transmit_FIFO_Size_P" Comment="Periodic transmit FIFO Size(word)" CommentCH="周期性发送FIFO大小(word)" DefaultValue="256" Min="0" Max="1024" Group="Channel FIFO Size config" GroupCH="通道FIFO大小配置" Type="integer" TabName="HS Parameters" TabNameCH="HS参数设置" Reload="true"/>
+
+
+
+    <RefMode Name="OTG_Mode" Abstract="true">
+    	    <Parameter Name="FREERTOS_MID_ENABLE"/>
+	    <Parameter Name="USB_FS1_VBUS"/>
+	    <Parameter Name="USB_FS1_SOF"/>
+	    <Parameter Name="USB_HS1_VBUS"/>
+	    <Parameter Name="USB_HS1_SOF"/>
+	    <Parameter Name="USB_HOST_HS_Mode"/>
+	    <Parameter Name="USB_HOST_FS_Mode"/>
+    </RefMode>
+    
+    <!-- RefMode for OTGFS_Host-->
+    <RefMode BaseMode="OTGFS_Host" Name="CDC">
+    	<!-- Host config Parameters -->
+        <Parameter Name="HOST_FS_Receive_FIFO_Size"/>
+        <Parameter Name="HOST_FS_Transmit_FIFO_Size_NP"/>
+        <Parameter Name="HOST_FS_Transmit_FIFO_Size_P"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Host" Name="HID">
+    	<!-- Host config Parameters -->
+        <Parameter Name="HOST_FS_Receive_FIFO_Size"/>
+        <Parameter Name="HOST_FS_Transmit_FIFO_Size_NP"/>
+        <Parameter Name="HOST_FS_Transmit_FIFO_Size_P"/>
+    </RefMode>
+    <RefMode BaseMode="OTGFS_Host" Name="MSC">
+    	<!-- Host config Parameters -->
+        <Parameter Name="HOST_FS_Receive_FIFO_Size"/>
+        <Parameter Name="HOST_FS_Transmit_FIFO_Size_NP"/>
+        <Parameter Name="HOST_FS_Transmit_FIFO_Size_P"/>
+    </RefMode>
+
+    
+    <!-- RefMode for OTGHS_Host-->
+    <RefMode BaseMode="OTGHS_Host" Name="CDC">
+    	<!-- Host config Parameters -->
+        <Parameter Name="HOST_HS_Receive_FIFO_Size"/>
+        <Parameter Name="HOST_HS_Transmit_FIFO_Size_NP"/>
+        <Parameter Name="HOST_HS_Transmit_FIFO_Size_P"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Host" Name="HID">
+    	<!-- Host config Parameters -->
+        <Parameter Name="HOST_HS_Receive_FIFO_Size"/>
+        <Parameter Name="HOST_HS_Transmit_FIFO_Size_NP"/>
+        <Parameter Name="HOST_HS_Transmit_FIFO_Size_P"/>
+    </RefMode>
+    <RefMode BaseMode="OTGHS_Host" Name="MSC">
+    	<!-- Host config Parameters -->
+        <Parameter Name="HOST_HS_Receive_FIFO_Size"/>
+        <Parameter Name="HOST_HS_Transmit_FIFO_Size_NP"/>
+        <Parameter Name="HOST_HS_Transmit_FIFO_Size_P"/>
+    </RefMode>
+    
+    
+                        
+    <ModeLogicOperator Name="OR">
+        <Mode Name="OTGFS_Host" UserName="OTGFS1 Host Class" UserNameCH="OTGFS1 主机类">
+            <Condition Expression="USB_OTG_FS_HOST &amp; TimeBase_Enable_SYSTEM"
+        	  	                   Diagnostic="(1)&quot;Host&quot; must be selected in USB_OTGFS1.&lt;br&gt;(2)&quot;Timebase Source&quot; must be enabled in SYSTEM"
+                    	          DiagnosticCH="(1)USB_OTGFS1需选择&quot;主机&quot;模式&lt;br&gt;(2)SYSTEM中&quot;时基源&quot;必须开启"/>
+            <ModeLogicOperator Name="XOR">
+                <Mode Name="CDC" UserName="Virtual Com Port(CDC)" UserNameCH="Virtual Com Port(CDC)">
+                    <Semaphore>$IpInstance_OTGFS_HOST_CDC</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+                <Mode Name="HID" UserName="HID" UserNameCH="HID">
+                    <Semaphore>$IpInstance_OTGFS_HOST_HID</Semaphore>
+                    <Semaphore>$IpInstance_OTGFS</Semaphore>
+                    <Semaphore>USB_MID_ENABLE</Semaphore>
+                </Mode>
+            </ModeLogicOperator>
+        </Mode>
+    </ModeLogicOperator>
+                       
+</IP>

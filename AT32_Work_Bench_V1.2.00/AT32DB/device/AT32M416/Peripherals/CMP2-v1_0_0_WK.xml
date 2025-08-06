@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+	<About>Comparator</About>
+	<AboutCH>比较器</AboutCH>
+	
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM0" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM0"/>
+		<PossibleValue Comment="INM_0" CommentCH="INM_0" Value="CMP_INVERTING_INM0"/>
+	</RefParameter>
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM1" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM1"/>
+		<PossibleValue Comment="INM_1" CommentCH="INM_1" Value="CMP_INVERTING_INM1"/>
+	</RefParameter>
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM2" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM2"/>
+		<PossibleValue Comment="INM_2" CommentCH="INM_2" Value="CMP_INVERTING_INM2"/>
+	</RefParameter>
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM3" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM3"/>
+		<PossibleValue Comment="INM_3" CommentCH="INM_3" Value="CMP_INVERTING_INM3"/>
+	</RefParameter>
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM4" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM4"/>
+		<PossibleValue Comment="INM_4" CommentCH="INM_4" Value="CMP_INVERTING_INM4"/>
+	</RefParameter>
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM5" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM5"/>
+		<PossibleValue Comment="INM_5" CommentCH="INM_5" Value="CMP_INVERTING_INM5"/>
+	</RefParameter>
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM6" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM6"/>
+		<PossibleValue Comment="INM_6" CommentCH="INM_6" Value="CMP_INVERTING_INM6"/>
+	</RefParameter>
+	<RefParameter Comment="Inverting Input" CommentCH="输入反相" DefaultValue="CMP_INVERTING_INM7" Group="Pinout Parameters" GroupCH="引脚参数" Name="InvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INM7"/>
+		<PossibleValue Comment="INM_7" CommentCH="INM_7" Value="CMP_INVERTING_INM7"/>
+	</RefParameter>
+	
+	<RefParameter Comment="Non Inverting Input" CommentCH="输入不反相" DefaultValue="CMP_NON_INVERTING_INP0" Group="Pinout Parameters" GroupCH="引脚参数" Name="NonInvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INP0"/>
+		<PossibleValue Comment="INP_0" CommentCH="INP_0" Value="CMP_NON_INVERTING_INP0"/>
+	</RefParameter>
+	<RefParameter Comment="Non Inverting Input" CommentCH="输入不反相" DefaultValue="CMP_NON_INVERTING_INP1" Group="Pinout Parameters" GroupCH="引脚参数" Name="NonInvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INP1"/>
+		<PossibleValue Comment="INP_1" CommentCH="INP_1" Value="CMP_NON_INVERTING_INP1"/>
+	</RefParameter>
+	<RefParameter Comment="Non Inverting Input" CommentCH="输入不反相" DefaultValue="CMP_NON_INVERTING_INP2" Group="Pinout Parameters" GroupCH="引脚参数" Name="NonInvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INP2"/>
+		<PossibleValue Comment="INP_2" CommentCH="INP_2" Value="CMP_NON_INVERTING_INP2"/>
+	</RefParameter>
+	<RefParameter Comment="Non Inverting Input" CommentCH="输入不反相" DefaultValue="CMP_NON_INVERTING_INP3" Group="Pinout Parameters" GroupCH="引脚参数" Name="NonInvertingInput" Type="list" Visible="false">
+		<Condition Diagnostic="" Expression="$IpInstance_INP3"/>
+		<PossibleValue Comment="INP_3" CommentCH="INP_3" Value="CMP_NON_INVERTING_INP3"/>
+	</RefParameter>
+
+	
+	<!-- Basic Parameters -->
+	<RefParameter Comment="Speed selection" CommentCH="速度选择" DefaultValue="CMP_SPEED_FAST" Group="Basic Parameters" GroupCH="基础参数" Name="Mode" Type="list">
+		<PossibleValue Comment="Fast Speed" CommentCH="高速" Value="CMP_SPEED_FAST"/>
+		<PossibleValue Comment="Medium speed" CommentCH="中速" Value="CMP_SPEED_MEDIUM"/>
+		<PossibleValue Comment="Low speed" CommentCH="低速" Value="CMP_SPEED_SLOW"/>
+		<PossibleValue Comment="Ultralow speed" CommentCH="超低速" Value="CMP_SPEED_ULTRALOW"/>
+	</RefParameter>
+	
+	<RefParameter Comment="Interrupt" CommentCH="中断" DefaultValue="DISABLE" Group="Basic Parameters" GroupCH="基础参数" Name="Interrupt" Type="list">		
+		<PossibleValue Comment="Disable" CommentCH="禁用" Value="DISABLE"/>
+		<PossibleValue Comment="Enable" CommentCH="启用" Value="ENABLE"/>
+	</RefParameter>
+	
+	<RefParameter Comment="Interrupt Trigger Polarity" CommentCH="中断触发极性" DefaultValue="EXINT_TRIGGER_RISING_EDGE" Group="Basic Parameters" GroupCH="基础参数" Name="TriggerPolarity" Type="list">
+		<Condition Diagnostic="" Expression = "Interrupt = ENABLE"/>
+		<PossibleValue Comment="Rising Edge" CommentCH="上升沿" Value="EXINT_TRIGGER_RISING_EDGE"/>
+		<PossibleValue Comment="Falling Edge" CommentCH="下降沿" Value="EXINT_TRIGGER_FALLING_EDGE"/>
+		<PossibleValue Comment="Rising/Falling Edge" CommentCH="上升沿/下降沿" Value="EXINT_TRIGGER_BOTH_EDGE"/>
+	</RefParameter>
+	
+	<!-- Hysteresis Level -->
+	<RefParameter Comment="Hysteresis Level" CommentCH="迟滞等级" DefaultValue="CMP_HYSTERESIS_NONE" Group="Basic Parameters" GroupCH="基础参数" Name="Hysteresis" Type="list">
+		<PossibleValue Comment="None" CommentCH="无" Value="CMP_HYSTERESIS_NONE"/>
+		<PossibleValue Comment="Low" CommentCH="低度迟滞" Value="CMP_HYSTERESIS_LOW"/>
+		<PossibleValue Comment="Medium" CommentCH="中度迟滞" Value="CMP_HYSTERESIS_MEDIUM"/>
+		<PossibleValue Comment="High" CommentCH="高度迟滞" Value="CMP_HYSTERESIS_HIGH"/>
+	</RefParameter>
+	
+	<!-- Blank source -->
+	<RefParameter Comment="Blank source" CommentCH="消隐窗口源" DefaultValue="CMP_BLANKING_NONE" Group="Basic Parameters" GroupCH="基础参数" Name="BlankSource" Type="list">
+		<PossibleValue Comment="None" CommentCH="无" Value="CMP_BLANKING_NONE"/>
+		<PossibleValue Comment="TMR1_OC4" CommentCH="TMR1_OC4" Value="CMP_BLANKING_TMR1_CH4"/>
+		<PossibleValue Comment="TMR1_OC5" CommentCH="TMR1_OC5" Value="CMP_BLANKING_TMR1_CH5"/>
+		<PossibleValue Comment="TMR3_OC3" CommentCH="TMR3_OC3" Value="CMP_BLANKING_TMR3_CH3"/>
+		<PossibleValue Comment="TMR9_OC2" CommentCH="TMR9_OC2" Value="CMP_BLANKING_TMR9_CH2"/>
+		<PossibleValue Comment="TMR9_OC1" CommentCH="TMR9_OC1" Value="CMP_BLANKING_TMR9_CH1"/>
+		<PossibleValue Comment="TMR4_OC3" CommentCH="TMR4_OC3" Value="CMP_BLANKING_TMR4_CH3"/>
+	</RefParameter>
+	
+	<!-- write protect -->
+	<RefParameter Comment="Write protect" CommentCH="写保护" DefaultValue="DISABLE" Group="Basic Parameters" GroupCH="基础参数" Name="WriteProtect" Type="list">
+		<PossibleValue Comment="Disable" CommentCH="禁用" Value="DISABLE"/>
+		<PossibleValue Comment="Enable" CommentCH="启用" Value="ENABLE"/>
+	</RefParameter>
+	
+	<!-- Glitch filter -->
+	<RefParameter Comment="Glitch filter" CommentCH="干扰滤波器" DefaultValue="DISABLE" Group="Basic Parameters" GroupCH="基础参数" Name="GlitchFilter" Type="list">
+		<PossibleValue Comment="Disable" CommentCH="禁用" Value="DISABLE"/>
+		<PossibleValue Comment="Enable" CommentCH="启用" Value="ENABLE"/>
+	</RefParameter>
+	
+	<!-- High pulse Count -->
+	<RefParameter Comment="High pulse Count" CommentCH="高脉冲计数值" DefaultValue="0" Group="Basic Parameters" GroupCH="基础参数" Max="3F" Min="0" Name="HighPulseCount" Type="hexadecimal">
+		<Condition Diagnostic="" Expression="GlitchFilter = ENABLE"/>
+	</RefParameter>
+	
+	<!-- High pulse Count -->
+	<RefParameter Comment="Low pulse Count" CommentCH="低脉冲计数值" DefaultValue="0" Group="Basic Parameters" GroupCH="基础参数" Max="3F" Min="0" Name="LowPulseCount" Type="hexadecimal">
+		<Condition Diagnostic="" Expression="GlitchFilter = ENABLE"/>
+	</RefParameter>
+		
+	<!-- Output Parameters -->
+	<RefParameter Comment="Output Polarity" CommentCH="输出极性选择" DefaultValue="CMP_POL_NON_INVERTING" Group="Output Parameters" GroupCH="输出参数" Name="OutputPol" Type="list">
+		<PossibleValue Comment="Not Inverted" CommentCH="输出极性不反相" Value="CMP_POL_NON_INVERTING"/>
+		<PossibleValue Comment="Inverted" CommentCH="输出极性反相" Value="CMP_POL_INVERTING"/>
+	</RefParameter>
+	
+	<!-- 'Inverting Input' RefModes list -->
+	<RefMode BaseMode="InputNeg" Name="INM0">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	<RefMode BaseMode="InputNeg" Name="INM1">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	<RefMode BaseMode="InputNeg" Name="INM2">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	<RefMode BaseMode="InputNeg" Name="INM3">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	<RefMode BaseMode="InputNeg" Name="INM4">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	<RefMode BaseMode="InputNeg" Name="INM5">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	<RefMode BaseMode="InputNeg" Name="INM6">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	<RefMode BaseMode="InputNeg" Name="INM7">
+		<Parameter Name="Mode"/>
+		<Parameter Name="Interrupt"/>
+		<Parameter Name="TriggerPolarity"/>
+		<Parameter Name="Hysteresis"/>
+		<Parameter Name="BlankSource"/>
+		<Parameter Name="WriteProtect"/>
+		<Parameter Name="GlitchFilter"/>
+		<Parameter Name="HighPulseCount"/>
+		<Parameter Name="LowPulseCount"/>
+		<Parameter Name="OutputPol"/>
+		<Parameter Name="NonInvertingInput"/>
+		<Parameter Name="InvertingInput"/>
+	</RefMode>
+	
+	
+	<!-- Modes for COMP. Defined for Stingray (F05x/F07x) -->
+	<ModeLogicOperator Name="OR">
+		<Mode Name="InputPlus" UserName="Non-inverting input selection (Input [+])" UserNameCH="同相输入选择 (Input [+])">
+			<ModeLogicOperator Name="XOR">
+				<Mode Name="INP0" UserName="INP0" UserNameCH="INP0">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="INP0"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INP0</Semaphore>
+					<Semaphore>$IpInstance_InputPlus</Semaphore>
+				</Mode>
+				<Mode Name="INP1" UserName="INP1" UserNameCH="INP1">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="INP1"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INP1</Semaphore>
+					<Semaphore>$IpInstance_InputPlus</Semaphore>
+				</Mode>
+				<Mode Name="INP2" UserName="INP2" UserNameCH="INP2">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="INP2"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INP2</Semaphore>
+					<Semaphore>$IpInstance_InputPlus</Semaphore>
+				</Mode>
+				<Mode Name="INP3" UserName="INP3" UserNameCH="INP3">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="VS_INP3"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INP3</Semaphore>
+					<Semaphore>$IpInstance_InputPlus</Semaphore>
+				</Mode>
+			</ModeLogicOperator>
+		</Mode>
+		
+		<Mode Name="InputNeg" UserName="Inverting input selection (Input [-])" UserNameCH="反相输入选择 (Input [-])">
+			<ModeLogicOperator Name="XOR">
+				<Mode Name="INM0" UserName="INM0" UserNameCH="INM0">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="VS_INM0"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM0</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>
+				<Mode Name="INM1" UserName="INM1" UserNameCH="INM1">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="VS_INM1"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM1</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>
+				<Mode Name="INM2" UserName="INM2" UserNameCH="INM2">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="VS_INM2"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM2</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>
+				<Mode Name="INM3" UserName="INM3" UserNameCH="INM3">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="VS_INM3"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM3</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>
+				<Mode Name="INM4" UserName="INM4" UserNameCH="INM4">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="INM4"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM4</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>
+				<Mode Name="INM5" UserName="INM5" UserNameCH="INM5">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="INM5"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM5</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>
+				<Mode Name="INM6" UserName="INM6" UserNameCH="INM6">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="INM6"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM6</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>
+				<Mode Name="INM7" UserName="INM7" UserNameCH="INM7">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="INM7"/>
+					</SignalLogicalOp>
+					<Semaphore>$IpInstance_INM7</Semaphore>
+					<Semaphore>$IpInstance_Enable</Semaphore>
+				</Mode>				
+			</ModeLogicOperator>
+			<Condition Expression="$IpInstance_InputPlus" Diagnostic="Need to have an &quot;Non-inverting input selection (Input [+])&quot; activated" DiagnosticCH="需要选择 &quot;同相输入选择 (Input [+])&quot;"/>
+		</Mode>
+		
+		<Mode Name="ExternalOutput" UserName="External Output" UserNameCH="外部输出">
+			<ModeLogicOperator Name="OR">
+				<Mode Name="ExternalOutput" UserName="External Output" UserNameCH="外部输出">
+					<SignalLogicalOp Name="AND">
+						<Signal Name="OUT"/>
+					</SignalLogicalOp>
+				</Mode>
+			</ModeLogicOperator>
+			<Condition Expression="$IpInstance_InputPlus" Diagnostic="Need to have an &quot;Non-inverting input selection (Input [+])&quot; activated" DiagnosticCH="需要选择 &quot;同相输入选择 (Input [+])&quot;"/>
+		</Mode>
+	</ModeLogicOperator>
+	
+	<!-- Signals for CMP. -->
+	<RefSignal IOMode="Analog" Name="INP0"/>
+	<RefSignal IOMode="Analog" Name="INP1"/>
+	<RefSignal IOMode="Analog" Name="INP2"/>
+	<RefSignal IOMode="Analog" Name="INM4"/>
+	<RefSignal IOMode="Analog" Name="INM5"/>
+	<RefSignal IOMode="Analog" Name="INM6"/>
+	<RefSignal IOMode="Analog" Name="INM7"/>
+	<RefSignal IOMode="MuxOutputPushPull" Name="OUT"/>
+	
+	<RefSignal Name="VS_INP3" Virtual="true"/>
+	<RefSignal Name="VS_INM0" Virtual="true"/>
+	<RefSignal Name="VS_INM1" Virtual="true"/>
+	<RefSignal Name="VS_INM2" Virtual="true"/>
+	<RefSignal Name="VS_INM3" Virtual="true"/>
+
+	<!-- Semaphore for COMP -->
+	<Semaphore>$IpInstance</Semaphore>
+</IP>

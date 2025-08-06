@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+    <About>FreeRTOS</About>
+    <AboutCH>FreeRTOS</AboutCH>
+
+    <!-- *************************** System version ******************************-->
+    <RefParameter Name="FreeRTOS_version" Comment="FreeRTOS version" CommentCH="FreeRTOS 版本" DefaultValue="10.4.3" Type="string text" Unit=""  Group="System version" GroupCH="系统版本" TabName="Config parameters" TabNameCH="配置参数">
+        <Annotation Note="FreeRTOS version. &lt;br&gt;" 
+        	  	                   NoteCH="FreeRTOS 版本。&lt;br&gt;"/>
+    </RefParameter>
+
+    <RefParameter Name="MCU_SRAM_SIZE" Comment="MCU_SRAM_SIZE" CommentCH="MCU_SRAM_SIZE" Max="104448" Min="104448" DefaultValue="104448" Type="integer" Unit="Bytes"  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Visible="false">
+    </RefParameter>
+    
+    <RefParameter Name="USB_MID_STATUS" Comment="USB_MID_STATUS" CommentCH="USB_MID_STATUS" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Visible="false">
+        <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+    </RefParameter>
+     <RefParameter Name="USB_MID_STATUS" Comment="USB_MID_STATUS" CommentCH="USB_MID_STATUS" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Visible="false">
+        <Condition Diagnostic="" Expression="USB_MID_ENABLE"/>
+        <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="LWIP_MID_STATUS" Comment="LWIP_MID_STATUS" CommentCH="LWIP_MID_STATUS" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Visible="false">
+        <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+    </RefParameter>
+     <RefParameter Name="LWIP_MID_STATUS" Comment="LWIP_MID_STATUS" CommentCH="LWIP_MID_STATUS" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Visible="false">
+        <Condition Diagnostic="" Expression="S_LWIP"/>
+        <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="SYSTEM_Include" Comment="SYSTEM_Include" CommentCH="SYSTEM_Include" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Visible="false">
+        <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+    </RefParameter>
+     <RefParameter Name="SYSTEM_Include" Comment="SYSTEM_Include" CommentCH="SYSTEM_Include" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Visible="false">
+        <Condition Diagnostic="" Expression="TimeBase_Enable_SYSTEM | Printf_Enable_SYSTEM"/>
+        <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <!-- *************************** Kernel settings ******************************-->
+    <RefParameter Name="configUSE_PRE_EMPTION" Comment="configUSE_PRE_EMPTION" CommentCH="configUSE_PRE_EMPTION" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Setting to enable will cause the pre-emptive scheduler to be used. &lt;br&gt;&lt;br&gt;
+            	                                    Setting to disable will cause the co-operative scheduler to be used. &lt;br&gt;" 
+        	  	                      NoteCH="如果希望使用抢占式 RTOS 调度器，请将其设置为开启；&lt;br&gt;
+        	  	                                         如果希望使用协同式 RTOS 调度器，请将其设置为关闭。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_TIME_SLICING" Comment="configUSE_TIME_SLICING" CommentCH="configUSE_TIME_SLICING" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="By default FreeRTOS uses prioritized preemptive scheduling with time slicing. &lt;br&gt;&lt;br&gt;
+            	                                   If set to disable then the RTOS scheduler will still run the highest priority task that is in the Ready state, but will not switch between tasks of equal priority just because a tick interrupt executed. &lt;br&gt;" 
+        	  	                NoteCH="默认情况下FreeRTOS使用抢占调度和时间片。&lt;br&gt;
+        	  	                                   如果设置为关闭，那么RTOS会一直在优先级最高且处于就绪态的任务中运行，不会在优先级相同的任务间以系统滴答为单位进行切换。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configCPU_CLOCK_HZ" Comment="configCPU_CLOCK_HZ" CommentCH="configCPU_CLOCK_HZ" DefaultValue="system_core_clock" Type="string text" Unit="Hz"  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+        <Annotation Note="This must be set to the frequency of the clock that drives the peripheral used to generate the kernels periodic tick interrupt. &lt;br&gt;
+        	                                     This is very often, but not always, equal to the main system clock frequency.&lt;br&gt;" 
+        	  	                   NoteCH="输入内部时钟的执行频率（单位为 Hz），该时钟可驱动用于生成滴答中断的外围设备。 &lt;br&gt;
+        	  	                                      通常情况下，此频率与驱动内部 CPU 时钟的频率相同。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configTICK_RATE_HZ" Comment="configTICK_RATE_HZ" CommentCH="configTICK_RATE_HZ" Max="1000" Min="1" DefaultValue="1000" Type="integer" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+        <Annotation Note="Sets the tick interrupt frequency. The value is specified in Hz.&lt;br&gt;" 
+        	  	                   NoteCH="RTOS 滴答中断的频率，单位Hz。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configMAX_PRIORITIES" Comment="configMAX_PRIORITIES" CommentCH="configMAX_PRIORITIES" Max="512" Min="1" DefaultValue="16" Type="integer" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+        <Annotation Note="Sets the maximum priority that can be assigned to a task. &lt;br&gt;
+        	                                    Tasks can be assigned a priority from zero, which is the lowest priority, &lt;br&gt;
+        	                                    to (configMAX_PRIORITIES – 1), which is the highest priority.&lt;br&gt;
+        	                                    Default set to 16." 
+        	  	                   NoteCH="应用程序任务可用的优先级数量。&lt;br&gt;
+        	  	                                      任务的优先级可以设定为0，这是最低的优先级；&lt;br&gt;
+        	  	                                      可以设定为configMAX_PRIORITIES – 1，这是最高的优先级。&lt;br&gt;
+        	  	                                      默认配置为16.&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configMINIMAL_STACK_SIZE" Comment="configMINIMAL_STACK_SIZE" CommentCH="configMINIMAL_STACK_SIZE" Max="1000" Min="1" DefaultValue="128" Type="integer" Unit="words"  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+        <Annotation Note="Sets the size of the stack allocated to the Idle task. &lt;br&gt;
+        	                                     The value is specified in words, not bytes.&lt;br&gt;" 
+        	  	                   NoteCH="空闲任务使用的堆栈大小。&lt;br&gt;
+        	  	                                      堆栈大小以字为单位，而不是字节。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configMAX_TASK_NAME_LEN" Comment="configMAX_TASK_NAME_LEN" CommentCH="configMAX_TASK_NAME_LEN" Max="255" Min="1" DefaultValue="16" Type="integer" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+        <Annotation Note="Sets the maximum number of characters that can be used for the name of a task. &lt;br&gt;
+        	                                     The NULL terminator is included in the count of characters.&lt;br&gt;" 
+        	  	                   NoteCH="创建任务时，赋予该任务的描述性名称的最大允许长度。 &lt;br&gt;
+        	  	                                      长度以字符数指定，包括 NULL 终止字节。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_16_BIT_TICKS" Comment="configUSE_16_BIT_TICKS" CommentCH="configUSE_16_BIT_TICKS" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="The tick count is held in a variable of type TickType_t. &lt;br&gt;
+            	                                    When set to enable, TickType_t is defined to be an unsigned 16-bit type. &lt;br&gt;
+            	                                    When set to disable, TickType_t is defined to be an unsigned 32-bit type. &lt;br&gt;
+            	                                    Using a 16-bit type can greatly improve efficiency on 8-bit and 16-bit microcontrollers, but at the cost of limiting the maximum block time that can be specified. &lt;br&gt;" 
+        	  	                      NoteCH="所测量时间的单位为“滴答”，此值是指自 RTOS 内核启动以来滴答中断执行的次数。 滴答计数保存在类型为TickType_t的变量中。&lt;br&gt;
+        	  	                                         设置为开启：会将 TickType_t 定义 (typedef) 为无符号的 16 位类型。 &lt;br&gt;
+        	  	                                         设置为关闭：会将 TickType_t 定义 (typedef) 为无符号的 32 位类型。 &lt;br&gt;
+        	  	                                         在 8 位和 16 位架构上使用 16 位类型可显著提高性能。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configIDLE_SHOULD_YIELD" Comment="configIDLE_SHOULD_YIELD" CommentCH="configIDLE_SHOULD_YIELD" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="If set to disable, then the idle task will never yield to another task, and will only leave the Running state when it is pre-empted.&lt;br&gt;
+            	                                    If set to enable, then idle task will never perform more than one iteration of its defined functionality without yielding to another task if there is another Idle priority task that is in the Ready state. &lt;br&gt;
+            	                                    This ensures a minimum amount of time is spent in the idle task when application tasks are available to run.&lt;br&gt;" 
+        	  	                      NoteCH="设置为关闭可防止空闲任务 在其时间切片结束前让出处理时间。&lt;br&gt;
+        	  	                                         设置为开启则在其他具有空闲优先级的任务准备运行时，空闲任务将立即让出 CPU。&lt;br&gt;
+        	  	                                         这可确保在有应用程序任务可供调度时，空闲任务所占用的时间最少。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_MUTEXES" Comment="configUSE_MUTEXES" CommentCH="configUSE_MUTEXES" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+            <Annotation Note="Setting to enable will include the mutex functionality and its associated API in the build. &lt;br&gt;
+            	                                    Setting to disable will exclude the mutex functionality and its associated API from the build.&lt;br&gt;" 
+        	  	                      NoteCH="如果希望在构建中包含互斥锁功能，请将其设置为开启；&lt;br&gt;
+        	  	                                         如果希望从构建中忽略互斥锁功能，请将其设置为关闭。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_RECURSIVE_MUTEXES" Comment="configUSE_RECURSIVE_MUTEXES" CommentCH="configUSE_RECURSIVE_MUTEXES" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+            <Condition Diagnostic="" Expression="configUSE_MUTEXES = 1"/>
+            <Annotation Note="Setting to enable will cause the recursive mutex functionality and its associated API to be included in the build. &lt;br&gt;
+            	                                    Setting to disable will cause the recursive mutex functionality and its associated API to be excluded from the build. &lt;br&gt;" 
+        	  	                      NoteCH="如果希望在构建中包含递归互斥锁功能，请将其设置为开启；&lt;br&gt;
+        	  	                                         如果希望从构建中忽略递归互斥锁功能，请将其设置为关闭。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/> 
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_RECURSIVE_MUTEXES" Comment="configUSE_RECURSIVE_MUTEXES" CommentCH="configUSE_RECURSIVE_MUTEXES" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+            <Condition Diagnostic="" Expression="configUSE_MUTEXES = 0"/>
+            <Annotation Note="Setting to enable will cause the recursive mutex functionality and its associated API to be included in the build. &lt;br&gt;
+            	                                    Setting to disable will cause the recursive mutex functionality and its associated API to be excluded from the build. &lt;br&gt;" 
+        	  	                      NoteCH="如果希望在构建中包含递归互斥锁功能，请将其设置为开启；&lt;br&gt;
+        	  	                                         如果希望从构建中忽略递归互斥锁功能，请将其设置为关闭。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_COUNTING_SEMAPHORES" Comment="configUSE_COUNTING_SEMAPHORES" CommentCH="configUSE_COUNTING_SEMAPHORES" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+            <Annotation Note="Setting to enable will include the counting semaphore functionality and its associated API in the build. &lt;br&gt;
+            	                                    Setting to disable will exclude the counting semaphore functionality and its associated API from the build. &lt;br&gt;" 
+        	  	                      NoteCH="如果希望在构建中包含计数信号量功能，请将其设置为开启；&lt;br&gt;
+        	  	                                         如果希望从构建中忽略计数信号量功能，请将其设置为关闭。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configQUEUE_REGISTRY_SIZE" Comment="configQUEUE_REGISTRY_SIZE" CommentCH="configQUEUE_REGISTRY_SIZE" Max="255" Min="0" DefaultValue="8" Type="integer" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="The queue registry is only required when a kernel aware debugger is being used. &lt;br&gt;
+            	                                    At all other times it has no purpose and can be omitted by setting configQUEUE_REGISTRY_SIZE to 0, or by omitting the configQUEUE_REGISTRY_SIZE configuration constant definition altogether.&lt;br&gt;" 
+        	  	                      NoteCH="队列注册表仅在使用 RTOS 内核感知调试器时才有作用。&lt;br&gt;
+        	  	                                         其他情况下可以设置 configQUEUE_REGISTRY_SIZE为1忽略掉。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_APPLICATION_TASK_TAG" Comment="configUSE_APPLICATION_TASK_TAG" CommentCH="configUSE_APPLICATION_TASK_TAG" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Setting to enable will include both the vTaskSetApplicationTaskTag() and xTaskCallApplicationTaskHook() API functions in the build. &lt;br&gt;
+            	                                    Setting to disable will exclude both the vTaskSetApplicationTaskTag() and the xTaskCallApplicationTaskHook() API functions from the build.&lt;br&gt;" 
+        	  	                      NoteCH="设置为开启会将vTaskSetApplicationTaskTag() 和 xTaskCallApplicationTaskHook() 函数编译进内核；&lt;br&gt;
+        	  	                                         设置为关闭不会将vTaskSetApplicationTaskTag() 和 xTaskCallApplicationTaskHook() 函数编译进内核。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configENABLE_BACKWARD_COMPATIBILITY" Comment="configENABLE_BACKWARD_COMPATIBILITY" CommentCH="configENABLE_BACKWARD_COMPATIBILITY" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="The FreeRTOS.h header file includes a set of #define macros that map the names of data types used in versions of FreeRTOS prior to version 8.0.0 to the names used in FreeRTOS version 8.0.0. &lt;br&gt;
+            	                                   The macros allow application code to update the version of FreeRTOS they are built against from a pre 8.0.0 version to a post 8.0.0 version without modification. &lt;br&gt;
+            	                                   Setting to disable in FreeRTOSConfig.h excludes the macros from the build, and in so doing allowing validation that no pre version 8.0.0 names are being used.&lt;br&gt;" 
+        	  	                      NoteCH="FreeRTOS.h 头文件包含一组 #define 宏，用于将 FreeRTOS 8.0.0 之前版本中使用的数据类型名称映射到 FreeRTOS 8.0.0 版本中使用的名称。&lt;br&gt;
+        	  	                                         借助这些宏，无需修改应用程序代码， 即可将 FreeRTOS 8.0.0 之前的版本更新为 8.0.0 之后版本。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_PORT_OPTIMISED_TASK_SELECTION" Comment="configUSE_PORT_OPTIMISED_TASK_SELECTION" CommentCH="configUSE_PORT_OPTIMISED_TASK_SELECTION" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Some FreeRTOS ports have two methods of selecting the next task to execute – a generic method, and a method that is specific to that port. &lt;br&gt;" 
+        	  	                      NoteCH="一些 FreeRTOS 移植可通过两种方法选择下一项要执行的任务： 一种是通用方法，另一种是移植特定方法。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_TICKLESS_IDLE" Comment="configUSE_TICKLESS_IDLE" CommentCH="configUSE_TICKLESS_IDLE" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数">
+            <Annotation Note="Set to enable to use the low power tickless mode.&lt;br&gt;
+            	                                    Set to disable to keep the tick interrupt running at all times. &lt;br&gt;
+            	                                    Low power tickless implementations are not provided for all FreeRTOS ports.&lt;br&gt;" 
+        	  	                      NoteCH="如果希望使用低功耗无滴答模式，请将其设置为开启； &lt;br&gt;
+        	  	                                         如果希望保持滴答中断始终运行，请将其设置为关闭。&lt;br&gt;
+        	  	                                         并未针对所有 FreeRTOS 移植提供低功耗无滴答实现。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Built in functionality" CommentCH="自建功能"/>
+            <PossibleValue Value="2" Comment="User defined functionality " CommentCH="用户定义功能"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_TASK_NOTIFICATIONS" Comment="configUSE_TASK_NOTIFICATIONS" CommentCH="configUSE_TASK_NOTIFICATIONS" DefaultValue="1" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Setting to enable (or leaving configUSE_TASK_NOTIFICATIONS undefined) will include direct to task notification functionality and its associated API in the build. &lt;br&gt;
+            	                                    Setting to disable will exclude direct to task notification functionality and its associated API from the build.&lt;br&gt;
+            	                                    Each task consumes 8 additional bytes of RAM when direct to task notifications are included in the build.&lt;br&gt;" 
+        	  	                      NoteCH="将其设置为开启（或将 configUSE_TASK_NOTIFICATIONS保留为未定义状态） 将在构建中包含直达任务通知功能 及其相关 API。&lt;br&gt;
+        	  	                                         将其设置为关闭将从构建中排除直达任务通知功能 及其相关 API。&lt;br&gt;
+        	  	                                         如果在构建中包含直达任务通知，每项任务会额外消耗 8 字节的 RAM。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configRECORD_STACK_HIGH_ADDRESS" Comment="configRECORD_STACK_HIGH_ADDRESS" CommentCH="configRECORD_STACK_HIGH_ADDRESS" DefaultValue="0" Type="list" Unit=""  Group="Kernel Configuration" GroupCH="内核设置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="When set to 1 (Enabled) the stack start address is saved into each task's TCB (assuming stack grows down).&lt;br&gt;" 
+        	  	                      NoteCH="当设置为1支持将堆栈的起始地址保存到对应的任务控制块中（向下增长）。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <!-- *************************** memory management settings ******************************-->
+    <RefParameter Name="Memory_allocation" Comment="Memory allocation" CommentCH="内存分配方式" DefaultValue="2" Type="list" Unit=""  Group="Memory Configuration" GroupCH="内存管理设置" TabName="Config parameters" TabNameCH="配置参数">
+            <Annotation Note="configSUPPORT_DYNAMIC_ALLOCATION&lt;br&gt;
+                                                 If configSUPPORT_DYNAMIC_ALLOCATION is set to 1 then RTOS objects can be created using RAM that is automatically allocated from the FreeRTOS heap. &lt;br&gt;
+                                                 If configSUPPORT_DYNAMIC_ALLOCATION is set to 0 then RTOS objects can only be created using RAM provided by the application writer. See also configSUPPORT_STATIC_ALLOCATION.&lt;br&gt;
+                                                 If configSUPPORT_DYNAMIC_ALLOCATION is not defined then it will default to 1.&lt;br&gt;&lt;br&gt;
+                                                 configSUPPORT_STATIC_ALLOCATION&lt;br&gt;
+                                                 If configSUPPORT_STATIC_ALLOCATION is set to 1 then RTOS objects can be created using RAM provided by the application writer. &lt;br&gt;
+                                                 If configSUPPORT_STATIC_ALLOCATION is set to 0 then RTOS objects can only be created using RAM allocated from the FreeRTOS heap. See also configSUPPORT_DYNAMIC_ALLOCATION.&lt;br&gt;
+                                                 If configSUPPORT_STATIC_ALLOCATION is not defined then it will default to 0.&lt;br&gt;" 
+        	  	                 NoteCH="configSUPPORT_DYNAMIC_ALLOCATION&lt;br&gt;
+                                                  如果 configSUPPORT_DYNAMIC_ALLOCATION设置为 1，则 RTOS 对象可通过 RAM （从 FreeRTOS 堆中自动分配）创建。&lt;br&gt;
+                                                  如果 configSUPPORT_DYNAMIC_ALLOCATION设置为 0，则 RTOS 对象只能通过应用程序编写者提供的 RAM 创建 。&lt;br&gt;
+                                                  如果configSUPPORT_DYNAMIC_ALLOCATION未定义，则默认为 1。&lt;br&gt;&lt;br&gt;
+                                                  configSUPPORT_STATIC_ALLOCATION&lt;br&gt;
+                                                  如果 configSUPPORT_STATIC_ALLOCATION设置为 1，则 RTOS 对象可以 通过应用程序编写者提供的 RAM 创建。&lt;br&gt;
+                                                  如果 configSUPPORT_STATIC_ALLOCATION设置为 0，则 RTOS 对象 只能通过从 FreeRTOS 堆中分配的 RAM 创建。&lt;br&gt;
+                                                  如果 configSUPPORT_STATIC_ALLOCATION未定义，则默认为 0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="1" Comment="Static" CommentCH="静态"/>
+            <PossibleValue Value="2" Comment="Dynamic/Static" CommentCH="动态/静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="TOTAL_HEAP_SIZE" Comment="TOTAL_HEAP_SIZE" CommentCH="TOTAL_HEAP_SIZE" Max="104448" Min="4" DefaultValue="4096" Type="integer" Unit="Bytes"  Group="Memory Configuration" GroupCH="内存管理设置" TabName="Config parameters" TabNameCH="配置参数">
+        <Condition Diagnostic="" Expression="Memory_allocation = 0 | Memory_allocation = 2"/>
+        <Annotation Note="The total amount of RAM available to the RTOS kernel.&lt;br&gt;
+                                              The value chosen by the user should take into account the application consumption of RAM otherwise it will lead to link issues!&lt;br&gt;" 
+        	  	             NoteCH="FreeRTOS 堆中可用的 RAM 总量。&lt;br&gt;
+                                              用户在选择这个值时需要将应用代码对RAM的消耗也考虑进来，不然可能导致链接问题。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="Memory_management_method" Comment="Memory management method" CommentCH="内存管理方式" DefaultValue="4" Type="list" Unit=""  Group="Memory Configuration" GroupCH="内存管理设置" TabName="Config parameters" TabNameCH="配置参数">
+            <Condition Diagnostic="" Expression="Memory_allocation = 0 | Memory_allocation = 2"/>
+            <Annotation Note="The RTOS kernel allocates RAM each time a task, queue, mutex, software timer or semaphore is created. &lt;br&gt;
+            	                                    To replace and improve the use of C standard libray malloc() and free() functions.&lt;br&gt;&lt;br&gt;
+                                                  TOTAL_HEAP_SIZE sets the size of this array. The size is specified in bytes.&lt;br&gt;" 
+        	  	                 NoteCH="RTOS内核在创建任务、队列、互斥量、软件定时器、信号量时都会分配内存。&lt;br&gt;
+        	  	                                    其作用是替换和改善C库中的 malloc() 和 free()函数。&lt;br&gt;&lt;br&gt;
+                                                  TOTAL_HEAP_SIZE设置内存数组的长度，单位是字节。&lt;br&gt;"/>
+        	   <PossibleValue Value="1" Comment="heap_1" CommentCH="heap_1"/>
+            <PossibleValue Value="2" Comment="heap_2" CommentCH="heap_2"/>
+            <PossibleValue Value="3" Comment="heap_3" CommentCH="heap_3"/>
+            <PossibleValue Value="4" Comment="heap_4" CommentCH="heap_4"/>
+            <PossibleValue Value="5" Comment="heap_5" CommentCH="heap_5"/>
+    </RefParameter>
+    
+    <!-- *************************** Hook function definitions ******************************-->
+    <RefParameter Name="USE_IDLE_HOOK" Comment="USE_IDLE_HOOK" CommentCH="USE_IDLE_HOOK" DefaultValue="0" Type="list" Unit=""  Group="Hook function definitions" GroupCH="勾子函数定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="The idle task hook function is a hook (or callback) function that, if defined and configured, will be called by the Idle task on each iteration of its implementation.&lt;br&gt;
+                                                  If configUSE_IDLE_HOOK is set to 1 then the application must define an idle task hook function. &lt;br&gt;
+                                                  If configUSE_IDLE_HOOK is set to 0 then the idle task hook function will not be called, even if one is defined.&lt;br&gt;&lt;br&gt;
+                                                  idle task hook function：void vApplicationIdleHook( void );&lt;br&gt;
+                                                  Note: when set to 1, an empty function is generated in the freertos_app.c file (to be completed by the user)&lt;br&gt;" 
+        	  	                      NoteCH="空闲勾子函数是一个回调函数，如果被定义和初始化，会在每次运行空闲任务时调用。&lt;br&gt;
+                                                       如果定义configUSE_IDLE_HOOK为1，那么应用程序必须定义空闲勾子函数；&lt;br&gt;
+                                                       如果定义configUSE_IDLE_HOOK为0，则不需要定义且就算应用程序定义了空闲勾子函数也不会被调用。&lt;br&gt;&lt;br&gt;
+                                                       空闲勾子函数原型为：void vApplicationIdleHook( void );&lt;br&gt;
+                                                       注意：当设置为1，一个空的函数会被自动生成在freertos_app.c文件内（用户自行完善此函数）。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="USE_TICK_HOOK" Comment="USE_TICK_HOOK" CommentCH="USE_TICK_HOOK" DefaultValue="0" Type="list" Unit=""  Group="Hook function definitions" GroupCH="勾子函数定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="The tick hook function is a hook (or callback) function that, if defined and configured, will be called during each tick interrupt.&lt;br&gt;&lt;br&gt;
+                                                  tick hook function：void vApplicationTickHook(void);&lt;br&gt;
+                                                  Note: when set to 1, an empty function is generated in the freertos_app.c file (to be completed by the user)&lt;br&gt;" 
+        	  	                      NoteCH="滴答勾子函数是一个回调函数，如果被定义和初始化，会在每次进入滴答定时中断时被调用。&lt;br&gt;&lt;br&gt;
+                                                       滴答勾子函数原型为：void vApplicationTickHook(void);&lt;br&gt;
+                                                       注意：当设置为1，一个空的函数会被自动生成在freertos_app.c文件内（用户自行完善此函数）。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="USE_MALLOC_FAILED_HOOK" Comment="USE_MALLOC_FAILED_HOOK" CommentCH="USE_MALLOC_FAILED_HOOK" DefaultValue="0" Type="list" Unit=""  Group="Hook function definitions" GroupCH="勾子函数定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="The malloc() failed hook function is a hook (or callback) function that, if defined and configured, will be called if pvPortMalloc() ever returns NULL.&lt;br&gt;&lt;br&gt;
+                                                  malloc() failed hook function：void vApplicationMallocFailedHook(void);&lt;br&gt;
+                                                  Note: when set to 1, an empty function is generated in the freertos_app.c file (to be completed by the user)&lt;br&gt;" 
+        	  	                      NoteCH="内存申请失败勾子函数是一个回调函数，如果被定义和初始化，会在每次调用pvPortMalloc()返回值为空时被调用。&lt;br&gt;&lt;br&gt;
+                                                       内存申请失败勾子函数原型为：void vApplicationMallocFailedHook(void);&lt;br&gt;
+                                                       注意：当设置为1，一个空的函数会被自动生成在freertos_app.c文件内（用户自行完善此函数）。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="USE_DAEMON_TASK_STARTUP_HOOK" Comment="USE_DAEMON_TASK_STARTUP_HOOK" CommentCH="USE_DAEMON_TASK_STARTUP_HOOK" DefaultValue="0" Type="list" Unit=""  Group="Hook function definitions" GroupCH="勾子函数定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="If configUSE_TIMERS and configUSE_DAEMON_TASK_STARTUP_HOOK are both set to 1 then the application must define a hook function.&lt;br&gt;
+            	                                    The hook function will be called exactly once when the RTOS daemon task (also known as the timer service) executes for the first time. &lt;br&gt;
+            	                                    Any application initialization code that needs the RTOS to be running can be placed in the hook function.&lt;br&gt;&lt;br&gt;
+                                                  daemon task hook function：void vApplicationDaemonTaskStartupHook( void );&lt;br&gt;
+                                                  Note: when set to 1, an empty function is generated in the freertos_app.c file (to be completed by the user)&lt;br&gt;" 
+        	  	                      NoteCH="如果 configUSE_TIMERS和 configUSE_DAEMON_TASK_STARTUP_HOOK都设置为 1， 则应用程序必须定义一个守护进程任务钩子函数。&lt;br&gt;
+        	  	                                         当 RTOS 守护进程任务（也称为定时器服务任务） 首次执行时，将只调用一次钩子函数。&lt;br&gt;
+        	  	                                         任何 需要 RTOS 运行的应用程序初始化代码均可放在钩子函数中。&lt;br&gt;&lt;br&gt;
+                                                       守护进程任务勾子函数原型为：void vApplicationDaemonTaskStartupHook( void );&lt;br&gt;
+                                                       注意：当设置为1，一个空的函数会被自动生成在freertos_app.c文件内（用户自行完善此函数）。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="CHECK_FOR_STACK_OVERFLOW" Comment="CHECK_FOR_STACK_OVERFLOW" CommentCH="CHECK_FOR_STACK_OVERFLOW" DefaultValue="0" Type="list" Unit=""  Group="Hook function definitions" GroupCH="勾子函数定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Each task has a unique stack. &lt;br&gt;
+            	                                    If a task is created using the xTaskCreate() API function then the stack is automatically allocated from the FreeRTOS heap, and the size of the stack is specified by the xTaskCreate() usStackDepth parameter. &lt;br&gt;
+            	                                    If a task is created using the xTaskCreateStatic() API function then the stack is pre-allocated by the application writer.&lt;br&gt;
+                                                  Stack overflow is a very common cause of application instability. FreeRTOS provides two optional mechanisms that can be used to assist in stack overflow detection and debugging. Which (if any) option is used is configured by the configCHECK_FOR_STACK_OVERFLOW configuration constant.&lt;br&gt;
+                                                  If configCHECK_FOR_STACK_OVERFLOW is not set to 0 then the application must also provide a stack overflow hook (or callback) function. The kernel will call the stack overflow hook whenever a stack overflow is detected.&lt;br&gt;&lt;br&gt;
+                                                  check stack overflow hook function：void vApplicationStackOverflowHook( TaskHandle_t *pxTask, signed char *pcTaskName );&lt;br&gt;
+                                                  Note: when set to 1, an empty function is generated in the freertos_app.c file (to be completed by the user)&lt;br&gt;" 
+        	  	                      NoteCH="每一个任务都有一个独一无二的堆栈。&lt;br&gt;
+        	  	                                         如果任务通过 xTaskCreate()函数创建，那么堆栈会根据usStackDepth参数自动在系统堆里面进行分配；&lt;br&gt;
+        	  	                                         如果任务通过xTaskCreateStatic()函数创建，那么任务的堆栈由编码者预先定义好。&lt;br&gt;
+        	  	                                         堆栈溢出是一个常见引起系统奔溃的原因，FreeRTOS提供了两种方法来检测和调试堆栈溢出问题。&lt;br&gt;
+                                                       如果configCHECK_FOR_STACK_OVERFLOW设置为非零时，应用程序必须提供回调函数，当发生堆栈溢出时，内核会自动调用此回调函数。&lt;br&gt;&lt;br&gt;
+                                                       检查堆栈溢出勾子函数原型为：void vApplicationStackOverflowHook( TaskHandle_t *pxTask, signed char *pcTaskName );&lt;br&gt;
+                                                       注意：当设置为1，一个空的函数会被自动生成在freertos_app.c文件内（用户自行完善此函数）。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Method 1" CommentCH="方法1"/>
+            <PossibleValue Value="2" Comment="Method 2" CommentCH="方法2"/>
+    </RefParameter>
+    
+    <!-- *************************** run time and task stats gathering definitions ******************************-->
+    <RefParameter Name="configGENERATE_RUN_TIME_STATS" Comment="configGENERATE_RUN_TIME_STATS" CommentCH="configGENERATE_RUN_TIME_STATS" DefaultValue="0" Type="list" Unit=""  Group="Run time and task stats gathering definitions" GroupCH="运行时间和任务状态统计定义" TabName="Config parameters" TabNameCH="配置参数">
+            <Annotation Note="Setting configGENERATE_RUN_TIME_STATS to 1 will include the run time statistics gathering functionality and associated API in the build.&lt;br&gt;
+                                                  Note: when set to 1, two empty functions are generated in the freertos_app.c file (to be completed by the user)&lt;br&gt;" 
+        	  	                 NoteCH="设置configGENERATE_RUN_TIME_STATS为1，启动收集运行时统计信息。&lt;br&gt;
+                                                   注意：当设置为1，两个空的函数会被自动生成在freertos_app.c文件内（用户自行完善此函数）。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_TRACE_FACILITY" Comment="configUSE_TRACE_FACILITY" CommentCH="configUSE_TRACE_FACILITY" DefaultValue="1" Type="list" Unit=""  Group="Run time and task stats gathering definitions" GroupCH="运行时间和任务状态统计定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Condition Diagnostic="" Expression="configGENERATE_RUN_TIME_STATS = 1"/>
+            <Annotation Note="Setting configUSE_TRACE_FACILITY to 1 will result in additional structure members and functions that assist with execution visualization and tracing being included in the build.&lt;br&gt;" 
+        	  	                 NoteCH="如果希望包含其他结构体成员和函数以协助执行可视化和跟踪，请将其设置为 1。&lt;br&gt;"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_TRACE_FACILITY" Comment="configUSE_TRACE_FACILITY" CommentCH="configUSE_TRACE_FACILITY" DefaultValue="1" Type="list" Unit=""  Group="Run time and task stats gathering definitions" GroupCH="运行时间和任务状态统计定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Setting configUSE_TRACE_FACILITY to 1 will result in additional structure members and functions that assist with execution visualization and tracing being included in the build.&lt;br&gt;" 
+        	  	                 NoteCH="如果希望包含其他结构体成员和函数以协助执行可视化和跟踪，请将其设置为 1。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configUSE_STATS_FORMATTING_FUNCTIONS" Comment="configUSE_STATS_FORMATTING_FUNCTIONS" CommentCH="configUSE_STATS_FORMATTING_FUNCTIONS" DefaultValue="0" Type="list" Unit=""  Group="Run time and task stats gathering definitions" GroupCH="运行时间和任务状态统计定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Set configUSE_TRACE_FACILITY and configUSE_STATS_FORMATTING_FUNCTIONS to 1 to include the vTaskList() and vTaskGetRunTimeStats().&lt;br&gt;
+                                                  functions in the build. Setting either to 0 will omit vTaskList() and vTaskGetRunTimeStates() from the build.&lt;br&gt;" 
+        	  	                 NoteCH="将 configUSE_TRACE_FACILITY和 configUSE_STATS_FORMATTING_FUNCTIONS设置为 1， 即可在构建中包含 vTaskList() 和 vTaskGetRunTimeStats() 函数。&lt;br&gt;
+        	  	                                    如果将上述其中任意一个函数设置为 0，则可从构建中忽略 vTaskList()和 vTaskGetRunTimeStates()&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <!-- *************************** co-routine definitions ******************************-->
+    <RefParameter Name="configUSE_CO_ROUTINES" Comment="configUSE_CO_ROUTINES" CommentCH="configUSE_CO_ROUTINES" DefaultValue="0" Type="list" Unit=""  Group="Co-routine definitions" GroupCH="协程定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+            <Annotation Note="Set to 1 to include co-routine functionality in the build, &lt;br&gt;
+            	                                    or 0 to omit co-routine functionality from the build. &lt;br&gt;
+            	                                    To include co-routines croutine.c must be included in the project.&lt;br&gt;" 
+        	  	                 NoteCH="如果希望在构建中包含协程功能，请将其设置为 1；&lt;br&gt;
+        	  	                                    如果希望从构建中忽略协程功能， 请将其设置为 0。&lt;br&gt;
+        	  	                                    要包含协程功能，项目中必须包含 croutine.c。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configMAX_CO_ROUTINE_PRIORITIES" Comment="configMAX_CO_ROUTINE_PRIORITIES" CommentCH="configMAX_CO_ROUTINE_PRIORITIES" Max="255" Min="1" DefaultValue="2" Type="integer" Unit=""  Group="Co-routine definitions" GroupCH="协程定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+        <Annotation Note="configMAX_CO_ROUTINE_PRIORITIES must be between 1 and 255.&lt;br&gt;
+                                              Co-routines can be assigned a priority from zero, which is the lowest priority to (MAX_CO_ROUTINE_PRIORITIES-1), which is the highest priority.&lt;br&gt;" 
+        	  	             NoteCH="configMAX_CO_ROUTINE_PRIORITIES必须在1到255之间。&lt;br&gt;
+                                              协程的最低优先级是0，最高优先级是MAX_CO_ROUTINE_PRIORITIES-1。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** software timer definitions ******************************-->
+    <RefParameter Name="configUSE_TIMERS" Comment="configUSE_TIMERS" CommentCH="configUSE_TIMERS" DefaultValue="1" Type="list" Unit=""  Group="Software timer definitions" GroupCH="软件定时器定义" TabName="Config parameters" TabNameCH="配置参数">
+            <Annotation Note="Setting configUSE_TIMERS to 1 will include software timer functionality and its associated API in the build. &lt;br&gt;
+            	                                    Setting configUSE_TIMERS to 0 will exclude software timer functionality and its associated API from the build.&lt;br&gt;&lt;br&gt;
+                                                  If configUSE_TIMERS is set to 1, then configTIMER_TASK_PRIORITY, configTIMER_QUEUE_LENGTH and configTIMER_TASK_STACK_DEPTH must also be defined.&lt;br&gt;" 
+        	  	                 NoteCH="如果希望包含软件定时器功能，请将其设置为 1；&lt;br&gt;
+        	  	                                    如果希望忽略软件定时器功能，请将其设置为 0。&lt;br&gt;&lt;br&gt;
+                                                  如果设置为1，那么 configTIMER_TASK_PRIORITY、configTIMER_QUEUE_LENGTH、 configTIMER_TASK_STACK_DEPTH也必须定义。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="configTIMER_TASK_PRIORITY" Comment="configTIMER_TASK_PRIORITY" CommentCH="configTIMER_TASK_PRIORITY" Max="255" Min="0" DefaultValue="2" Type="integer" Unit=""  Group="Software timer definitions" GroupCH="软件定时器定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+        <Condition Diagnostic="" Expression="configUSE_TIMERS = 1"/>
+        <Annotation Note="Sets the priority of the software timer service/daemon task.&lt;br&gt;" 
+        	  	             NoteCH="设置软件定时器服务任务优先级&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configTIMER_QUEUE_LENGTH" Comment="configTIMER_QUEUE_LENGTH" CommentCH="configTIMER_QUEUE_LENGTH" Max="255" Min="1" DefaultValue="10" Type="integer" Unit=""  Group="Software timer definitions" GroupCH="软件定时器定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+        <Condition Diagnostic="" Expression="configUSE_TIMERS = 1"/>
+        <Annotation Note="Sets the length of the software timer command queue.&lt;br&gt;
+                                              TIMER_QUEUE_LENGTH must be between 1 and 255.&lt;br&gt;" 
+        	  	             NoteCH="设置软件定时器队列长度。&lt;br&gt;
+                                              TIMER_QUEUE_LENGTH只能是1到255之间。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configTIMER_TASK_STACK_DEPTH" Comment="configTIMER_TASK_STACK_DEPTH" CommentCH="configTIMER_TASK_STACK_DEPTH" Max="32768" Min="65" DefaultValue="256" Type="integer" Unit="words"  Group="Software timer definitions" GroupCH="软件定时器定义" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+        <Condition Diagnostic="" Expression="configUSE_TIMERS = 1"/>
+        <Annotation Note="Sets the size of the stack (in words, not bytes) allocated to the timer service task.&lt;br&gt;" 
+        	  	             NoteCH="设置软件定时器任务堆栈大小。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** interrupt configuration ******************************-->
+    <RefParameter Name="configLIBRARY_LOWEST_INTERRUPT_PRIORITY" Comment="configLIBRARY_LOWEST_INTERRUPT_PRIORITY" CommentCH="configLIBRARY_LOWEST_INTERRUPT_PRIORITY" Max="15" Min="1" DefaultValue="15" Type="integer" Unit=""  Group="Interrupt configuration" GroupCH="中断配置" TabName="Config parameters" TabNameCH="配置参数" Reload="false">
+        <Annotation Note="LIBRARY_LOWEST_INTERRUPT_PRIORITY must be between 1 and 15.&lt;br&gt;
+                                              The lowest interrupt priority that can be used in a call to a &quot;set priority&quot; function.&lt;br&gt;" 
+        	  	             NoteCH="LIBRARY_LOWEST_INTERRUPT_PRIORITY设置范围为1到15。&lt;br&gt;
+        	  	                                设置优先级函数能使用的最低优先级。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY" Comment="configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY" CommentCH="configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY" Max="15" Min="1" DefaultValue="5" Type="integer" Unit=""  Group="Interrupt configuration" GroupCH="中断配置" TabName="Config parameters" TabNameCH="配置参数" Reload="true">
+        <Annotation Note="The highest interrupt priority that can be used by any interrupt service routine that makes calls to interrupt safe FreeRTOS API functions.  &lt;br&gt;
+        	                                     DO NOT CALL INTERRUPT SAFE FREERTOS API FUNCTIONS FROM ANY INTERRUPT THAT HAS A HIGHER PRIORITY THAN THIS! (higher priorities are lower numeric values)&lt;br&gt;" 
+        	  	             NoteCH="最高中断优先级，可以被任何中断服务程序调用中断安全的FreeRTOS函数使用。&lt;br&gt;
+                                              不要在任何中断内调用比自身优先级更高的中断安全FREERTOS函数。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** include parameters ******************************-->
+    <RefParameter Name="INCLUDE_vTaskPrioritySet" Comment="INCLUDE_vTaskPrioritySet" CommentCH="INCLUDE_vTaskPrioritySet" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the vTaskPrioritySet() API function, set INCLUDE_vTaskPrioritySet to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_vTaskPrioritySet to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 vTaskPrioritySet()函数，将INCLUDE_vTaskPrioritySet定义为1；&lt;br&gt;
+                                                  不需要包含 vTaskPrioritySet()函数，将INCLUDE_vTaskPrioritySet定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_uxTaskPriorityGet" Comment="INCLUDE_uxTaskPriorityGet" CommentCH="INCLUDE_uxTaskPriorityGet" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the uxTaskPriorityGet() API function, set INCLUDE_uxTaskPriorityGet to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_uxTaskPriorityGet to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 uxTaskPriorityGet()函数，将INCLUDE_uxTaskPriorityGet定义为1；&lt;br&gt;
+                                                  不需要包含 uxTaskPriorityGet()函数，将INCLUDE_uxTaskPriorityGet定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_vTaskDelete" Comment="INCLUDE_vTaskDelete" CommentCH="INCLUDE_vTaskDelete" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the vTaskDelete() API function, set INCLUDE_vTaskDelete to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_vTaskDelete to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 vTaskDelete()函数，将INCLUDE_vTaskDelete定义为1；&lt;br&gt;
+                                                  不需要包含 vTaskDelete()函数，将INCLUDE_vTaskDelete定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_vTaskCleanUpResources" Comment="INCLUDE_vTaskCleanUpResources" CommentCH="INCLUDE_vTaskCleanUpResources" DefaultValue="0" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the vTaskCleanUpResources() API function, set INCLUDE_vTaskCleanUpResources to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_vTaskCleanUpResources to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 vTaskCleanUpResources()函数，将INCLUDE_vTaskCleanUpResources定义为1；&lt;br&gt;
+                                                  不需要包含 vTaskCleanUpResources()函数，将INCLUDE_vTaskCleanUpResources定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_vTaskSuspend" Comment="INCLUDE_vTaskSuspend" CommentCH="INCLUDE_vTaskSuspend" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                 To include the vTaskSuspend() API function, set INCLUDE_vTaskSuspend to 1 (Enabled) &lt;br&gt;
+                                                 To exclude it from your build, set INCLUDE_vTaskSuspend to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 vTaskSuspend()函数，将INCLUDE_vTaskSuspend定义为1；&lt;br&gt;
+                                                  不需要包含 vTaskSuspend()函数，将INCLUDE_vTaskSuspend定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_vTaskDelayUntil" Comment="INCLUDE_vTaskDelayUntil" CommentCH="INCLUDE_vTaskDelayUntil" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                 To include the vTaskDelayUntil() API function, set INCLUDE_vTaskDelayUntil to 1 (Enabled) &lt;br&gt;
+                                                 To exclude it from your build, set INCLUDE_vTaskDelayUntil to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 vTaskDelayUntil()函数，将INCLUDE_vTaskDelayUntil定义为1；&lt;br&gt;
+                                                  不需要包含 vTaskDelayUntil()函数，将INCLUDE_vTaskDelayUntil定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_vTaskDelay" Comment="INCLUDE_vTaskDelay" CommentCH="INCLUDE_vTaskDelay" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                 To include the vTaskDelay() API function, set INCLUDE_vTaskDelay to 1 (Enabled) &lt;br&gt;
+                                                 To exclude it from your build, set INCLUDE_vTaskDelay to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 vTaskDelay()函数，将INCLUDE_vTaskDelay定义为1；&lt;br&gt;
+                                                  不需要包含 vTaskDelay()函数，将INCLUDE_vTaskDelay定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xTaskGetSchedulerState" Comment="INCLUDE_xTaskGetSchedulerState" CommentCH="INCLUDE_xTaskGetSchedulerState" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the xTaskGetSchedulerState() API function, set INCLUDE_xTaskGetSchedulerState to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_xTaskGetSchedulerState to 0 (Disabled)&lt;br&gt;" 
+        	  	                 NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xTaskGetSchedulerState()函数，将INCLUDE_xTaskGetSchedulerState定义为1；&lt;br&gt;
+                                                  不需要包含 xTaskGetSchedulerState()函数，将INCLUDE_xTaskGetSchedulerState定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xTaskResumeFromISR" Comment="INCLUDE_xTaskResumeFromISR" CommentCH="INCLUDE_xTaskResumeFromISR" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the xTaskResumeFromISR() API function, set INCLUDE_xTaskResumeFromISR to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_xTaskResumeFromISR to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xTaskResumeFromISR()函数，将INCLUDE_xTaskResumeFromISR定义为1；&lt;br&gt;
+                                                  不需要包含 xTaskResumeFromISR()函数，将INCLUDE_xTaskResumeFromISR定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xQueueGetMutexHolder" Comment="INCLUDE_xQueueGetMutexHolder" CommentCH="INCLUDE_xQueueGetMutexHolder" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                 To include the xQueueGetMutexHolder() API function, set INCLUDE_xQueueGetMutexHolder to 1 (Enabled) &lt;br&gt;
+                                                 To exclude it from your build, set INCLUDE_xQueueGetMutexHolder to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xQueueGetMutexHolder()函数，将INCLUDE_xQueueGetMutexHolder定义为1；&lt;br&gt;
+                                                  不需要包含 xQueueGetMutexHolder()函数，将INCLUDE_xQueueGetMutexHolder定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xSemaphoreGetMutexHolder" Comment="INCLUDE_xSemaphoreGetMutexHolder" CommentCH="INCLUDE_xSemaphoreGetMutexHolder" DefaultValue="0" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the xSemaphoreGetMutexHolder() API function, set INCLUDE_xSemaphoreGetMutexHolder to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_xSemaphoreGetMutexHolder to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xSemaphoreGetMutexHolder()函数，将INCLUDE_xSemaphoreGetMutexHolder定义为1；&lt;br&gt;
+                                                  不需要包含 xSemaphoreGetMutexHolder()函数，将INCLUDE_xSemaphoreGetMutexHolder定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_uxTaskGetStackHighWaterMark" Comment="INCLUDE_uxTaskGetStackHighWaterMark" CommentCH="INCLUDE_uxTaskGetStackHighWaterMark" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the uxTaskGetStackHighWaterMark() API function, set INCLUDE_uxTaskGetStackHighWaterMark to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_uxTaskGetStackHighWaterMark to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 uxTaskGetStackHighWaterMark()函数，将INCLUDE_uxTaskGetStackHighWaterMark定义为1；&lt;br&gt;
+                                                 不需要包含 uxTaskGetStackHighWaterMark()函数，将INCLUDE_uxTaskGetStackHighWaterMark定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xTaskGetCurrentTaskHandle" Comment="INCLUDE_xTaskGetCurrentTaskHandle" CommentCH="INCLUDE_xTaskGetCurrentTaskHandle" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the xTaskGetCurrentTaskHandle() API function, set INCLUDE_xTaskGetCurrentTaskHandle to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_xTaskGetCurrentTaskHandle to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xTaskGetCurrentTaskHandle()函数，将INCLUDE_xTaskGetCurrentTaskHandlek定义为1；&lt;br&gt;
+                                                  不需要包含 xTaskGetCurrentTaskHandle()函数，将INCLUDE_xTaskGetCurrentTaskHandle定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_eTaskGetState" Comment="INCLUDE_eTaskGetState" CommentCH="INCLUDE_eTaskGetState" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the eTaskGetState() API function, set INCLUDE_eTaskGetState to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_eTaskGetState to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 eTaskGetState()函数，将INCLUDE_eTaskGetState定义为1；&lt;br&gt;
+                                                  不需要包含 eTaskGetState()函数，将INCLUDE_eTaskGetState定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xTimerPendFunctionCall" Comment="INCLUDE_xTimerPendFunctionCall" CommentCH="INCLUDE_xTimerPendFunctionCall" DefaultValue="1" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the xTimerPendFunctionCall() API function, set INCLUDE_xTimerPendFunctionCall to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_xTimerPendFunctionCall to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xTimerPendFunctionCall()函数，将INCLUDE_xTimerPendFunctionCall定义为1；&lt;br&gt;
+                                                  不需要包含 xTimerPendFunctionCall()函数，将INCLUDE_xTimerPendFunctionCall定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xTaskAbortDelay" Comment="INCLUDE_xTaskAbortDelay" CommentCH="INCLUDE_xTaskAbortDelay" DefaultValue="0" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the xTaskAbortDelay() API function, set INCLUDE_xTaskAbortDelay to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_xTaskAbortDelay to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xTaskAbortDelay()函数，将INCLUDE_xTaskAbortDelay定义为1；&lt;br&gt;
+                                                  不需要包含 xTaskAbortDelay()函数，将INCLUDE_xTaskAbortDelay定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_xTaskGetHandle" Comment="INCLUDE_xTaskGetHandle" CommentCH="INCLUDE_xTaskGetHandle" DefaultValue="0" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                  - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                  To include the xTaskGetHandle() API function, set INCLUDE_xTaskGetHandle to 1 (Enabled) &lt;br&gt;
+                                                  To exclude it from your build, set INCLUDE_xTaskGetHandle to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 xTaskGetHandle()函数，将INCLUDE_xTaskGetHandle定义为1；&lt;br&gt;
+                                                  不需要包含 xTaskGetHandle()函数，将INCLUDE_xTaskGetHandle定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    <RefParameter Name="INCLUDE_uxTaskGetStackHighWaterMark2" Comment="INCLUDE_uxTaskGetStackHighWaterMark2" CommentCH="INCLUDE_uxTaskGetStackHighWaterMark2" DefaultValue="0" Type="list" Unit=""  Group="Include parameters" GroupCH="包含参数" TabName="Include parameters" TabNameCH="包含参数">
+            <Annotation Note="It is one of the macros allowing those components of the real time kernel not utilized by your application to be excluded from your build. &lt;br&gt;
+                                                 - this ensures the RTOS does not use any more ROM or RAM than necessary for your particular embedded application. &lt;br&gt;&lt;br&gt;
+                                                 To include the uxTaskGetStackHighWaterMark2() API function, set INCLUDE_uxTaskGetStackHighWaterMark2 to 1 (Enabled) &lt;br&gt;
+                                                 To exclude it from your build, set INCLUDE_uxTaskGetStackHighWaterMark2 to 0 (Disabled)&lt;br&gt;"
+                               NoteCH="这是一个宏定义，允许应用程序不使用该实时内核组件并不被编译进工程。&lt;br&gt;
+                                                  这确保了RTOS不会占用比特定嵌入式应用系统所需要的更多的RAM和ROM空间。&lt;br&gt;&lt;br&gt;
+                                                  需要包含 uxTaskGetStackHighWaterMark2()函数，将INCLUDE_uxTaskGetStackHighWaterMark2定义为1；&lt;br&gt;
+                                                  不需要包含 uxTaskGetStackHighWaterMark2()函数，将INCLUDE_uxTaskGetStackHighWaterMark2定义为0。&lt;br&gt;"/>
+        	   <PossibleValue Value="0" Comment="Disable" CommentCH="关闭"/>
+            <PossibleValue Value="1" Comment="Enable" CommentCH="开启"/>
+    </RefParameter>
+    
+    
+     <!-- *************************** Table Tab UI Param ******************************-->
+     <RefParameter Name="TableTab_List" Comment="TableTab_List" CommentCH="TableTab_List" DefaultValue="0" Type="list" Unit=""  Group="" GroupCH="" TabName="" TabNameCH="" Visible="false">
+        	   <PossibleValue Value="HeapUsage" Comment="Heap Usage" CommentCH="堆使用统计"/>
+        	   <PossibleValue Value="Tasks" Comment="Tasks" CommentCH="任务"/>
+            <PossibleValue Value="Queues" Comment="Queues" CommentCH="队列"/>
+            <PossibleValue Value="SoftwareTimers" Comment="Software Timers" CommentCH="软件定时器"/>
+            <PossibleValue Value="BinarySemaphores" Comment="Binary Semaphores" CommentCH="二值信号量"/>
+            <PossibleValue Value="CountingSemaphores" Comment="Counting Semaphores" CommentCH="计数型信号量"/>
+            <PossibleValue Value="Events" Comment="Events" CommentCH="事件"/>
+            <PossibleValue Value="Mutexes" Comment="Mutexes" CommentCH="互斥量"/>
+            <PossibleValue Value="RecursiveMutexes" Comment="Recursive Mutexes" CommentCH="递归互斥量"/>
+    </RefParameter>
+    
+    <!-- *************************** Tasks ******************************-->
+    <RefParameter Name="Tasks" Comment="TasksColumns" CommentCH="TasksColumns" DefaultValue="TaskName;TaskPriority;TaskStackSize;TaskEntryFunction; TaskCodeGenerationOption; TaskParameters;TaskAllocation;TaskStackBuffer;TaskBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="TaskName" Comment="Task Name" CommentCH="      任务名称      " DefaultValue="my_task" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the task.&lt;br&gt;&lt;br&gt;
+                                              The application-defined constant configMAX_TASK_NAME_LEN defines the maximum length of the name in characters&lt;br&gt;" 
+        	  	             NoteCH="任务名称&lt;br&gt;&lt;br&gt;
+                                              任务名称的字符串最大长度为configMAX_TASK_NAME_LEN&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskPriority" Comment="Priority" CommentCH="    优先级    " Max="511" Min="0" DefaultValue="0" Type="integer" Visible="false">
+        <Annotation Note="Task's priority.&lt;br&gt;&lt;br&gt;
+                                              0：the lowest priority；&lt;br&gt;
+                                              configMAX_PRIORITIES – 1:the highest priority&lt;br&gt;" 
+        	  	             NoteCH="任务优先级&lt;br&gt;&lt;br&gt;
+                                              最低优先级为0，最高优先级为configMAX_PRIORITIES – 1&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskStackSize" Comment="Stack Size" CommentCH="  堆栈大小  " Max="1000" Min="1" DefaultValue="128" Type="integer" Unit="words" Visible="false">
+        <Annotation Note="Task's stack size(words).&lt;br&gt;&lt;br&gt;
+                                              Value must be greater than or equal to configMINIMAL_STACK_SIZE and less than or equal to TOTAL_HEAP_SIZE / 4&lt;br&gt;" 
+        	  	             NoteCH="任务堆栈大小，单位为字&lt;br&gt;&lt;br&gt;
+                                              值必须大于等于 configMINIMAL_STACK_SIZE且小于等于TOTAL_HEAP_SIZE/4&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskEntryFunction" Comment="Entry Function" CommentCH="      入口函数      " DefaultValue="func" Type="string edit" Visible="false">
+        <Annotation Note="Tasks entry function .&lt;br&gt;" 
+        	  	             NoteCH="任务入口函数&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskCodeGenerationOption" Comment="Code Generation Option" CommentCH=" 代码生成选项 " DefaultValue="Default" Type="list" Visible="false">
+        	   <Annotation Note="Default: generates an empty function in freertos_app.c  as global&lt;br&gt;&lt;br&gt;
+                                                  As external: function code to be provided by the user&lt;br&gt;&lt;br&gt;
+                                                  As weak: generates an empty function in freertos_app.c  as weak&lt;br&gt;" 
+        	  	                 NoteCH="默认: 在freertos_app.c文件中生成一个空函数&lt;br&gt;
+                                                  外部定义: 功能函数由用户提供&lt;br&gt;
+                                                  弱定义: 在freertos_app.c文件中生成一个弱定义的空函数&lt;br&gt;" />
+            <PossibleValue Value="Default" Comment="Default" CommentCH="默认"/>
+            <PossibleValue Value="AsWeak" Comment="As weak" CommentCH="弱定义"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskParameters" Comment="Parameters" CommentCH="        参数        " DefaultValue="NULL" Type="string edit" Visible="false">
+        <Annotation Note="Task functions accept a parameter of type ‘pointer to void’ ( void* ). The value assigned to pvParameters will be the value passed into the task.&lt;br&gt;" 
+        	  	             NoteCH="任务函数可接收一个指向空类型的指针参数，这个参数的值会被传递到任务内。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskAllocation" Comment="Allocation" CommentCH="    分配    " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskStackBuffer" Comment="Stack Buffer" CommentCH="      堆栈数组      " DefaultValue="stack" Type="string edit" Visible="false">
+        <Annotation Note="An array of StackType_t,be used as the created task's stack.&lt;br&gt;" 
+        	  	             NoteCH="StackType_t类型数组，用于静态创建任务时的堆栈。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TaskBuffer" Comment="Task Buffer" CommentCH="      任务数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticTask_t,be used to hold the created task's data structures (TCB).&lt;br&gt;" 
+        	  	             NoteCH="StaticTask_t类型变量，用于保存静态创建任务时的数据结构。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** Queues ******************************-->
+    <RefParameter Name="Queues" Comment="QueuesColumns" CommentCH="QueuesColumns" DefaultValue="QueueName;QueueSize;QueueItemSize;QueueAllocation;QueueBufferName;QueueBufferSize;QueueBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="QueueName" Comment="  Queue Name  " CommentCH="      队列名称      " DefaultValue="my_queue" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the queue.&lt;br&gt;" 
+        	  	             NoteCH="队列名称。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="QueueSize" Comment="Queue Size" CommentCH="    队列大小    " Max="2147483647" Min="1" DefaultValue="16" Type="integer" Visible="false">
+        <Annotation Note="The maximum number of items that the queue being created can hold at any one time.(1-2147483647)&lt;br&gt;" 
+        	  	             NoteCH="同一时刻可接收到最大消息项数量(1-2147483647)。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="QueueItemSize" Comment="  Item Size  " CommentCH="    队列项大小   " DefaultValue="uint16_t" Type="string edit" Visible="false">
+        <Annotation Note="The size, in bytes, of each data item that can be stored in the queue.&lt;br&gt;" 
+        	  	             NoteCH="单位为字节，单个消息数据量大小。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="QueueAllocation" Comment="  Allocation  " CommentCH="      分配      " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态。&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="QueueBufferName" Comment="             Buffer Name             " CommentCH="                缓存名称                " DefaultValue="storage_buffer" Type="string edit" Visible="false">
+        <Annotation Note="Queue storage buffer,uint8_t array– which is (uxQueueLength * uxItemSize) bytes.&lt;br&gt;" 
+        	  	             NoteCH="队列存储数组，uint8_t类型数组-(uxQueueLength * uxItemSize)字节。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="QueueBufferSize" Comment="          Buffer Size          " CommentCH="         缓存大小          " DefaultValue="16*sizeof(uint16_t)" Type="string edit" Visible="false" Enable="false">
+        <Annotation Note="(Queue Size) x (Item Size)&lt;br&gt;" 
+        	  	             NoteCH="根据前面的Queue Size和Item Size计算，(Queue Size) x (Item Size)&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="QueueBuffer" Comment="Queue Buffer" CommentCH="      队列数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticQueue_t,be used to hold the queue's data structure.&lt;br&gt;" 
+        	  	             NoteCH="StaticQueue_t类型变量，用于保存队列数据结构。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** Software Timers ******************************-->
+    <RefParameter Name="SoftwareTimers" Comment="TimersColumns" CommentCH="TimersColumns" DefaultValue="TimersName;TimersCallback;TimersType;TimersCodeGenerationOption;TimersAutoreload;TimersAllocation;TimersBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="TimersName" Comment="  Timer Name  " CommentCH="        定时器名称        " DefaultValue="my_timer" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the timer.&lt;br&gt;" 
+        	  	             NoteCH="软件定时器名称。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TimersCallback" Comment="        Callback        " CommentCH="            回调函数            " DefaultValue="timercallback" Type="string edit" Visible="false">
+        <Annotation Note="Timer's callblack function.&lt;br&gt;" 
+        	  	             NoteCH="软件定时器回调函数。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TimersType" Comment="       Type       " CommentCH="          类型          " DefaultValue="pdTRUE" Type="list" Visible="false">
+        	   <Annotation Note="Set to periodic to create an autoreload timer. &lt;br&gt;
+        	   	                                    Set to one-cycle to create a one-shot timer.&lt;br&gt;" 
+        	  	                 NoteCH="配置自动装载或者单周期软件定时器。&lt;br&gt;" />
+            <PossibleValue Value="pdTRUE" Comment="Periodic" CommentCH="周期模式"/>
+            <PossibleValue Value="pdFALSE" Comment="One-cycle" CommentCH="单周期模式"/>
+    </RefParameter>
+    
+    <RefParameter Name="TimersCodeGenerationOption" Comment="Code Generation Option" CommentCH=" 代码生成选项 " DefaultValue="Default" Type="list" Visible="false">
+        	   <Annotation Note="Default: generates an empty function in freertos_app.c  as global&lt;br&gt;&lt;br&gt;
+                                                  As external: function code to be provided by the user&lt;br&gt;&lt;br&gt;
+                                                  As weak: generates an empty function in freertos_app.c  as weak&lt;br&gt;" 
+        	  	                 NoteCH="默认: 在freertos_app.c文件中生成一个空函数&lt;br&gt;
+                                                  外部定义: 功能函数由用户提供&lt;br&gt;
+                                                  弱定义: 在freertos_app.c文件中生成一个弱定义的空函数&lt;br&gt;" />
+            <PossibleValue Value="Default" Comment="Default" CommentCH="默认"/>
+            <PossibleValue Value="AsWeak" Comment="As weak" CommentCH="弱定义"/>
+    </RefParameter>
+    
+    <RefParameter Name="TimersAutoreload" Comment="    Autoreload    " CommentCH="    自动装载值    " Max="2147483647" Min="1" DefaultValue="100" Type="integer" Visible="false">
+        <Annotation Note="Timer's period.(1-2147483647)&lt;br&gt;" 
+        	  	             NoteCH="软件定时器周期值 (1-2147483647)。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="TimersAllocation" Comment="   Allocation   " CommentCH="        分配        " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态。&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="TimersBuffer" Comment="Timer Buffer" CommentCH="      定时器数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticTimer_t, which is then used to hold the timer's state.&lt;br&gt;" 
+        	  	             NoteCH="StaticTimer_t类型变量，用于保存软件定时器状态。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** Events ******************************-->
+    <RefParameter Name="Events" Comment="EventsColumns" CommentCH="EventsColumns" DefaultValue="EventName;EventAllocation;EventBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="EventName" Comment="                Event Name                " CommentCH="                  事件名称                  " DefaultValue="my_event" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the event.&lt;br&gt;" 
+        	  	             NoteCH="事件名称。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="EventAllocation" Comment="                 Allocation                 " CommentCH="                  分配                  " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态。&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="EventBuffer" Comment="Event Buffer" CommentCH="      事件数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticEventGroup_t, in which the event group's data structure will be stored.&lt;br&gt;" 
+        	  	             NoteCH=" StaticEventGroup_t类型变量，用于保存事件组数据结构。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** Mutexes ******************************-->
+    <RefParameter Name="Mutexes" Comment="MutexesColumns" CommentCH="MutexesColumns" DefaultValue="MutexName;MutexAllocation;MutexBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="MutexName" Comment="                Mutex Name                " CommentCH="                  互斥量名称                  " DefaultValue="my_mutex" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the mutex.&lt;br&gt;" 
+        	  	             NoteCH="互斥量名称。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="MutexAllocation" Comment="                 Allocation                 " CommentCH="                  分配                  " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态。&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="MutexBuffer" Comment="Mutex Buffer" CommentCH="      互斥量数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticSemaphore_t, which will be used to hold the mutex's state.&lt;br&gt;" 
+        	  	             NoteCH=" StaticSemaphore_t类型变量，用于保存互斥量状态。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** Recursive Mutexes ******************************-->
+    <RefParameter Name="RecursiveMutexes" Comment="RecursiveMutexesColumns" CommentCH="RecursiveMutexesColumns" DefaultValue="RecursiveMutexName;RecursiveMutexAllocation;RecursiveMutexBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="RecursiveMutexName" Comment="              Recursive Mutex Name              " CommentCH="                  递归互斥量名称                  " DefaultValue="my_recursive_mutex" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the recursive mutex.&lt;br&gt;" 
+        	  	             NoteCH="互斥量名称。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="RecursiveMutexAllocation" Comment="                 Allocation                 " CommentCH="                  分配                  " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态。&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="RecursiveMutexBuffer" Comment="Recursive Mutex Buffer" CommentCH="      递归互斥量数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticSemaphore_t, which will be used to hold the recursive mutex's state.&lt;br&gt;" 
+        	  	             NoteCH=" StaticSemaphore_t类型变量，用于保存递归互斥量状态。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** Binary Semaphores ******************************-->
+    <RefParameter Name="BinarySemaphores" Comment="BinarySemaphoresColumns" CommentCH="BinarySemaphoresColumns" DefaultValue="BinarySemaphoreName;BinarySemaphoreAllocation;BinarySemaphoreBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="BinarySemaphoreName" Comment="              Semaphore Name              " CommentCH="                  信号量名称                  " DefaultValue="my_binary_sem" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the  binary semaphore.&lt;br&gt;" 
+        	  	             NoteCH="二值信号量名称。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="BinarySemaphoreAllocation" Comment="                 Allocation                 " CommentCH="                  分配                  " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态。&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="BinarySemaphoreBuffer" Comment="Semaphore Buffer" CommentCH="      信号量数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticSemaphore_t, which will be used to hold the semaphore’s state..&lt;br&gt;" 
+        	  	             NoteCH="StaticSemaphore_t类型变量，用于保存二值信号量状态。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <!-- *************************** Counting Semaphores ******************************-->
+    <RefParameter Name="CountingSemaphores" Comment="CountingSemaphoresColumns" CommentCH="CountingSemaphoresColumns" DefaultValue="CountingSemaphoreName;CountingMaxCount;CountingInitialCount;CountingSemaphoreAllocation;CountingSemaphoreBuffer" Type="string text" Visible="false"/>
+    
+    <RefParameter Name="CountingSemaphoreName" Comment="      Semaphore Name       " CommentCH="          信号量名称          " DefaultValue="my_counting_sem" Type="string edit" Visible="false">
+        <Annotation Note="A descriptive name for the  counting semaphore.&lt;br&gt;" 
+        	  	             NoteCH="计数型信号量名称。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="CountingMaxCount" Comment="    Max Count    " CommentCH="    最大数量    " Max="2147483647" Min="1" DefaultValue="2" Type="integer" Visible="false">
+        <Annotation Note="The maximum count value of counting semaphores.(1-2147483647)&lt;br&gt;" 
+        	  	             NoteCH="计数型信号量最大信号数 (1-2147483647)。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="CountingInitialCount" Comment="    Initial Count    " CommentCH="    初始化数量    " Max="2" Min="1" DefaultValue="2" Type="integer" Visible="false">
+        <Annotation Note="The count value assigned to the semaphore when it is created.&lt;br&gt;" 
+        	  	             NoteCH="计数型信号量建立时初始化数量。&lt;br&gt;"/>
+    </RefParameter>
+    
+    <RefParameter Name="CountingSemaphoreAllocation" Comment="         Allocation        " CommentCH="         分配         " DefaultValue="Dynamic" Type="list" Visible="false">
+        	   <Annotation Note="Memory allocation option：dynamic or static&lt;br&gt;" 
+        	  	                 NoteCH="内存分配选项：动态或者静态。&lt;br&gt;" />
+            <PossibleValue Value="Dynamic" Comment="Dynamic" CommentCH="动态"/>
+            <PossibleValue Value="Static" Comment="Static" CommentCH="静态"/>
+    </RefParameter>
+    
+    <RefParameter Name="CountingSemaphoreBuffer" Comment="Semaphore Buffer" CommentCH="      信号量数组      " DefaultValue="buffer" Type="string edit" Visible="false">
+        <Annotation Note="A variable of type StaticSemaphore_t, which will be used to hold the semaphore's state.&lt;br&gt;" 
+        	  	             NoteCH="StaticSemaphore_t类型变量，用于保存计数型信号量状态。&lt;br&gt;"/>
+    </RefParameter>
+                
+    <!-- *************************** HeapUsage ******************************-->
+    <RefParameter Name="HEAP_TOTAL_SIZE" Comment="TOTAL HEAP SIZE" CommentCH="堆总大小" Max="" Min="" DefaultValue="10240" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="HEAP_STILL_AVAILABLE" Comment="HEAP STILL AVAILABLE" CommentCH="堆剩余大小" Max="" Min="" DefaultValue="10240" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="HEAP_TOTAL_USED" Comment="TOTAL HEAP USED" CommentCH="已使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    
+    <RefParameter Name="TOTAL_TASKS_USED" Comment="  --Total amount for tasks" CommentCH="  -- 任务使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="TOTAL_QUEUES_USED" Comment="  --Total amount for queues" CommentCH="  -- 队列使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="TOTAL_SOFTWARETIMERS_USED" Comment="  --Total amount for software timers" CommentCH="  -- 软件定时器使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="TOTAL_EVENTS_USED" Comment="  --Total amount for events" CommentCH="  -- 事件使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="TOTAL_MUTEXES_USED" Comment="  --Total amount for mutexes" CommentCH="  -- 互斥量使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="TOTAL_RECURSIVEMUTEXES_USED" Comment="  --Total amount for recursive mutexes" CommentCH="  -- 递归互斥量使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="TOTAL_BINARYSEM_USED" Comment="  --Total amount for binary semaphores" CommentCH="  -- 二值信号量使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+    <RefParameter Name="TOTAL_COUNTINGSEM_USED" Comment="  --Total amount for counting semaphores" CommentCH="  -- 计数型信号量使用堆大小" Max="" Min="" DefaultValue="0" Type="integer text" Unit="Bytes"  Group="Summary" GroupCH="总览">
+    </RefParameter>
+
+    <RefParameter Name="TasksHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="120" Type="integer text" Unit="Bytes"  Group="Tasks" GroupCH="任务">
+    </RefParameter>
+    <RefParameter Name="QueuesHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="92" Type="integer text" Unit="Bytes"  Group="Queues" GroupCH="队列">
+    </RefParameter>
+    <RefParameter Name="SoftwareTimersHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="48" Type="integer text" Unit="Bytes"  Group="Software Timers" GroupCH="软件定时器">
+    </RefParameter>
+    <RefParameter Name="BinarySemaphoresHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="88" Type="integer text" Unit="Bytes"  Group="Binary Semaphores" GroupCH="二值信号量">
+    </RefParameter>
+    <RefParameter Name="CountingSemaphoresHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="88" Type="integer text" Unit="Bytes"  Group="Counting Semaphores" GroupCH="计数型信号量">
+    </RefParameter>
+    <RefParameter Name="EventsHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="32" Type="integer text" Unit="Bytes"  Group="Events" GroupCH="事件">
+    </RefParameter>
+    <RefParameter Name="MutexesHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="88" Type="integer text" Unit="Bytes"  Group="Mutexes" GroupCH="互斥量">
+    </RefParameter>
+    <RefParameter Name="RecursiveMutexesHeapTemplate" Comment="" CommentCH="" Max="" Min="" DefaultValue="88" Type="integer text" Unit="Bytes"  Group="Recursive Mutexes" GroupCH="递归互斥量">
+    </RefParameter>
+    
+<!-- ***********************************************************************************-->
+
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ REF MODE \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!-- ***********************************************************************************-->
+    <RefMode Name="Activated" Abstract="true">
+    	       <!-- *************************** System version ******************************-->
+    	       <Parameter Name="FreeRTOS_version"/>
+    	       
+            <!-- *************************** FPU ******************************-->
+            <Parameter Name="FPU"/>
+            
+            <Parameter Name="MCU_SRAM_SIZE"/>
+            <Parameter Name="USB_MID_STATUS"/>
+            <Parameter Name="LWIP_MID_STATUS"/>
+            <Parameter Name="SYSTEM_Include"/>
+            
+            <!-- *************************** Kernel settings ******************************-->
+            <Parameter Name="configCPU_CLOCK_HZ"/>
+            <Parameter Name="configTICK_RATE_HZ"/>
+            <Parameter Name="configMAX_PRIORITIES"/>   
+            <Parameter Name="configMINIMAL_STACK_SIZE"/>
+            <Parameter Name="configMAX_TASK_NAME_LEN"/>   
+            <Parameter Name="configQUEUE_REGISTRY_SIZE"/>                       
+            <Parameter Name="configUSE_PRE_EMPTION"/>
+            <Parameter Name="configUSE_TIME_SLICING"/>
+            <Parameter Name="configUSE_PORT_OPTIMISED_TASK_SELECTION"/>
+    	       <Parameter Name="configUSE_TICKLESS_IDLE"/>     
+    	       <Parameter Name="configUSE_16_BIT_TICKS"/>
+    	       <Parameter Name="configIDLE_SHOULD_YIELD"/>
+    	       <Parameter Name="configUSE_TASK_NOTIFICATIONS"/> 
+    	      <Parameter Name="configUSE_MUTEXES"/>
+    	      <Parameter Name="configUSE_RECURSIVE_MUTEXES"/>
+    	      <Parameter Name="configUSE_COUNTING_SEMAPHORES"/>
+    	      <Parameter Name="configENABLE_BACKWARD_COMPATIBILITY"/>
+    	      <Parameter Name="configUSE_APPLICATION_TASK_TAG"/>	      
+    	      <Parameter Name="configRECORD_STACK_HIGH_ADDRESS"/>
+    	      
+    	      <!-- *************************** memory management settings ******************************-->
+    	      <Parameter Name="Memory_allocation"/>
+    	      <Parameter Name="Memory_management_method"/>
+    	      <Parameter Name="TOTAL_HEAP_SIZE"/>
+    	      
+    	      <!-- *************************** Hook function definitions ******************************-->
+    	      <Parameter Name="USE_IDLE_HOOK"/>
+    	      <Parameter Name="USE_TICK_HOOK"/>
+    	      <Parameter Name="CHECK_FOR_STACK_OVERFLOW"/>
+    	      <Parameter Name="USE_MALLOC_FAILED_HOOK"/>
+    	      <Parameter Name="USE_DAEMON_TASK_STARTUP_HOOK"/>
+
+    	      <!-- *************************** run time and task stats gathering definitions ******************************-->
+    	      <Parameter Name="configGENERATE_RUN_TIME_STATS"/>
+    	      <Parameter Name="configUSE_TRACE_FACILITY"/>
+    	      <Parameter Name="configUSE_STATS_FORMATTING_FUNCTIONS"/>
+    	      
+    	      <!-- *************************** co-routine definitions ******************************-->
+    	      <Parameter Name="configUSE_CO_ROUTINES"/>
+    	      <Parameter Name="configMAX_CO_ROUTINE_PRIORITIES"/>
+    	      
+    	      <!-- *************************** software timer definitions ******************************-->
+    	      <Parameter Name="configUSE_TIMERS"/>
+    	      <Parameter Name="configTIMER_TASK_PRIORITY"/>
+    	      <Parameter Name="configTIMER_QUEUE_LENGTH"/>
+    	      <Parameter Name="configTIMER_TASK_STACK_DEPTH"/>
+    	      
+    	      <!-- *************************** interrupt configuration ******************************-->
+    	      <Parameter Name="configLIBRARY_LOWEST_INTERRUPT_PRIORITY"/>
+    	      <Parameter Name="configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY"/>
+    	      
+    	      <!-- *************************** include parameters ******************************-->
+    	      <Parameter Name="INCLUDE_vTaskPrioritySet"/>
+    	      <Parameter Name="INCLUDE_uxTaskPriorityGet"/>
+    	      <Parameter Name="INCLUDE_vTaskDelete"/>
+    	      <Parameter Name="INCLUDE_vTaskCleanUpResources"/>
+    	      <Parameter Name="INCLUDE_vTaskSuspend"/>
+    	      <Parameter Name="INCLUDE_vTaskDelayUntil"/>
+    	      <Parameter Name="INCLUDE_vTaskDelay"/>
+    	      <Parameter Name="INCLUDE_xTaskGetSchedulerState"/>
+    	      <Parameter Name="INCLUDE_xTaskGetCurrentTaskHandle"/>
+    	      <Parameter Name="INCLUDE_uxTaskGetStackHighWaterMark"/>
+    	      <Parameter Name="INCLUDE_uxTaskGetStackHighWaterMark2"/>
+    	      <Parameter Name="INCLUDE_eTaskGetState"/>
+    	      <Parameter Name="INCLUDE_xTimerPendFunctionCall"/>
+    	      <Parameter Name="INCLUDE_xTaskAbortDelay"/>
+    	      <Parameter Name="INCLUDE_xTaskGetHandle"/>
+    	      <Parameter Name="INCLUDE_xTaskResumeFromISR"/>
+    	      <Parameter Name="INCLUDE_xQueueGetMutexHolder"/>
+    	      <Parameter Name="INCLUDE_xSemaphoreGetMutexHolder"/>
+    </RefMode>
+
+    <!-- ModeLogicOperator for FreeRTOS -->
+    <ModeLogicOperator Name="OR">
+    	 <Mode Name="Activated" UserName="Activated" UserNameCH="启用">
+            <ModeLogicOperator Name="OR">
+                <Mode Name="Activated" UserName="Activated" UserNameCH="启用">
+                    <Semaphore>Semaphore_Activated_$IpInstance</Semaphore>
+                    <SignalLogicalOp Name="AND">
+                        <Signal Name="VS_Activated"/>
+                    </SignalLogicalOp>
+                </Mode>
+            </ModeLogicOperator>
+        </Mode>
+    </ModeLogicOperator>
+
+    <!-- RefSignal for FreeRTOS -->
+    <RefSignal IOMode="Analog" Name="VS_Activated" Virtual="true"/>
+</IP>

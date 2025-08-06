@@ -1,0 +1,439 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/cmsis/cm4/device_support/system_at32f435_437.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_crm.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_tmr.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_ertc.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_gpio.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_i2c.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_usart.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_pwc.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_adc.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_spi.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_dma.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_edma.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_debug.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_flash.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_crc.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_wwdt.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_wdt.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_exint.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_misc.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_scfg.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_usb.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_acc.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_can.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_dac.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_xmc.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_qspi.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_sdio.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_dvp.c.obj"
+		},
+		{
+			"path" : "cmake/at32_workbench/CMakeFiles/AT32_Drivers.dir/./__/__/libraries/drivers/src/at32f435_437_emac.c.obj"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"cmake/at32_workbench/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 87,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 89,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 88,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections -O0 -g3 -std=gnu11 -fdiagnostics-color=always"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "AT32F435VGT7"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "DEBUG"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "USE_STDPERIPH_DRIVER"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "D:/ATS/Firmware/APS_CPU_Firmware/project/inc"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/ATS/Firmware/APS_CPU_Firmware/libraries/drivers/inc"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/ATS/Firmware/APS_CPU_Firmware/libraries/cmsis/cm4/core_support"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/ATS/Firmware/APS_CPU_Firmware/libraries/cmsis/cm4/device_support"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "11"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28
+			]
+		}
+	],
+	"id" : "AT32_Drivers::@4c4faa2e3e803c5e6b73",
+	"name" : "AT32_Drivers",
+	"paths" : 
+	{
+		"build" : "cmake/at32_workbench",
+		"source" : "cmake/at32_workbench"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/cmsis/cm4/device_support/system_at32f435_437.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_crm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_tmr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_ertc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_gpio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_i2c.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_usart.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_pwc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_adc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_spi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_dma.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_edma.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_debug.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_flash.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_crc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_wwdt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_wdt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_exint.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_misc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_scfg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_usb.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_acc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_can.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_dac.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_xmc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_qspi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_sdio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_dvp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/drivers/src/at32f435_437_emac.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "OBJECT_LIBRARY"
+}

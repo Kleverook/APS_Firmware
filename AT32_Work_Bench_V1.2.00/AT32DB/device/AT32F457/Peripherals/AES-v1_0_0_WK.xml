@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<IP>
+    <About>NIST FIPS PUB-197 Advanced Encryption Standard</About>
+    <AboutCH>AES硬件加密单元</AboutCH>
+
+<!-- Generic RefParameters for TMR Modes -->
+    <RefParameter Name="Instance" DefaultValue="AES$Index" Comment="Instance" CommentCH="" Type="" Visible="false"/>
+   
+    <RefParameter Name="Mode" Comment="Mode" CommentCH="模式" DefaultValue="AES_CHMODE_ECB" Type="list" Group="Chaining mode" GroupCH="工作串接模式" Reload="false">
+        <PossibleValue Value="AES_CHMODE_ECB" Comment="ECB" CommentCH="ECB"/>
+        <PossibleValue Value="AES_CHMODE_CBC" Comment="CBC" CommentCH="CBC"/>
+        <PossibleValue Value="AES_CHMODE_CTR" Comment="CTR" CommentCH="CTR"/>
+        <PossibleValue Value="AES_CHMODE_GCM" Comment="GCM/GMAC" CommentCH="GCM/GMAC"/>
+        <PossibleValue Value="AES_CHMODE_CCM" Comment="CCM" CommentCH="CCM"/>
+    </RefParameter>
+    
+    <RefParameter Name="KeyLength" Comment="Key length" CommentCH="密钥长度" DefaultValue="AES_KEY_LENGTH_128" Type="list" Group="AES parameters settings" GroupCH="AES参数设置">
+        <PossibleValue Value="AES_KEY_LENGTH_128" Comment="AES-128" CommentCH="AES-128"/>
+        <PossibleValue Value="AES_KEY_LENGTH_192" Comment="AES-192" CommentCH="AES-192"/>
+        <PossibleValue Value="AES_KEY_LENGTH_256" Comment="AES-256" CommentCH="AES-256"/>
+    </RefParameter>
+    
+    <RefParameter Name="Key0" Comment="Key 0" CommentCH="密钥0" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	</RefParameter>
+	<RefParameter Name="Key1" Comment="Key 1" CommentCH="密钥1" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	</RefParameter>
+	<RefParameter Name="Key2" Comment="Key 2" CommentCH="密钥2" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	</RefParameter>
+	<RefParameter Name="Key3" Comment="Key 3" CommentCH="密钥3" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	</RefParameter>
+	<RefParameter Name="Key4" Comment="Key 4" CommentCH="密钥4" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	    <Condition Diagnostic="" Expression="KeyLength = AES_KEY_LENGTH_192 | KeyLength = AES_KEY_LENGTH_256"/>
+	</RefParameter>
+	<RefParameter Name="Key5" Comment="Key 5" CommentCH="密钥5" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	    <Condition Diagnostic="" Expression="KeyLength = AES_KEY_LENGTH_192 | KeyLength = AES_KEY_LENGTH_256"/>
+	</RefParameter>
+	<RefParameter Name="Key6" Comment="Key 6" CommentCH="密钥6" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	    <Condition Diagnostic="" Expression="KeyLength = AES_KEY_LENGTH_256"/>
+	</RefParameter>
+	<RefParameter Name="Key7" Comment="Key 7" CommentCH="密钥7" DefaultValue="00000000" Max="FFFFFFFF" Min="00000000" Group="AES parameters settings" GroupCH="AES参数设置" Type="hexadecimal" Reload="false">
+	    <Condition Diagnostic="" Expression="KeyLength = AES_KEY_LENGTH_256"/>
+	</RefParameter>
+    
+    <RefParameter Name="DataSwapMode" Comment="Data Swap mode" CommentCH="数据交换模式" DefaultValue="AES_SWAP_TYPE_NONE" Type="list" Group="AES parameters settings" GroupCH="AES参数设置" Reload="false">
+        <PossibleValue Value="AES_SWAP_TYPE_NONE" Comment="No swapping" CommentCH="不交换"/>
+        <PossibleValue Value="AES_SWAP_TYPE_HALF_WROD" Comment="Half word swapping" CommentCH="半字交换"/>
+        <PossibleValue Value="AES_SWAP_TYPE_BYTE" Comment="Byte swapping" CommentCH="字节交换"/>
+        <PossibleValue Value="AES_SWAP_TYPE_BIT" Comment="Bit swapping" CommentCH="位交换"/>
+    </RefParameter>
+    
+    <RefParameter Name="OperationMode" Comment="Operation Mode" CommentCH="操作模式" DefaultValue="AES_OPMODE_ENCRYPT" Type="list" Group="AES parameters settings" GroupCH="AES参数设置" Reload="false">
+        <PossibleValue Value="AES_OPMODE_ENCRYPT" Comment="Encrypt" CommentCH="加密"/>
+        <PossibleValue Value="AES_OPMODE_DECRYPT" Comment="Decrypt" CommentCH="解密"/>
+        <PossibleValue Value="AES_OPMODE_KEY_SCHEDULING" Comment="Key Scheduling" CommentCH="密钥扩展"/>
+        <PossibleValue Value="AES_OPMODE_KEY_SCHEDULING_DECRYPT" Comment="Key Scheduling and Decrypt" CommentCH="密钥扩展并解密"/>
+    </RefParameter>
+
+
+<!-- ***********************************************************************************-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ REF MODE \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!--/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\-->
+<!-- ***********************************************************************************-->
+    <RefMode Name="State" BaseMode="State">
+    	      <Parameter Name="Mode"/>
+    	      <Parameter Name="KeyLength"/>
+    	      <Parameter Name="Key0"/>
+    	      <Parameter Name="Key1"/>
+    	      <Parameter Name="Key2"/>
+    	      <Parameter Name="Key3"/>
+    	      <Parameter Name="Key4"/>
+    	      <Parameter Name="Key5"/>
+    	      <Parameter Name="Key6"/>
+    	      <Parameter Name="Key7"/>
+    	      <Parameter Name="OperationMode"/>
+    	      <Parameter Name="DataSwapMode"/>
+    </RefMode>
+
+    <ModeLogicOperator Name="OR"> 
+    	<Mode Name="State" UserName="Activated" UserNameCH="启用">
+        <ModeLogicOperator Name="XOR">
+          <Mode Name="State" UserName="Activated" UserNameCH="启用">
+            <SignalLogicalOp Name="AND">
+              <Signal Name="VS_AES" />
+            </SignalLogicalOp>
+            <Semaphore>State_ENABLED$IpInstance</Semaphore>
+          </Mode>
+        </ModeLogicOperator>
+      </Mode>
+    </ModeLogicOperator>
+
+    <RefSignal Name="VS_AES" Virtual="true"/>                       
+</IP>
