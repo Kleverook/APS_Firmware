@@ -1,1 +1,4 @@
 cmake-build-debug-mingw
+.idea
+.vscode
+APS_Control/cmake-build-debug-mingw

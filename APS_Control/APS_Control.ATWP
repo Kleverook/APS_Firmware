@@ -350,7 +350,7 @@
         <PinSub pinname="PB8" signalname="GPIO_Output" signaltype="3"/>
     </PINInfo>
     <ProjectInfomation>
-        <ProjectName>AT32F435VGT7_WorkBench</ProjectName>
+        <ProjectName>APS_Control</ProjectName>
         <ProjectLocation>D:/ATS/Firmware/APS_CPU_Firmware</ProjectLocation>
         <ToolchainIDE>CMake</ToolchainIDE>
         <ARMCompiler>0</ARMCompiler>

@@ -1,8 +1,10 @@
-//
-// Created by pader on 08.08.2025.
-//
-
 #ifndef SINE_TABLE_H
 #define SINE_TABLE_H
 
-#endif //SINE_TABLE_H
+#define SINE_TABLE_SIZE 1000
+
+extern float sine_table[SINE_TABLE_SIZE];
+
+void init_sine_table(void);
+
+#endif // SINE_TABLE_H
