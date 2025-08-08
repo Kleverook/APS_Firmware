@@ -93,14 +93,14 @@ void wk_tmr1_init(void)
   tmr_clock_source_div_set(TMR1, TMR_CLOCK_DIV1);
   tmr_repetition_counter_set(TMR1, 0);
   tmr_period_buffer_enable(TMR1, FALSE);
-  tmr_base_init(TMR1, 65535, 0);
+  tmr_base_init(TMR1, 999, 14);
 
   /* configure primary mode settings */
   tmr_sub_sync_mode_set(TMR1, FALSE);
   tmr_primary_mode_select(TMR1, TMR_PRIMARY_SEL_RESET);
 
   /* configure channel 1 output settings */
-  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_OFF;
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
   tmr_output_struct.oc_output_state = TRUE;
   tmr_output_struct.occ_output_state = TRUE;
   tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_HIGH;
@@ -109,10 +109,12 @@ void wk_tmr1_init(void)
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_1, &tmr_output_struct);
   tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_1, 0);
-  tmr_output_channel_buffer_enable(TMR1, TMR_SELECT_CHANNEL_1, FALSE);
+  tmr_output_channel_buffer_enable(TMR1, TMR_SELECT_CHANNEL_1, TRUE);
+
+  tmr_output_channel_immediately_set(TMR1, TMR_SELECT_CHANNEL_1, FALSE);
 
   /* configure channel 2 output settings */
-  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_OFF;
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
   tmr_output_struct.oc_output_state = TRUE;
   tmr_output_struct.occ_output_state = TRUE;
   tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_HIGH;
@@ -121,7 +123,9 @@ void wk_tmr1_init(void)
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_2, &tmr_output_struct);
   tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, 0);
-  tmr_output_channel_buffer_enable(TMR1, TMR_SELECT_CHANNEL_2, FALSE);
+  tmr_output_channel_buffer_enable(TMR1, TMR_SELECT_CHANNEL_2, TRUE);
+
+  tmr_output_channel_immediately_set(TMR1, TMR_SELECT_CHANNEL_2, FALSE);
 
   /* configure break and dead-time settings */
   tmr_brkdt_struct.brk_enable = FALSE;
@@ -130,7 +134,7 @@ void wk_tmr1_init(void)
   tmr_brkdt_struct.fcsoen_state = FALSE;
   tmr_brkdt_struct.fcsodis_state = FALSE;
   tmr_brkdt_struct.wp_level = TMR_WP_OFF;
-  tmr_brkdt_struct.deadtime = 0;
+  tmr_brkdt_struct.deadtime = 10;
   tmr_brkdt_config(TMR1, &tmr_brkdt_struct);
 
 
@@ -205,14 +209,14 @@ void wk_tmr8_init(void)
   tmr_clock_source_div_set(TMR8, TMR_CLOCK_DIV1);
   tmr_repetition_counter_set(TMR8, 0);
   tmr_period_buffer_enable(TMR8, FALSE);
-  tmr_base_init(TMR8, 65535, 0);
+  tmr_base_init(TMR8, 999, 14);
 
   /* configure primary mode settings */
   tmr_sub_sync_mode_set(TMR8, FALSE);
   tmr_primary_mode_select(TMR8, TMR_PRIMARY_SEL_RESET);
 
   /* configure channel 2 output settings */
-  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_OFF;
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
   tmr_output_struct.oc_output_state = TRUE;
   tmr_output_struct.occ_output_state = TRUE;
   tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_HIGH;
@@ -223,8 +227,10 @@ void wk_tmr8_init(void)
   tmr_channel_value_set(TMR8, TMR_SELECT_CHANNEL_2, 0);
   tmr_output_channel_buffer_enable(TMR8, TMR_SELECT_CHANNEL_2, FALSE);
 
+  tmr_output_channel_immediately_set(TMR8, TMR_SELECT_CHANNEL_2, FALSE);
+
   /* configure channel 3 output settings */
-  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_OFF;
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
   tmr_output_struct.oc_output_state = TRUE;
   tmr_output_struct.occ_output_state = TRUE;
   tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_HIGH;
@@ -235,6 +241,8 @@ void wk_tmr8_init(void)
   tmr_channel_value_set(TMR8, TMR_SELECT_CHANNEL_3, 0);
   tmr_output_channel_buffer_enable(TMR8, TMR_SELECT_CHANNEL_3, FALSE);
 
+  tmr_output_channel_immediately_set(TMR8, TMR_SELECT_CHANNEL_3, FALSE);
+
   /* configure break and dead-time settings */
   tmr_brkdt_struct.brk_enable = FALSE;
   tmr_brkdt_struct.auto_output_enable = FALSE;
@@ -242,7 +250,7 @@ void wk_tmr8_init(void)
   tmr_brkdt_struct.fcsoen_state = FALSE;
   tmr_brkdt_struct.fcsodis_state = FALSE;
   tmr_brkdt_struct.wp_level = TMR_WP_OFF;
-  tmr_brkdt_struct.deadtime = 0;
+  tmr_brkdt_struct.deadtime = 10;
   tmr_brkdt_config(TMR8, &tmr_brkdt_struct);
 
 
@@ -317,14 +325,14 @@ void wk_tmr20_init(void)
   tmr_clock_source_div_set(TMR20, TMR_CLOCK_DIV1);
   tmr_repetition_counter_set(TMR20, 0);
   tmr_period_buffer_enable(TMR20, FALSE);
-  tmr_base_init(TMR20, 65535, 0);
+  tmr_base_init(TMR20, 999, 14);
 
   /* configure primary mode settings */
   tmr_sub_sync_mode_set(TMR20, FALSE);
   tmr_primary_mode_select(TMR20, TMR_PRIMARY_SEL_RESET);
 
   /* configure channel 1 output settings */
-  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_OFF;
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
   tmr_output_struct.oc_output_state = TRUE;
   tmr_output_struct.occ_output_state = TRUE;
   tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_HIGH;
@@ -335,8 +343,10 @@ void wk_tmr20_init(void)
   tmr_channel_value_set(TMR20, TMR_SELECT_CHANNEL_1, 0);
   tmr_output_channel_buffer_enable(TMR20, TMR_SELECT_CHANNEL_1, FALSE);
 
+  tmr_output_channel_immediately_set(TMR20, TMR_SELECT_CHANNEL_1, FALSE);
+
   /* configure channel 2 output settings */
-  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_OFF;
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
   tmr_output_struct.oc_output_state = TRUE;
   tmr_output_struct.occ_output_state = TRUE;
   tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_HIGH;
@@ -346,6 +356,8 @@ void wk_tmr20_init(void)
   tmr_output_channel_config(TMR20, TMR_SELECT_CHANNEL_2, &tmr_output_struct);
   tmr_channel_value_set(TMR20, TMR_SELECT_CHANNEL_2, 0);
   tmr_output_channel_buffer_enable(TMR20, TMR_SELECT_CHANNEL_2, FALSE);
+
+  tmr_output_channel_immediately_set(TMR20, TMR_SELECT_CHANNEL_2, FALSE);
 
   /* configure break and dead-time settings */
   tmr_brkdt_struct.brk_enable = FALSE;

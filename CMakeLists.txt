@@ -16,7 +16,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME APS_FIRMWARE)
+set(CMAKE_PROJECT_NAME AT32F435VGT7_WorkBench)
 
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")

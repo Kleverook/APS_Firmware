@@ -19,8 +19,6 @@ set(WK_Include_Dirs
 # AT32 WorkBench generated application sources
 set(WK_Application_Src
     ${CMAKE_SOURCE_DIR}/project/src/main.c
-    ${CMAKE_SOURCE_DIR}/project/src/syscalls.c
-    ${CMAKE_SOURCE_DIR}/project/src/sysmem.c
     ${CMAKE_SOURCE_DIR}/project/src/at32f435_437_wk_config.c
     ${CMAKE_SOURCE_DIR}/project/src/at32f435_437_int.c
     ${CMAKE_SOURCE_DIR}/project/src/wk_system.c
@@ -30,6 +28,8 @@ set(WK_Application_Src
     ${CMAKE_SOURCE_DIR}/project/src/wk_tmr.c
     ${CMAKE_SOURCE_DIR}/project/src/wk_usart.c
     ${CMAKE_SOURCE_DIR}/project/src/wk_gpio.c
+    ${CMAKE_SOURCE_DIR}/project/src/syscalls.c
+    ${CMAKE_SOURCE_DIR}/project/src/sysmem.c
     ${CMAKE_SOURCE_DIR}/startup_at32f435_437.s
 )
 

@@ -95,12 +95,6 @@ int main(void)
   /* init gpio function. */
   wk_gpio_config();
 
-  /* init adc-common function. */
-  wk_adc_common_init();
-
-  /* init adc1 function. */
-  wk_adc1_init();
-
   /* init usart1 function. */
   wk_usart1_init();
 
@@ -115,6 +109,12 @@ int main(void)
 
   /* init i2c1 function. */
   wk_i2c1_init();
+
+  /* init adc-common function. */
+  wk_adc_common_init();
+
+  /* init adc1 function. */
+  wk_adc1_init();
 
   /* init tmr1 function. */
   wk_tmr1_init();

@@ -71,15 +71,15 @@
   *         - hick                = on
   *         - hext                = off
   *         - hext                = HEXT_VALUE
-  *         - sclk                = 250000000
+  *         - sclk                = 240000000
   *         - ahbdiv              = 1
-  *         - ahbclk              = 250000000
+  *         - ahbclk              = 240000000
   *         - apb1div             = 2
-  *         - apb1clk             = 125000000
+  *         - apb1clk             = 120000000
   *         - apb2div             = 2
-  *         - apb2clk             = 125000000
-  *         - pll_ns              = 125
-  *         - pll_ms              = 2
+  *         - apb2clk             = 120000000
+  *         - pll_ns              = 60
+  *         - pll_ms              = 1
   *         - pll_fr              = 4
   * @param  none
   * @retval none
@@ -93,7 +93,7 @@ void wk_system_clock_config(void)
   crm_periph_clock_enable(CRM_PWC_PERIPH_CLOCK, TRUE);
 
   /* config ldo voltage */
-  pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V3);
+  pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V2);
  
   /* set the flash clock divider */
   flash_clock_divider_set(FLASH_CLOCK_DIV_3);
@@ -123,7 +123,7 @@ void wk_system_clock_config(void)
   }
 
   /* config pll clock resource */
-  crm_pll_config(CRM_PLL_SOURCE_HEXT, 125, 2, CRM_PLL_FR_4);
+  crm_pll_config(CRM_PLL_SOURCE_HEXT, 60, 1, CRM_PLL_FR_4);
 
   /* enable pll */
   crm_clock_source_enable(CRM_CLOCK_SOURCE_PLL, TRUE);
