@@ -11,6 +11,7 @@ set(WK_Defines_Syms
 # AT32 WorkBench generated include paths
 set(WK_Include_Dirs
     ${CMAKE_SOURCE_DIR}/project/inc
+    ${CMAKE_SOURCE_DIR}/project/src
     ${CMAKE_SOURCE_DIR}/libraries/drivers/inc
     ${CMAKE_SOURCE_DIR}/libraries/cmsis/cm4/core_support
     ${CMAKE_SOURCE_DIR}/libraries/cmsis/cm4/device_support
@@ -19,6 +20,8 @@ set(WK_Include_Dirs
 # AT32 WorkBench generated application sources
 set(WK_Application_Src
     ${CMAKE_SOURCE_DIR}/project/src/main.c
+    ${CMAKE_SOURCE_DIR}/project/src/syscalls.c
+    ${CMAKE_SOURCE_DIR}/project/src/sysmem.c
     ${CMAKE_SOURCE_DIR}/project/src/at32f435_437_wk_config.c
     ${CMAKE_SOURCE_DIR}/project/src/at32f435_437_int.c
     ${CMAKE_SOURCE_DIR}/project/src/wk_system.c
@@ -102,3 +105,7 @@ set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES ADDITIONAL_CLEAN_FILES ${
 if((CMAKE_C_STANDARD EQUAL 90) OR (CMAKE_C_STANDARD EQUAL 99))
     message(ERROR "Generated code requires C11 or higher")
 endif()
+
+# Find objcopy utility
+find_program(CMAKE_OBJCOPY arm-none-eabi-objcopy)
+

@@ -38,7 +38,7 @@ extern "C" {
 
 /* private includes -------------------------------------------------------------*/
 /* add user code begin private includes */
-
+#include "main.h"
 /* add user code end private includes */
 
 /* exported types -------------------------------------------------------------*/
@@ -58,44 +58,44 @@ extern "C" {
 
 /* add user code begin dma define */
 /* user can only modify the dma define value */
-//#define DMA1_CHANNEL1_BUFFER_SIZE   0
-//#define DMA1_CHANNEL1_MEMORY_BASE_ADDR   0
+//#define DMA1_CHANNEL1_BUFFER_SIZE   (sizeof(scaled_sine_table_0))
+//#define DMA1_CHANNEL1_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_0)
 //#define DMA1_CHANNEL1_PERIPHERAL_BASE_ADDR  0
 
-//#define DMA1_CHANNEL2_BUFFER_SIZE   0
-//#define DMA1_CHANNEL2_MEMORY_BASE_ADDR   0
+//#define DMA1_CHANNEL2_BUFFER_SIZE   (sizeof(scaled_sine_table_0))
+//#define DMA1_CHANNEL2_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_0)
 //#define DMA1_CHANNEL2_PERIPHERAL_BASE_ADDR   0
 
-//#define DMA1_CHANNEL3_BUFFER_SIZE   0
-//#define DMA1_CHANNEL3_MEMORY_BASE_ADDR   0
+//#define DMA1_CHANNEL3_BUFFER_SIZE   (sizeof(scaled_sine_table_120))
+//#define DMA1_CHANNEL3_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_120)
 //#define DMA1_CHANNEL3_PERIPHERAL_BASE_ADDR   0
 
-//#define DMA1_CHANNEL4_BUFFER_SIZE   0
-//#define DMA1_CHANNEL4_MEMORY_BASE_ADDR   0
+//#define DMA1_CHANNEL4_BUFFER_SIZE   (sizeof(scaled_sine_table_120))
+//#define DMA1_CHANNEL4_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_120)
 //#define DMA1_CHANNEL4_PERIPHERAL_BASE_ADDR   0
 
-//#define DMA1_CHANNEL5_BUFFER_SIZE   0
-//#define DMA1_CHANNEL5_MEMORY_BASE_ADDR   0
+//#define DMA1_CHANNEL5_BUFFER_SIZE   (sizeof(scaled_sine_table_240))
+//#define DMA1_CHANNEL5_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_240)
 //#define DMA1_CHANNEL5_PERIPHERAL_BASE_ADDR   0
 
-//#define DMA1_CHANNEL6_BUFFER_SIZE   0
-//#define DMA1_CHANNEL6_MEMORY_BASE_ADDR   0
+//#define DMA1_CHANNEL6_BUFFER_SIZE   (sizeof(scaled_sine_table_240))
+//#define DMA1_CHANNEL6_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_240)
 //#define DMA1_CHANNEL6_PERIPHERAL_BASE_ADDR   0
 
 //#define DMA1_CHANNEL7_BUFFER_SIZE   0
 //#define DMA1_CHANNEL7_MEMORY_BASE_ADDR   0
 //#define DMA1_CHANNEL7_PERIPHERAL_BASE_ADDR   0
 
-//#define DMA2_CHANNEL1_BUFFER_SIZE   0
-//#define DMA2_CHANNEL1_MEMORY_BASE_ADDR   0
+//#define DMA2_CHANNEL1_BUFFER_SIZE   (sizeof(scaled_sine_table_240))
+//#define DMA2_CHANNEL1_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_240)
 //#define DMA2_CHANNEL1_PERIPHERAL_BASE_ADDR   0
 
-//#define DMA2_CHANNEL2_BUFFER_SIZE   0
-//#define DMA2_CHANNEL2_MEMORY_BASE_ADDR   0
+//#define DMA2_CHANNEL2_BUFFER_SIZE   (sizeof(scaled_sine_table_240))
+//#define DMA2_CHANNEL2_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_240)
 //#define DMA2_CHANNEL2_PERIPHERAL_BASE_ADDR   0
 
-//#define DMA2_CHANNEL3_BUFFER_SIZE   0
-//#define DMA2_CHANNEL3_MEMORY_BASE_ADDR   0
+//#define DMA2_CHANNEL3_BUFFER_SIZE   (sizeof(scaled_sine_table_120))
+//#define DMA2_CHANNEL3_MEMORY_BASE_ADDR   ((uint32_t)scaled_sine_table_120)
 //#define DMA2_CHANNEL3_PERIPHERAL_BASE_ADDR   0
 
 //#define DMA2_CHANNEL4_BUFFER_SIZE   0
@@ -114,8 +114,8 @@ extern "C" {
 //#define DMA2_CHANNEL7_MEMORY_BASE_ADDR   0
 //#define DMA2_CHANNEL7_PERIPHERAL_BASE_ADDR   0
  
-//#define EDMA_STREAM1_BUFFER_SIZE   0
-//#define EDMA_STREAM1_MEMORY0_BASE_ADDR   0
+//#define EDMA_STREAM1_BUFFER_SIZE   (sizeof(scaled_table))
+//#define EDMA_STREAM1_MEMORY0_BASE_ADDR   ((uint32_t)scaled_table)
 //#define EDMA_STREAM1_PERIPHERAL_BASE_ADDR   0
 //#define EDMA_STREAM1_MEMORY1_BASE_ADDR   0
 //#define EDMA_STREAM1_LINK_LIST_POINTER   0

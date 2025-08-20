@@ -33,8 +33,12 @@ enable_language(C ASM)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME}
+        project/src/driver_tmr.c
+        project/inc/driver_tmr.h
         project/src/sine_table.c
-        project/inc/sine_table.h)
+        project/inc/sine_table.h
+        project/src/system_utils.c
+        project/inc/system_utils.h)
 
 # Add at32_workbench generated sources
 add_subdirectory(cmake/at32_workbench)
@@ -64,4 +68,12 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     at32_workbench
 
     # Add user defined libraries
+)
+# Add custom commands to generate .hex and .bin after ELF build
+add_custom_command(
+        TARGET ${CMAKE_PROJECT_NAME}
+        POST_BUILD
+        COMMAND ${CMAKE_OBJCOPY} -O ihex $<TARGET_FILE:${CMAKE_PROJECT_NAME}> ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.hex
+        COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:${CMAKE_PROJECT_NAME}> ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.bin
+        COMMENT "Generating HEX and BIN files"
 )

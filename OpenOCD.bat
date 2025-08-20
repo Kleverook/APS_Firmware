@@ -1,0 +1,2 @@
+cd D:/AT32IDE/OpenOCD/bin
+OpenOCD.exe -s D:/AT32IDE/OpenOCD/share/openocd/scripts -f D:/AT32IDE/OpenOCD/scripts/interface/atlink.cfg -f D:/AT32IDE/OpenCD/scripts/target/at32f435xM.cfg -c "adapter speed 15000" -c "program D:/AT32IDE/OpenOCD/scripts/at32f435xM.hex verify reset exit"

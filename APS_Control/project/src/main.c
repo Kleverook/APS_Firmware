@@ -36,7 +36,10 @@
 
 /* private includes ----------------------------------------------------------*/
 /* add user code begin private includes */
-
+#include <stdint.h>
+#include "sine_table.h"
+#include "system_utils.h"
+#include "driver_tmr.h"
 /* add user code end private includes */
 
 /* private typedef -----------------------------------------------------------*/
@@ -56,7 +59,7 @@
 
 /* private variables ---------------------------------------------------------*/
 /* add user code begin private variables */
-
+uint16_t scaled_table[SINE_TABLE_SIZE];
 /* add user code end private variables */
 
 /* private function prototypes --------------------------------------------*/
@@ -77,6 +80,8 @@
 int main(void)
 {
   /* add user code begin 1 */
+  init_sine_tables();
+  update_scaled_sine_tables(3800);
 
   /* add user code end 1 */
 
@@ -95,6 +100,12 @@ int main(void)
   /* init gpio function. */
   wk_gpio_config();
 
+  /* init adc-common function. */
+  wk_adc_common_init();
+
+  /* init adc1 function. */
+  wk_adc1_init();
+
   /* init usart1 function. */
   wk_usart1_init();
 
@@ -110,12 +121,6 @@ int main(void)
   /* init i2c1 function. */
   wk_i2c1_init();
 
-  /* init adc-common function. */
-  wk_adc_common_init();
-
-  /* init adc1 function. */
-  wk_adc1_init();
-
   /* init tmr1 function. */
   wk_tmr1_init();
 
@@ -126,17 +131,30 @@ int main(void)
   wk_tmr20_init();
 
   /* add user code begin 2 */
+  tmr_counter_enable(TMR1, TRUE);
+  tmr_counter_enable(TMR8, TRUE);
+  tmr_counter_enable(TMR20, TRUE);
 
-  /* add user code end 2 */
+  enable_system_interrupts();
+    /* add user code end 2 */
 
   while(1)
   {
     /* add user code begin 3 */
+      if (TMR8->pr >3999 || TMR8->c3dt>3999) {
+          gpio_bits_set(LED_GPIO_PORT, LED_PIN);
+      }
 
-    /* add user code end 3 */
+        // update_scaled_sine_tables(2000);
+        // wk_delay_ms(5000);
+        // update_scaled_sine_tables(500);
+
+        // update_pwm_from_sine(1,1.2);
+
+        /* add user code end 3 */
   }
 }
 
   /* add user code begin 4 */
 
-  /* add user code end 4 */
+/* add user code end 4 */

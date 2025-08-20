@@ -47,7 +47,9 @@ void wk_adc_common_init(void)
   /* add user code begin adc_common_init 1 */
 
   /* add user code end adc_common_init 1 */
-  
+
+  adc_reset();
+
   /* adc_common_settings------------------------------------------------------------ */
   adc_common_default_para_init(&adc_common_struct);
   adc_common_struct.combine_mode = ADC_INDEPENDENT_MODE;

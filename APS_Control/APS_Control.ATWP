@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
     <WorkBenchVersion>
-        <Version>V1.1.09</Version>
+        <Version>V1.2.00</Version>
     </WorkBenchVersion>
     <MCUInfo>
         <MCUSerials>AT32F435</MCUSerials>
@@ -13,7 +13,7 @@
             <ModeSub name="Activated" value="TRUE"/>
         </Mode>
         <Parameters>
-            <ParametersSub name="Clock" value="60000000"/>
+            <ParametersSub name="Clock" value="64000000"/>
         </Parameters>
     </ADC-Common>
     <ADC1>
@@ -42,9 +42,9 @@
         </Mode>
         <Parameters>
             <ParametersSub name="BaudRate" value="500"/>
-            <ParametersSub name="Sample_Point" value="90.0"/>
-            <ParametersSub name="BaudRate_Division" value="24"/>
-            <ParametersSub name="BTS1" value="CAN_BTS1_8TQ"/>
+            <ParametersSub name="Sample_Point" value="87.5"/>
+            <ParametersSub name="BaudRate_Division" value="32"/>
+            <ParametersSub name="BTS1" value="CAN_BTS1_6TQ"/>
             <ParametersSub name="BTS2" value="CAN_BTS2_1TQ"/>
             <ParametersSub name="RSAW" value="CAN_RSAW_1TQ"/>
         </Parameters>
@@ -68,7 +68,7 @@
             <ModeSub name="I2C" value="I2C"/>
         </Mode>
         <Parameters>
-            <ParametersSub name="Timing_Configuration_Value" value="0xA0F02F2F"/>
+            <ParametersSub name="Timing_Configuration_Value" value="0xB0E02E2E"/>
             <ParametersSub name="DualAddressMode" value="DISABLE"/>
         </Parameters>
     </I2C1>
@@ -88,11 +88,12 @@
             <ParametersSub name="Period" value="3999"/>
             <ParametersSub name="ClockDivision" value="TMR_CLOCK_DIV2"/>
             <ParametersSub name="PeriodBufferEnable" value="TRUE"/>
-            <ParametersSub name="DeadTime" value="10"/>
-            <ParametersSub name="DeadTimeValue" value="83"/>
+            <ParametersSub name="DeadTime" value="26"/>
+            <ParametersSub name="DeadTimeValue" value="203"/>
             <ParametersSub name="OCMode_1" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
+            <ParametersSub name="ChannelData_1" value="200"/>
             <ParametersSub name="OC1Buffer" value="TRUE"/>
-            <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
+            <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_B"/>
             <ParametersSub name="OC2Buffer" value="TRUE"/>
         </Parameters>
     </TMR1>
@@ -105,11 +106,14 @@
         <Parameters>
             <ParametersSub name="DividerValue" value="3"/>
             <ParametersSub name="Period" value="3999"/>
+            <ParametersSub name="ClockDivision" value="TMR_CLOCK_DIV2"/>
             <ParametersSub name="PeriodBufferEnable" value="TRUE"/>
-            <ParametersSub name="DeadTime" value="10"/>
-            <ParametersSub name="DeadTimeValue" value="41"/>
+            <ParametersSub name="DeadTime" value="26"/>
+            <ParametersSub name="DeadTimeValue" value="203"/>
             <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
-            <ParametersSub name="OCMode_3" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
+            <ParametersSub name="ChannelData_2" value="200"/>
+            <ParametersSub name="OC2Buffer" value="TRUE"/>
+            <ParametersSub name="OCMode_3" value="TMR_OUTPUT_CONTROL_PWM_MODE_B"/>
         </Parameters>
     </TMR8>
     <TMR20>
@@ -121,9 +125,15 @@
         <Parameters>
             <ParametersSub name="DividerValue" value="3"/>
             <ParametersSub name="Period" value="3999"/>
-            <ParametersSub name="Synchronize_With_Subtimer" value="TRUE"/>
+            <ParametersSub name="ClockDivision" value="TMR_CLOCK_DIV2"/>
+            <ParametersSub name="PeriodBufferEnable" value="TRUE"/>
+            <ParametersSub name="DeadTime" value="26"/>
+            <ParametersSub name="DeadTimeValue" value="203"/>
             <ParametersSub name="OCMode_1" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
-            <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
+            <ParametersSub name="ChannelData_1" value="200"/>
+            <ParametersSub name="OC1Buffer" value="TRUE"/>
+            <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_B"/>
+            <ParametersSub name="OC2Buffer" value="TRUE"/>
         </Parameters>
     </TMR20>
     <USART1>
@@ -132,7 +142,7 @@
             <ModeSub name="Hardware Flow Control (RS485)" value="TRUE"/>
         </Mode>
         <Parameters>
-            <ParametersSub name="RealBaudRate" value="115163"/>
+            <ParametersSub name="RealBaudRate" value="115212"/>
         </Parameters>
     </USART1>
     <USART2>
@@ -140,7 +150,7 @@
             <ModeSub name="Mode" value="Asynchronous"/>
         </Mode>
         <Parameters>
-            <ParametersSub name="RealBaudRate" value="115163"/>
+            <ParametersSub name="RealBaudRate" value="115212"/>
         </Parameters>
     </USART2>
     <USART3>
@@ -148,7 +158,7 @@
             <ModeSub name="Mode" value="Asynchronous"/>
         </Mode>
         <Parameters>
-            <ParametersSub name="RealBaudRate" value="115163"/>
+            <ParametersSub name="RealBaudRate" value="115212"/>
         </Parameters>
     </USART3>
     <NVIC>
@@ -161,7 +171,7 @@
         <CAN1_RX1_IRQHandler>0;0;0;0;0</CAN1_RX1_IRQHandler>
         <CAN1_SE_IRQHandler>0;0;0;0;0</CAN1_SE_IRQHandler>
         <TMR1_BRK_TMR9_IRQHandler>0;0;0;0;0</TMR1_BRK_TMR9_IRQHandler>
-        <TMR1_OVF_TMR10_IRQHandler>0;0;0;0;0</TMR1_OVF_TMR10_IRQHandler>
+        <TMR1_OVF_TMR10_IRQHandler>1;1;0;0;0</TMR1_OVF_TMR10_IRQHandler>
         <TMR1_TRG_HALL_TMR11_IRQHandler>0;0;0;0;0</TMR1_TRG_HALL_TMR11_IRQHandler>
         <TMR1_CH_IRQHandler>0;0;0;0;0</TMR1_CH_IRQHandler>
         <I2C1_EVT_IRQHandler>0;0;0;0;0</I2C1_EVT_IRQHandler>
@@ -175,6 +185,7 @@
         <TMR8_CH_IRQHandler>0;0;0;0;0</TMR8_CH_IRQHandler>
         <DVP_IRQHandler>0;0;0;0;0</DVP_IRQHandler>
         <FPU_IRQHandler>0;0;0;0;0</FPU_IRQHandler>
+        <DMAMUX_IRQHandler>0;0;0;0;0</DMAMUX_IRQHandler>
         <TMR20_BRK_IRQHandler>0;0;0;0;0</TMR20_BRK_IRQHandler>
         <TMR20_OVF_IRQHandler>0;0;0;0;0</TMR20_OVF_IRQHandler>
         <TMR20_TRG_HALL_IRQHandler>0;0;0;0;0</TMR20_TRG_HALL_IRQHandler>
@@ -263,7 +274,7 @@
         <hext>16.000000</hext>
         <pllrcs>0</pllrcs>
         <pllms>1</pllms>
-        <pllns>60</pllns>
+        <pllns>64</pllns>
         <pllfr>4</pllfr>
         <sclkselect>1</sclkselect>
         <ahbdiv>1</ahbdiv>
