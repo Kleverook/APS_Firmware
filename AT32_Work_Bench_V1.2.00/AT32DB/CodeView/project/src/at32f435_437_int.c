@@ -28,7 +28,7 @@
 #include "at32f435_437_int.h"
 /* private includes ----------------------------------------------------------*/
 /* add user code begin private includes */
-
+#include "driver_tmr.h"
 /* add user code end private includes */
 
 /* private typedef -----------------------------------------------------------*/
@@ -218,6 +218,30 @@ void SysTick_Handler(void)
   /* add user code begin SysTick_IRQ 1 */
 
   /* add user code end SysTick_IRQ 1 */
+}
+
+/**
+  * @brief  this function handles TMR1 Overflow and TMR10 handler.
+  * @param  none
+  * @retval none
+  */
+void TMR1_OVF_TMR10_IRQHandler(void)
+{
+  /* add user code begin TMR1_OVF_TMR10_IRQ 0 */
+
+  /* add user code end TMR1_OVF_TMR10_IRQ 0 */
+
+
+  /* add user code begin TMR1_OVF_TMR10_IRQ 1 */
+ if (tmr_interrupt_flag_get(TMR1, TMR_OVF_FLAG)==SET) {
+   static int index = 0;
+   tmr_flag_clear(TMR1, TMR_OVF_FLAG);
+   set_phase_pwm_from_table(index++);
+   if (index >= SINE_TABLE_SIZE) {
+     index = 0;
+   }
+ }
+  /* add user code end TMR1_OVF_TMR10_IRQ 1 */
 }
 
 /* add user code begin 1 */

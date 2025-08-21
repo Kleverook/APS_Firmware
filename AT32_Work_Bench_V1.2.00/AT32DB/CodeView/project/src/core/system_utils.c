@@ -58,14 +58,3 @@ void set_all_timer_counters_state(confirm_state state)
     tmr_counter_enable(TMR8, state);
     tmr_counter_enable(TMR20, state);
 }
-
-/**
- * @brief Включает или выключает выход (output enable) для всех таймеров TMR1, TMR8, TMR20.
- * @param state TRUE — разрешить выход, FALSE — запретить
- */
-void set_all_timer_output_enable(confirm_state state)
-{
-    tmr_output_enable(TMR1, state);
-    tmr_output_enable(TMR8, state);
-    tmr_output_enable(TMR20, state);
-}

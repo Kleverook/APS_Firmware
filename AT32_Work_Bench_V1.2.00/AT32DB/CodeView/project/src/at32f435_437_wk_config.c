@@ -71,15 +71,15 @@
   *         - hick                = on
   *         - hext                = off
   *         - hext                = HEXT_VALUE
-  *         - sclk                = 250000000
+  *         - sclk                = 256000000
   *         - ahbdiv              = 1
-  *         - ahbclk              = 250000000
+  *         - ahbclk              = 256000000
   *         - apb1div             = 2
-  *         - apb1clk             = 125000000
+  *         - apb1clk             = 128000000
   *         - apb2div             = 2
-  *         - apb2clk             = 125000000
-  *         - pll_ns              = 125
-  *         - pll_ms              = 2
+  *         - apb2clk             = 128000000
+  *         - pll_ns              = 64
+  *         - pll_ms              = 1
   *         - pll_fr              = 4
   * @param  none
   * @retval none
@@ -123,7 +123,7 @@ void wk_system_clock_config(void)
   }
 
   /* config pll clock resource */
-  crm_pll_config(CRM_PLL_SOURCE_HEXT, 125, 2, CRM_PLL_FR_4);
+  crm_pll_config(CRM_PLL_SOURCE_HEXT, 64, 1, CRM_PLL_FR_4);
 
   /* enable pll */
   crm_clock_source_enable(CRM_CLOCK_SOURCE_PLL, TRUE);
@@ -229,6 +229,7 @@ void wk_nvic_config(void)
   NVIC_SetPriority(DebugMonitor_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));
   NVIC_SetPriority(PendSV_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));
   NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 15, 0));
+  nvic_irq_enable(TMR1_OVF_TMR10_IRQn, 1, 0);
 }
 
 /* add user code begin 1 */

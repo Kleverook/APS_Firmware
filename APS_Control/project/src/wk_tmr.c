@@ -57,7 +57,7 @@ void wk_tmr1_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_8;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_UP;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -66,7 +66,7 @@ void wk_tmr1_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_9;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_UP;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -75,7 +75,7 @@ void wk_tmr1_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_10;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -84,7 +84,7 @@ void wk_tmr1_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_11;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -108,7 +108,7 @@ void wk_tmr1_init(void)
   tmr_output_struct.oc_idle_state = FALSE;
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_1, &tmr_output_struct);
-  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_1, 200);
+  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_1, 0);
   tmr_output_channel_buffer_enable(TMR1, TMR_SELECT_CHANNEL_1, TRUE);
 
   tmr_output_channel_immediately_set(TMR1, TMR_SELECT_CHANNEL_1, FALSE);
@@ -122,7 +122,7 @@ void wk_tmr1_init(void)
   tmr_output_struct.oc_idle_state = FALSE;
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_2, &tmr_output_struct);
-  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, 0);
+  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, 1000);
   tmr_output_channel_buffer_enable(TMR1, TMR_SELECT_CHANNEL_2, TRUE);
 
   tmr_output_channel_immediately_set(TMR1, TMR_SELECT_CHANNEL_2, FALSE);
@@ -138,7 +138,7 @@ void wk_tmr1_init(void)
   tmr_brkdt_config(TMR1, &tmr_brkdt_struct);
 
 
-  tmr_output_enable(TMR1, TRUE);
+  tmr_output_enable(TMR1, FALSE);
 
 
   /**
@@ -180,7 +180,7 @@ void wk_tmr8_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_14;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOB, &gpio_init_struct);
 
@@ -189,7 +189,7 @@ void wk_tmr8_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_15;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOB, &gpio_init_struct);
 
@@ -198,7 +198,7 @@ void wk_tmr8_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_7;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOC, &gpio_init_struct);
 
@@ -207,7 +207,7 @@ void wk_tmr8_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_8;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOC, &gpio_init_struct);
 
@@ -231,7 +231,7 @@ void wk_tmr8_init(void)
   tmr_output_struct.oc_idle_state = FALSE;
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR8, TMR_SELECT_CHANNEL_2, &tmr_output_struct);
-  tmr_channel_value_set(TMR8, TMR_SELECT_CHANNEL_2, 200);
+  tmr_channel_value_set(TMR8, TMR_SELECT_CHANNEL_2, 0);
   tmr_output_channel_buffer_enable(TMR8, TMR_SELECT_CHANNEL_2, TRUE);
 
   tmr_output_channel_immediately_set(TMR8, TMR_SELECT_CHANNEL_2, FALSE);
@@ -245,8 +245,8 @@ void wk_tmr8_init(void)
   tmr_output_struct.oc_idle_state = FALSE;
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR8, TMR_SELECT_CHANNEL_3, &tmr_output_struct);
-  tmr_channel_value_set(TMR8, TMR_SELECT_CHANNEL_3, 0);
-  tmr_output_channel_buffer_enable(TMR8, TMR_SELECT_CHANNEL_3, FALSE);
+  tmr_channel_value_set(TMR8, TMR_SELECT_CHANNEL_3, 1000);
+  tmr_output_channel_buffer_enable(TMR8, TMR_SELECT_CHANNEL_3, TRUE);
 
   tmr_output_channel_immediately_set(TMR8, TMR_SELECT_CHANNEL_3, FALSE);
 
@@ -261,7 +261,7 @@ void wk_tmr8_init(void)
   tmr_brkdt_config(TMR8, &tmr_brkdt_struct);
 
 
-  tmr_output_enable(TMR8, TRUE);
+  tmr_output_enable(TMR8, FALSE);
 
 
   /* add user code begin tmr8_init 2 */
@@ -295,7 +295,7 @@ void wk_tmr20_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_2;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -304,7 +304,7 @@ void wk_tmr20_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_3;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -313,7 +313,7 @@ void wk_tmr20_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_4;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -322,7 +322,7 @@ void wk_tmr20_init(void)
   gpio_init_struct.gpio_pins = GPIO_PINS_5;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
   gpio_init(GPIOE, &gpio_init_struct);
 
@@ -330,7 +330,7 @@ void wk_tmr20_init(void)
   tmr_cnt_dir_set(TMR20, TMR_COUNT_UP);
   tmr_clock_source_div_set(TMR20, TMR_CLOCK_DIV2);
   tmr_repetition_counter_set(TMR20, 0);
-  tmr_period_buffer_enable(TMR20, TRUE);
+  tmr_period_buffer_enable(TMR20, FALSE);
   tmr_base_init(TMR20, 3999, 3);
 
   /* configure primary mode settings */
@@ -346,8 +346,8 @@ void wk_tmr20_init(void)
   tmr_output_struct.oc_idle_state = FALSE;
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR20, TMR_SELECT_CHANNEL_1, &tmr_output_struct);
-  tmr_channel_value_set(TMR20, TMR_SELECT_CHANNEL_1, 200);
-  tmr_output_channel_buffer_enable(TMR20, TMR_SELECT_CHANNEL_1, TRUE);
+  tmr_channel_value_set(TMR20, TMR_SELECT_CHANNEL_1, 0);
+  tmr_output_channel_buffer_enable(TMR20, TMR_SELECT_CHANNEL_1, FALSE);
 
   tmr_output_channel_immediately_set(TMR20, TMR_SELECT_CHANNEL_1, FALSE);
 
@@ -360,8 +360,8 @@ void wk_tmr20_init(void)
   tmr_output_struct.oc_idle_state = FALSE;
   tmr_output_struct.occ_idle_state = FALSE;
   tmr_output_channel_config(TMR20, TMR_SELECT_CHANNEL_2, &tmr_output_struct);
-  tmr_channel_value_set(TMR20, TMR_SELECT_CHANNEL_2, 0);
-  tmr_output_channel_buffer_enable(TMR20, TMR_SELECT_CHANNEL_2, TRUE);
+  tmr_channel_value_set(TMR20, TMR_SELECT_CHANNEL_2, 1000);
+  tmr_output_channel_buffer_enable(TMR20, TMR_SELECT_CHANNEL_2, FALSE);
 
   tmr_output_channel_immediately_set(TMR20, TMR_SELECT_CHANNEL_2, FALSE);
 
@@ -376,7 +376,7 @@ void wk_tmr20_init(void)
   tmr_brkdt_config(TMR20, &tmr_brkdt_struct);
 
 
-  tmr_output_enable(TMR20, TRUE);
+  tmr_output_enable(TMR20, FALSE);
 
 
   /* add user code begin tmr20_init 2 */

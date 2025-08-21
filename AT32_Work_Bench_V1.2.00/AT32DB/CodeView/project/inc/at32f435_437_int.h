@@ -67,6 +67,7 @@ void PendSV_Handler(void);
 
 void SysTick_Handler(void);
 
+void TMR1_OVF_TMR10_IRQHandler(void);
 
 /* add user code begin exported functions */
 

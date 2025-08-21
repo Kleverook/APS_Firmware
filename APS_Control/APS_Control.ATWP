@@ -91,9 +91,9 @@
             <ParametersSub name="DeadTime" value="26"/>
             <ParametersSub name="DeadTimeValue" value="203"/>
             <ParametersSub name="OCMode_1" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
-            <ParametersSub name="ChannelData_1" value="200"/>
             <ParametersSub name="OC1Buffer" value="TRUE"/>
             <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_B"/>
+            <ParametersSub name="ChannelData_2" value="1000"/>
             <ParametersSub name="OC2Buffer" value="TRUE"/>
         </Parameters>
     </TMR1>
@@ -111,9 +111,10 @@
             <ParametersSub name="DeadTime" value="26"/>
             <ParametersSub name="DeadTimeValue" value="203"/>
             <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
-            <ParametersSub name="ChannelData_2" value="200"/>
             <ParametersSub name="OC2Buffer" value="TRUE"/>
             <ParametersSub name="OCMode_3" value="TMR_OUTPUT_CONTROL_PWM_MODE_B"/>
+            <ParametersSub name="ChannelData_3" value="1000"/>
+            <ParametersSub name="OC3Buffer" value="TRUE"/>
         </Parameters>
     </TMR8>
     <TMR20>
@@ -126,14 +127,11 @@
             <ParametersSub name="DividerValue" value="3"/>
             <ParametersSub name="Period" value="3999"/>
             <ParametersSub name="ClockDivision" value="TMR_CLOCK_DIV2"/>
-            <ParametersSub name="PeriodBufferEnable" value="TRUE"/>
             <ParametersSub name="DeadTime" value="26"/>
             <ParametersSub name="DeadTimeValue" value="203"/>
             <ParametersSub name="OCMode_1" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
-            <ParametersSub name="ChannelData_1" value="200"/>
-            <ParametersSub name="OC1Buffer" value="TRUE"/>
             <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_B"/>
-            <ParametersSub name="OC2Buffer" value="TRUE"/>
+            <ParametersSub name="ChannelData_2" value="1000"/>
         </Parameters>
     </TMR20>
     <USART1>
@@ -185,13 +183,24 @@
         <TMR8_CH_IRQHandler>0;0;0;0;0</TMR8_CH_IRQHandler>
         <DVP_IRQHandler>0;0;0;0;0</DVP_IRQHandler>
         <FPU_IRQHandler>0;0;0;0;0</FPU_IRQHandler>
-        <DMAMUX_IRQHandler>0;0;0;0;0</DMAMUX_IRQHandler>
         <TMR20_BRK_IRQHandler>0;0;0;0;0</TMR20_BRK_IRQHandler>
         <TMR20_OVF_IRQHandler>0;0;0;0;0</TMR20_OVF_IRQHandler>
         <TMR20_TRG_HALL_IRQHandler>0;0;0;0;0</TMR20_TRG_HALL_IRQHandler>
         <TMR20_CH_IRQHandler>0;0;0;0;0</TMR20_CH_IRQHandler>
     </NVIC>
     <GPIO>
+        <Signal SignalName="TMR20_CH1" PinName="PE2">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR20_CH2" PinName="PE3">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR20_CH1C" PinName="PE4">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR20_CH2C" PinName="PE5">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
         <Signal SignalName="GPIO_Output" PinName="PE6">
             <Parameters name="Label" value="OUT1"/>
         </Signal>
@@ -203,6 +212,18 @@
         </Signal>
         <Signal SignalName="GPIO_Output" PinName="PC15/LEXT_OUT">
             <Parameters name="Label" value="OUT4"/>
+        </Signal>
+        <Signal SignalName="TMR1_CH1C" PinName="PE8">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR1_CH1" PinName="PE9">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR1_CH2C" PinName="PE10">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR1_CH2" PinName="PE11">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
         </Signal>
         <Signal SignalName="GPIO_Input" PinName="PE12">
             <Parameters name="Label" value="B_START"/>
@@ -221,6 +242,12 @@
         </Signal>
         <Signal SignalName="USART3_RX" PinName="PB11">
             <Parameters name="Label" value="UDBRX"/>
+        </Signal>
+        <Signal SignalName="TMR8_CH2C" PinName="PB14">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR8_CH3C" PinName="PB15">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
         </Signal>
         <Signal SignalName="GPIO_Input" PinName="PD8">
             <Parameters name="Label" value="F_A"/>
@@ -242,6 +269,12 @@
         </Signal>
         <Signal SignalName="GPIO_Output" PinName="PC6">
             <Parameters name="Label" value="LED"/>
+        </Signal>
+        <Signal SignalName="TMR8_CH2" PinName="PC7">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
+        </Signal>
+        <Signal SignalName="TMR8_CH3" PinName="PC8">
+            <Parameters name="GPIO_PullType_Set" value="GPIO_PULL_DOWN"/>
         </Signal>
         <Signal SignalName="GPIO_Output" PinName="PC9">
             <Parameters name="Label" value="OUT_ENABLE"/>

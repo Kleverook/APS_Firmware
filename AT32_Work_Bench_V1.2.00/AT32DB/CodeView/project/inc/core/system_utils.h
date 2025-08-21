@@ -1,4 +1,3 @@
-
 #ifndef SYSTEM_UTILS_H
 #define SYSTEM_UTILS_H
 
@@ -27,9 +26,4 @@ void set_all_timer_outputs_state(confirm_state state);
  */
 void set_all_timer_counters_state(confirm_state state);
 
-/**
- * @brief Включает или выключает выход (output enable) для всех таймеров TMR1, TMR8, TMR20.
- * @param state TRUE — разрешить выход, FALSE — запретить
- */
-void set_all_timer_output_enable(confirm_state state);
 #endif // SYSTEM_UTILS_H

@@ -12,6 +12,8 @@ set(WK_Defines_Syms
 set(WK_Include_Dirs
     ${CMAKE_SOURCE_DIR}/project/inc
     ${CMAKE_SOURCE_DIR}/project/src
+    ${CMAKE_SOURCE_DIR}/project/inc/core
+    ${CMAKE_SOURCE_DIR}/project/src/core
     ${CMAKE_SOURCE_DIR}/libraries/drivers/inc
     ${CMAKE_SOURCE_DIR}/libraries/cmsis/cm4/core_support
     ${CMAKE_SOURCE_DIR}/libraries/cmsis/cm4/device_support

@@ -131,12 +131,15 @@ int main(void)
   wk_tmr20_init();
 
   /* add user code begin 2 */
-  tmr_counter_enable(TMR1, TRUE);
-  tmr_counter_enable(TMR8, TRUE);
-  tmr_counter_enable(TMR20, TRUE);
-
   enable_system_interrupts();
-    /* add user code end 2 */
+  set_all_timer_counters_state(FALSE);
+  wk_delay_ms(5000);
+
+  set_all_timer_counters_state(TRUE);
+  wk_delay_ms(500);
+  set_all_timer_outputs_state(TRUE);
+
+  /* add user code end 2 */
 
   while(1)
   {
@@ -146,7 +149,8 @@ int main(void)
       }
 
         // update_scaled_sine_tables(2000);
-        // wk_delay_ms(5000);
+
+
         // update_scaled_sine_tables(500);
 
         // update_pwm_from_sine(1,1.2);

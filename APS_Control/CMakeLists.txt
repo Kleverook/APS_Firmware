@@ -33,12 +33,14 @@ enable_language(C ASM)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME}
-        project/src/driver_tmr.c
-        project/inc/driver_tmr.h
-        project/src/sine_table.c
-        project/inc/sine_table.h
-        project/src/system_utils.c
-        project/inc/system_utils.h)
+        project/inc/core
+        project/src/core
+        project/src/core/driver_tmr.c
+        project/inc/core/driver_tmr.h
+        project/src/core/sine_table.c
+        project/inc/core/sine_table.h
+        project/src/core/system_utils.c
+        project/inc/core/system_utils.h)
 
 # Add at32_workbench generated sources
 add_subdirectory(cmake/at32_workbench)
