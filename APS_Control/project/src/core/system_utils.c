@@ -32,7 +32,7 @@ void enable_system_interrupts(void)
  * @brief Включает или выключает все выходы каналов таймеров TMR1, TMR8, TMR20.
  * @param state TRUE — включить, FALSE — выключить
  */
-void set_all_timer_outputs_state(confirm_state state)
+void set_all_timer_channel_state(confirm_state state)
 {
     tmr_channel_enable(TMR1, TMR_SELECT_CHANNEL_1,   state);
     tmr_channel_enable(TMR1, TMR_SELECT_CHANNEL_2,   state);

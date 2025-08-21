@@ -129,6 +129,7 @@ int main(void)
 
   /* init tmr20 function. */
   wk_tmr20_init();
+  set_all_timer_output_enable(FALSE);
 
   /* add user code begin 2 */
   enable_system_interrupts();
@@ -137,7 +138,9 @@ int main(void)
 
   set_all_timer_counters_state(TRUE);
   wk_delay_ms(500);
-  set_all_timer_outputs_state(TRUE);
+  set_all_timer_channel_state(TRUE);
+  set_all_timer_output_enable(TRUE);
+
 
   /* add user code end 2 */
 

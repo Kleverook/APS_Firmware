@@ -127,11 +127,14 @@
             <ParametersSub name="DividerValue" value="3"/>
             <ParametersSub name="Period" value="3999"/>
             <ParametersSub name="ClockDivision" value="TMR_CLOCK_DIV2"/>
+            <ParametersSub name="PeriodBufferEnable" value="TRUE"/>
             <ParametersSub name="DeadTime" value="26"/>
             <ParametersSub name="DeadTimeValue" value="203"/>
             <ParametersSub name="OCMode_1" value="TMR_OUTPUT_CONTROL_PWM_MODE_A"/>
+            <ParametersSub name="OC1Buffer" value="TRUE"/>
             <ParametersSub name="OCMode_2" value="TMR_OUTPUT_CONTROL_PWM_MODE_B"/>
             <ParametersSub name="ChannelData_2" value="1000"/>
+            <ParametersSub name="OC2Buffer" value="TRUE"/>
         </Parameters>
     </TMR20>
     <USART1>
